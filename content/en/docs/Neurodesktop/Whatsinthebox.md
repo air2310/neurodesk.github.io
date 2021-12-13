@@ -8,7 +8,7 @@ description: >-
 
 Neurodesktop comes with the essential software required for neuroimaging data analysis pre-installed. Each release is built with the most recent version of these packages available at the build date. Some example packages include:
 * Editors and Programming:
-     * Visual Studio Code
+     * Visual Studio Code 
      * Emacs
      * Gedit
      * Vim
