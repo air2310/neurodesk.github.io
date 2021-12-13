@@ -1,0 +1,22 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Structural Imaging</title><link>https://neurodesk.github.io/tutorials/structural_imaging/</link><description>Recent content in Structural Imaging on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/tutorials/structural_imaging/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: FreeSurfer</title><link>https://neurodesk.github.io/tutorials/structural_imaging/freesurfer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/structural_imaging/freesurfer/</guid><description>
+&lt;h2 id="download-demo-data">Download demo data&lt;/h2>
+&lt;p>Open a terminal and run:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
+osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="freesurfer-license-file">FreeSurfer License file:&lt;/h2>
+&lt;p>Before using Freesurfer you need to request a license here (&lt;a href="https://surfer.nmr.mgh.harvard.edu/registration.html">https://surfer.nmr.mgh.harvard.edu/registration.html&lt;/a>) and store it in your homedirectory as ~/.license&lt;/p>
+&lt;h2 id="freesurfer-example">FreeSurfer Example&lt;/h2>
+&lt;p>Open FreeSurfer (Neurodesk -&amp;gt; Image Segmentation -&amp;gt; Freesurfer -&amp;gt; Freesurfer 7.1.1)&lt;/p>
+&lt;p>Setup FreeSurfer license (for example - replace with your license):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">echo &amp;#34;Steffen.Bollmann@cai.uq.edu.au
+&amp;gt; 21029
+&amp;gt; *Cqyn12sqTCxo
+&amp;gt; FSxgcvGkNR59Y&amp;#34; &amp;gt;&amp;gt; ~/.license
+export FS_LICENSE=~/.license
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setup FreeSurfer:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">mkdir /neurodesktop-storage/freesurfer-output
+source /opt/freesurfer-7.1.1/SetUpFreeSurfer.sh
+export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Run Recon all pipeline:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">recon-all -subject test-subject -i /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

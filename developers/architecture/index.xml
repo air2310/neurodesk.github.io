@@ -1,0 +1,75 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Architecture</title><link>https://neurodesk.github.io/developers/architecture/</link><description>Recent content in Architecture on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/developers/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Neurodesktop Release Process</title><link>https://neurodesk.github.io/developers/architecture/release_process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/release_process/</guid><description>
+&lt;ol>
+&lt;li>Check if the last automated build ran OK: &lt;a href="https://github.com/NeuroDesk/neurodesktop/actions">https://github.com/NeuroDesk/neurodesktop/actions&lt;/a>&lt;/li>
+&lt;li>Run this build date and test if everything is ok and no regression happened&lt;/li>
+&lt;li>Check what changes where made since the last release: &lt;a href="https://github.com/NeuroDesk/neurodesktop/commits/main">https://github.com/NeuroDesk/neurodesktop/commits/main&lt;/a>&lt;/li>
+&lt;li>Summarize the main changes and copy this to the Release History and the news section:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://neurodesk.github.io/docs/neurodesktop/release-history/">https://neurodesk.github.io/docs/neurodesktop/release-history/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://neurodesk.github.io/blog/releases/">https://neurodesk.github.io/blog/releases/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol start="5">
+&lt;li>Change the version of the latest desktop in &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml">https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml&lt;/a>&lt;/li>
+&lt;li>Commit all changes&lt;/li>
+&lt;li>Tweet a quick summary of the changes and announce new version: &lt;a href="https://twitter.com/neuro_desk">https://twitter.com/neuro_desk&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>Developers: Neurodesk Architecture</title><link>https://neurodesk.github.io/developers/architecture/neurodesk-compoents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/neurodesk-compoents/</guid><description>
+&lt;h1 id="layers">Layers&lt;/h1>
+&lt;p>Neurodesktop: &lt;a href="https://github.com/NeuroDesk/neurodesktop">https://github.com/NeuroDesk/neurodesktop&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>docker container with interface modifications&lt;/li>
+&lt;li>contains tools necessary to manage workflows in sub-containers: vscode, git&lt;/li>
+&lt;li>CI: builds docker image and tests if it runs; tests if CVMFS servers are OK before deployment&lt;/li>
+&lt;li>CD: pushes images to github &amp;amp; docker registry&lt;/li>
+&lt;/ul>
+&lt;p>Neurocommand: &lt;a href="https://github.com/NeuroDesk/neurocommand">https://github.com/NeuroDesk/neurocommand&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>script to install and manage multiple containers using transparent singularity on any linux system&lt;/li>
+&lt;li>this repo also handles the creation of menu entries in a general form applicable to different desktop environments&lt;/li>
+&lt;li>this repo can be re-used in other projects like CVL and when installing it on a bare-metal workstations&lt;/li>
+&lt;li>CI: tests if containers can be installed&lt;/li>
+&lt;li>CD: this repo checks if containers requested in apps.json file are availabe on object storage and if not converts the singularity containers based on the docker containers and uploads them to object storage&lt;/li>
+&lt;/ul>
+&lt;p>transparent-singularity: &lt;a href="https://github.com/NeuroDesk/transparent-singularity">https://github.com/NeuroDesk/transparent-singularity&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>script to install neuro-sub-containers, installers are called by neurocommand&lt;/li>
+&lt;li>this repo provides a way of using our containers on HPCs for large scale processing of the pipelines (including the support of SLURM and other job schedulers)&lt;/li>
+&lt;li>CI: test if exposing of binaries from container works&lt;/li>
+&lt;/ul>
+&lt;p>Neurocontainers: &lt;a href="https://github.com/NeuroDesk/neurocontainers">https://github.com/NeuroDesk/neurocontainers&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>build scripts for neuro-sub-containers&lt;/li>
+&lt;li>CI: building and testing of containers&lt;/li>
+&lt;li>CD: pushing containers to github and dockerhub registry&lt;/li>
+&lt;/ul>
+&lt;p>Neurodocker: &lt;a href="https://github.com/NeuroDesk/neurodocker">https://github.com/NeuroDesk/neurodocker&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>fork of neurodocker project&lt;/li>
+&lt;li>provides recipes for our containers built&lt;/li>
+&lt;li>we are providing pull requests back of recipes&lt;/li>
+&lt;li>CI: handled by &lt;a href="https://github.com/ReproNim/neurodocker">neurodocker&lt;/a> - testing of generating container recipes&lt;/li>
+&lt;/ul></description></item><item><title>Developers: Neurodesktop Dev</title><link>https://neurodesk.github.io/developers/architecture/neurodesk-dev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/neurodesk-dev/</guid><description>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+For development and testing only. Not recommended for production use
+&lt;/div>
+&lt;h2 id="building-neurodesktop-dev">Building neurodesktop-dev&lt;/h2>
+&lt;p>Dev builds can be triggered by Neurodesk admins from &lt;a href="https://github.com/NeuroDesk/neurodesktop/actions/workflows/build-neurodesktop-dev.yml">https://github.com/NeuroDesk/neurodesktop/actions/workflows/build-neurodesktop-dev.yml&lt;/a>&lt;/p>
+&lt;h2 id="running-latest-neurodesktop-dev">Running latest neurodesktop-dev&lt;/h2>
+&lt;h3 id="linux">Linux&lt;/h3>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="3-7">
+&lt;code>docker pull vnmd/neurodesktop-dev:latest
+sudo docker run \
+--shm-size=1gb -it --cap-add SYS_ADMIN \
+--security-opt apparmor:unconfined --device=/dev/fuse \
+--name neurodesktop-dev \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-p 8080:8080 -h neurodesktop-dev \
+vnmd/neurodesktop-dev:latest&lt;/code>
+&lt;/pre>
+&lt;h3 id="windows">Windows&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker pull vnmd/neurodesktop-dev:latest
+docker run --shm-size=1gb -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined --device=/dev/fuse --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 -h neurodesktop-dev vnmd/neurodesktop-dev:latest&lt;/code>
+&lt;/pre></description></item></channel></rss>

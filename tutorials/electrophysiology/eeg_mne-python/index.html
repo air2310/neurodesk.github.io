@@ -1,0 +1,378 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.90.1">
+<meta name=robots content="index, follow">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>Analysing EEG Data with MNE | NeuroDesk</title>
+<meta name=description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
+">
+<meta property="og:title" content="Analysing EEG Data with MNE">
+<meta property="og:description" content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/"><meta property="article:section" content="tutorials">
+<meta property="article:modified_time" content="2021-11-01T16:31:36+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta itemprop=name content="Analysing EEG Data with MNE">
+<meta itemprop=description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
+">
+<meta itemprop=dateModified content="2021-11-01T16:31:36+10:00">
+<meta itemprop=wordCount content="1065">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Analysing EEG Data with MNE">
+<meta name=twitter:description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
+">
+<link rel=preload href=/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css as=style>
+<link href=/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
+<link rel=stylesheet href=/css/prism.css>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-00000000-0','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body class=td-page>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo></span><span class="text-uppercase font-weight-bold">NeuroDesk</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/docs/><span>Documentation</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/applications/><span>Applications</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/developers/><span>Developers</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/tutorials/><span class=active>Tutorials</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=https://github.com/NeuroDesk target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=https://twitter.com/neuro_desk target=_blank><i class="fab fa-twitter"></i><span>News/Twitter</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.faeb865a42f8e4f007f0f9ddd6273670.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<form class="td-sidebar__search d-flex align-items-center">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.faeb865a42f8e4f007f0f9ddd6273670.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-tutorials-li>
+<a href=/tutorials/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-tutorials><span>Tutorials</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-tutorialselectrophysiology-li>
+<a href=/tutorials/electrophysiology/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialselectrophysiology><span>Electrophysiology</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-tutorialselectrophysiologyeeg_mne-python-li>
+<a href=/tutorials/electrophysiology/eeg_mne-python/ title="Analysing EEG Data with MNE" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-tutorialselectrophysiologyeeg_mne-python><span class=td-sidebar-nav-active-item>MNE-Python: EEG</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-tutorialsfunctional_imaging-li>
+<a href=/tutorials/functional_imaging/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialsfunctional_imaging><span>Functional Imaging</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsfunctional_imagingphysio-li>
+<a href=/tutorials/functional_imaging/physio/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsfunctional_imagingphysio><span>PhysIO</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-tutorialsphase_processing-li>
+<a href=/tutorials/phase_processing/ title="MRI phase Processing" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialsphase_processing><span>MRI Phase</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsphase_processingqsm-li>
+<a href=/tutorials/phase_processing/qsm/ title="Quantitative Susceptibility Mapping" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsphase_processingqsm><span>QSM</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsphase_processingswi-li>
+<a href=/tutorials/phase_processing/swi/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsphase_processingswi><span>SWI</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsphase_processingunwrapping-li>
+<a href=/tutorials/phase_processing/unwrapping/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsphase_processingunwrapping><span>Unwrapping</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-tutorialsreproducibility-li>
+<a href=/tutorials/reproducibility/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialsreproducibility><span>Reproducibility</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsreproducibilitydatalad-run-li>
+<a href=/tutorials/reproducibility/datalad-run/ title="Reproducible script execution with DataLad" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsreproducibilitydatalad-run><span>datalad run</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-tutorialsstructural_imaging-li>
+<a href=/tutorials/structural_imaging/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialsstructural_imaging><span>Structural Imaging</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsstructural_imagingfreesurfer-li>
+<a href=/tutorials/structural_imaging/freesurfer/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsstructural_imagingfreesurfer><span>FreeSurfer</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-tutorialsdocumentation-li>
+<a href=/tutorials/documentation/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-tutorialsdocumentation><span>Documentation</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-tutorialsdocumentationworkflowtemplate-li>
+<a href=/tutorials/documentation/workflowtemplate/ title="Template for workflow creation" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-tutorialsdocumentationworkflowtemplate><span>Workflow template</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href=https://github.com/NeuroDesk/neurodesk.github.io/tree/hugo-docsy/content/en/tutorials/electrophysiology/EEG_mne-python.md class=td-page-meta--view target=_blank rel=noopener><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+<a href=https://github.com/NeuroDesk/neurodesk.github.io/edit/hugo-docsy/content/en/tutorials/electrophysiology/EEG_mne-python.md class=td-page-meta--edit target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/NeuroDesk/neurodesk.github.io/new/hugo-docsy/content/en/tutorials/electrophysiology/EEG_mne-python.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class=td-page-meta--child target=_blank rel=noopener><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/NeuroDesk/neurodesk.github.io/issues/new?title=Analysing%20EEG%20Data%20with%20MNE" class=td-page-meta--issue target=_blank rel=noopener><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href=https://github.com/NeuroDesk/neurodesk.github.io/issues/new class=td-page-meta--project-issue target=_blank rel=noopener><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+<a id=print href=https://neurodesk.github.io/tutorials/electrophysiology/_print/><i class="fa fa-print fa-fw"></i> Print entire section</a>
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#getting-started>Getting started</a></li>
+<li><a href=#set-up-an-environment>Set up an environment</a></li>
+<li><a href=#download-sample-data>Download sample data</a></li>
+<li><a href=#plotting-settings>Plotting settings</a></li>
+<li><a href=#loading-and-processing-data>Loading and processing data</a></li>
+</ul>
+</nav></div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<div class=td-content>
+<h1>Analysing EEG Data with MNE</h1>
+<div class=lead>Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode.</div>
+<header class=article-meta>
+</header>
+<h2 id=getting-started>Getting started</h2>
+<p>Open Visual Studio Code:</p>
+<p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1></p>
+<p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
+<p><img src=/EEG_Tutorial/EEGtut2.png alt=EEGtut2 title=EEGtut2></p>
+<p>If this is your first time opening a Jupyter notebook on vscode in neurodesktop, you will see the following popup. If so, click “install” to install the vscode extensions for Jupyter.</p>
+<p><img src=/EEG_Tutorial/EEGtut3.png alt=EEGtut3 title=EEGtut3></p>
+<h2 id=set-up-an-environment>Set up an environment</h2>
+<blockquote>
+<p>Coming soon! Neurodesktop will soon feature a number of built in conda environments for standard analyses of behavioural, physiological, and encephalographic data.</p>
+</blockquote>
+<p>From the top menu in vscode, select Terminal->New Terminal, or hit [Ctrl]+[Shift]+[`]. From this terminal, create and activate a new conda environment in which to run mne-python.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>conda create --name=mne --channel=conda-forge mne python=3 jupyter nb_conda_kernels 
+conda activate mne
+</code></pre></div><p>Once your new environment is activated, in the top right corner of your empty jupyter notebook, click “Select Kernel”:</p>
+<p><img src=/EEG_Tutorial/EEGtut4.png alt=EEGtut4 title=EEGtut4></p>
+<p>Then, select the instance of Python associated with the environment you have just created (“mne”). If your new environment does not appear in the list, you may need to restart vscode:</p>
+<p><img src=/EEG_Tutorial/EEGtut5.png alt=EEGtut5 title=EEGtut5></p>
+<p>At this point you may also be prompted to install the vscode packages for python. Once you have installed these, you’re ready to rumble!</p>
+<h2 id=download-sample-data>Download sample data</h2>
+<p>In the terminal, input the following code to download some BIDS formatted sample EEG data:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
+osf -p C689U fetch Data_sample.zip /neurodesktop-storage/EEGDEMO/Data_sample.zip
+unzip Data_sample.zip 
+</code></pre></div><p>This is a small dataset with only 5 EEG channels from a single participant. The participant is viewing a frequency tagged display and is cued to attend to dots tagged at one frequency or another (6 Hz, 7.5 Hz) for long, 15 s trials. To read more about the dataset, click <a href=https://osf.io/c689u/>here</a></p>
+<h2 id=plotting-settings>Plotting settings</h2>
+<p>To make sure our plots retain their interactivity, set the following line at the top of your notebook:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>%matplotlib qt
+</code></pre></div><p>This will mean your figures pop out as individual, interactive plots that will allow you to explore the data, rather than as static, inline plots. You can switch “qt” to “inline” to switch back to default, inline plotting.</p>
+<h2 id=loading-and-processing-data>Loading and processing data</h2>
+<blockquote>
+<p>NOTE: MNE has many helpful tutorials which delve into data processing and analysis using MNE-python in much further detail. These can be found <a href=https://mne.tools/stable/auto_tutorials/index.html>here</a></p>
+</blockquote>
+<p>Begin by importing the necessary modules and creating a pointer to the data:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Interactive plotting
+%matplotlib qt
+
+# Import modules
+import os
+import numpy as np
+import mne
+
+# Load data
+sample_data_folder = &#39;/home/user/Desktop/neurodesktop-storage/EEGDemo/Data_sample&#39;
+sample_data_raw_file = os.path.join(sample_data_folder, &#39;sub-01&#39;, &#39;eeg&#39;,
+                                    &#39;sub-01_task-FeatAttnDec_eeg.vhdr&#39;)
+raw = mne.io.read_raw_brainvision(sample_data_raw_file , preload=True)
+</code></pre></div><p>the raw.info structure contains information about the dataset:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Display data info
+print(raw)
+print(raw.info)
+</code></pre></div><p>This data file did not include a montage. Lets create one using standard values for the electrodes we have:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Create montage
+montage = {&#39;Iz&#39;:  [0, -110, -40],
+            &#39;Oz&#39;: [0, -105, -15],
+            &#39;POz&#39;: [0,   -100, 15],
+            &#39;O1&#39;: [-40, -106, -15],
+            &#39;O2&#39;:  [40, -106, -15],
+ }
+
+montageuse = mne.channels.make_dig_montage(ch_pos=montage, lpa=[-82.5, -19.2, -46], nasion=[0, 83.2, -38.3], rpa=[82.2, -19.2, -46]) # based on mne help file on setting 10-20 montage
+</code></pre></div><p>Next, lets visualise the data.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>raw.plot()
+</code></pre></div><p>This should open an interactive window in which you can scroll through the data. See the MNE documentation for help on how to customise this plot.</p>
+<p><img src=/EEG_Tutorial/EEGtut6.png alt=EEGtut6 title=EEGtut6></p>
+<p>If, upon visual inspection, you decide to exclude one of the channels, you can specify this in raw.info[‘bads’] now. For example:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>raw.info[&#39;bads&#39;] = [&#39;POz&#39;]
+</code></pre></div><p>Next, we’ll extract our events. The trigger channel in this file is incorrectly scaled, so we’ll correct that before we extract our events:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Correct trigger scaling
+trigchan = raw.pick(&#39;TRIG&#39;).copy()
+trigchan._data = trigchan._data*1000000
+
+# Extract events
+events = mne.find_events(trigchan, stim_channel=&#39;TRIG&#39;, consecutive=True, initial_event=True, verbose=True)
+print(&#39;Found %s events, first five:&#39; % len(events))
+print(events[:5])
+
+# Plot events
+mne.viz.plot_events(events, raw.info[&#39;sfreq&#39;], raw.first_samp)
+</code></pre></div><p><img src=/EEG_Tutorial/EEGtut7.png alt=EEGtut7 title=EEGtut7></p>
+<p>Now that we’ve extracted our events, we can extract our EEG channels and do some simple pre-processing:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># select
+eeg_data = raw.copy().pick_types(eeg=True, exclude=[&#39;TRIG&#39;])
+
+# Set montage
+eeg_data.info.set_montage(montageuse)
+
+# Interpolate
+eeg_data_interp = eeg_data.copy().interpolate_bads(reset_bads=True) 
+
+# Filter Data
+eeg_data_interp.filter(l_freq=1, h_freq=45, h_trans_bandwidth=0.1)
+</code></pre></div><p>Let’s visualise our data again now that it’s cleaner:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>#plot results again, this time with some events and scaling. 
+eeg_data_interp.plot(events=events, duration=10.0, scalings=dict(eeg=0.00005), color=&#39;k&#39;, event_color=&#39;r&#39;)
+</code></pre></div><p><img src=/EEG_Tutorial/EEGtut8.png alt=EEGtut8 title=EEGtut8></p>
+<p>That’s looking good! We can even see hints of the frequency tagging. It’s about time to epoch our data.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Epoch to events of interest
+event_id = {&#39;attend 6Hz K&#39;: 23, &#39;attend 7.5Hz K&#39;:  27}  
+
+# Extract 15 s epochs relative to events, baseline correct, linear detrend, and reject 
+# epochs where eeg amplitude is &gt; 400
+epochs = mne.Epochs(eeg_data_interp, events, event_id=event_id, tmin=0,
+                    tmax=15, baseline=(0, 0), reject=dict(eeg=0.000400), detrend=1)  
+
+# Drop bad trials
+epochs.drop_bad()
+</code></pre></div><p>We can average these epochs to form Event Related Potentials (ERPs):</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Average erpochs to form ERPs
+attend6 = epochs[&#39;attend 6Hz K&#39;].average()
+attend75 = epochs[&#39;attend 7.5Hz K&#39;].average()
+
+# Plot ERPs
+evokeds = dict(attend6=list(epochs[&#39;attend 6Hz K&#39;].iter_evoked()),
+               attend75=list(epochs[&#39;attend 7.5Hz K&#39;].iter_evoked()))
+mne.viz.plot_compare_evokeds(evokeds, combine=&#39;mean&#39;)
+</code></pre></div><p><img src=/EEG_Tutorial/EEGtut9.png alt=EEGtut9 title=EEGtut9></p>
+<p>In this plot, we can see that the data are frequency tagged. While these data were collected, the participant was performing an attention task in which two visual stimuli were flickering at 6 Hz and 7.5 Hz respectively. On each trial the participant was cued to monitor one of these two stimuli for brief bursts of motion. From previous research, we expect that the steady-state visual evoked potential (SSVEP) should be larger at the attended frequency than the unattended frequency. Lets check if this is true.</p>
+<p>We&rsquo;ll begin by exporting our epoched EEG data to a numpy array</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Preallocate
+n_samples = attend6.data.shape[1]
+sampling_freq = 1200 # sampling frequency
+epochs_np = np.empty((n_samples, 2) )
+
+# Get data - averaging across EEG channels
+epochs_np[:,0] = attend6.data.mean(axis=0)
+epochs_np[:,1] = attend75.data.mean(axis=0)
+
+</code></pre></div><p>Next, we can use a Fast Fourier Transform (FFT) to transform the data from the time domain to the frequency domain. For this, we&rsquo;ll need to import the FFT packages from scipy:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>from scipy.fft import fft, fftfreq, fftshift
+
+# Get FFT
+fftdat = np.abs(fft(epochs_np, axis=0)) / n_samples
+freq = fftfreq(n_samples, d=1 / sampling_freq)  # get frequency bins
+
+</code></pre></div><p>Now that we have our frequency transformed data, we can plot our two conditions to assess whether attention altered the SSVEP amplitudes:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>import matplotlib.pyplot as plt
+
+fig,ax = plt.subplots(1, 1)
+
+ax.plot(freq, fftdat[:,0], &#39;-&#39;, label=&#39;attend 6Hz&#39;, color=[78 / 255, 185 / 255, 159 / 255])  
+ax.plot(freq, fftdat[:,1], &#39;-&#39;, label=&#39;attend 7.5Hz&#39;, color=[236 / 255, 85 / 255, 58 / 255])  
+ax.set_xlim(4, 17)
+ax.set_ylim(0, 1e-6)
+ax.set_title(&#39;Frequency Spectrum&#39;)
+ax.legend()
+
+
+</code></pre></div><p><img src=/EEG_Tutorial/EEGtut10.PNG alt=EEGtut10 title=EEGtut10></p>
+<p>This plot shows that the SSVEPs were indeed modulated by attention in the direction we would expect! Congratulations! You’ve run your first analysis of EEG data in neurodesktop.</p>
+<div class="text-muted mt-5 pt-3 border-top">
+Last modified November 1, 2021: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/cc47d2e5eda016ab6aa475978145f2472373fed2>updating EEG Tutorial (cc47d2e)</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
+<a class=text-white target=_blank rel=noopener href aria-label>
+<i></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
+<a class=text-white target=_blank rel=noopener href=https://twitter.com/neuro_desk aria-label=Twitter>
+<i class="fab fa-twitter"></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
+<a class=text-white target=_blank rel=noopener href aria-label>
+<i></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+<ul class="list-inline mb-0">
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub>
+<a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk aria-label=GitHub>
+<i class="fab fa-github"></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
+<a class=text-white target=_blank rel=noopener href aria-label>
+<i></i>
+</a>
+</li>
+<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Dicussion Forum (requires github login)" aria-label="Dicussion Forum (requires github login)">
+<a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk/neurodesk.github.io/discussions aria-label="Dicussion Forum (requires github login)">
+<i class="fa fa-envelope"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
+<script src=/js/tabpane-persist.js></script>
+<script src=/js/main.min.3a75d46404b4b4835d9009c79b684ebaec265268791fa90da61c67d7d208378c.js integrity="sha256-OnXUZAS0tINdkAnHm2hOuuwmUmh5H6kNphxn19IIN4w=" crossorigin=anonymous></script>
+<script src=/js/prism.js></script>
+</body>
+</html>

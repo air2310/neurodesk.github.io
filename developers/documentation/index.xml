@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Documentation</title><link>https://neurodesk.github.io/developers/documentation/</link><description>Recent content in Documentation on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/developers/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Local Hugo Docsy</title><link>https://neurodesk.github.io/developers/documentation/local-hugo-docsy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/documentation/local-hugo-docsy/</guid><description>
+&lt;h2 id="local-hugo-docsy">Local Hugo Docsy&lt;/h2>
+&lt;h3 id="clone-repository">Clone repository&lt;/h3>
+&lt;p>Using SSH&lt;/p>
+&lt;p>&lt;code>git clone --recurse-submodules git@github.com:NeuroDesk/neurodesk.github.io.git&lt;/code>&lt;/p>
+&lt;p>or Https:&lt;/p>
+&lt;p>&lt;code>git clone --recurse-submodules https://github.com/NeuroDesk/neurodesk.github.io.git&lt;/code>&lt;/p>
+&lt;h3 id="if-you-cloned-without---recurse-submodules">If you cloned without &amp;ndash;recurse-submodules&lt;/h3>
+&lt;p>Run the following command to pull submodules&lt;/p>
+&lt;p>&lt;code>git submodule update --init --recursive --remote&lt;/code>&lt;/p>
+&lt;h3 id="download-hugo-binary">Download Hugo binary&lt;/h3>
+&lt;p>Hugo releases are on &lt;a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases&lt;/a>&lt;/p>
+&lt;p>Download latest version of hugo extended&lt;/p>
+&lt;p>e.g. for windows: &lt;a href="https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Windows-64bit.zip">https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Windows-64bit.zip&lt;/a>&lt;/p>
+&lt;h3 id="start-local-hugo-server">Start local hugo server&lt;/h3>
+&lt;p>Extract hugo binary (hugo.exe) to your neurodesk.github.io dir&lt;/p>
+&lt;p>Run server for windows: &lt;code>.\hugo.exe server --disableFastRender&lt;/code>&lt;/p>
+&lt;p>Once started, dev website will be accessible via http://localhost:1313&lt;/p>
+&lt;h3 id="update-docsy-theme-submodule">Update docsy theme submodule&lt;/h3>
+&lt;pre class="language-shell command-line" data-prompt="$">&lt;code>git submodule update --remote
+git add themes/
+git commit -m "Updating theme submodule"
+git push origin hugo-docsy&lt;/code>&lt;/pre></description></item></channel></rss>

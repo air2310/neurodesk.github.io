@@ -1,163 +1,307 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Documentation</title><link>https://neurodesk.github.io/docs/</link><description>Recent content in Documentation on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Linux</title><link>https://neurodesk.github.io/docs/getting-started/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/linux/</guid><description>
-&lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
-&lt;ol>
-&lt;li>At least 3GB free space for neuromachine base image&lt;/li>
-&lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h2 id="quickstart">Quickstart&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create a local folder where the downloaded applications will be stored, e.g. ~/neurodesktop&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Open a terminal, and type the folowing command to automatically download the neuromachine container and run it (Mac, Windows, Linux commands listed below)&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>sudo docker run --shm-size=1gb -it --privileged --name neuromachine -v ~/neurodesktop:/neurodesktop -e USER=user -p 8080:8080 vnmd/neuromachine:latest
-&lt;/code>&lt;/pre>&lt;p>(notice: if you get errors in neuromachine then check if the ~/neurodesktop directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop&lt;/code>)&lt;/p>
-&lt;ol start="4">
-&lt;li>Once neuromachine is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>http://localhost:8080/#/?username=user&amp;amp;password=password
-&lt;/code>&lt;/pre>&lt;p>or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call)&lt;/p>
-&lt;ol start="5">
-&lt;li>neuromachine is ready to use!&lt;/li>
-&lt;/ol>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Documentation</title><link>https://neurodesk.github.io/docs/</link><description>Recent content in Documentation on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Linux</title><link>https://neurodesk.github.io/docs/neurocommand/getting-started/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocommand/getting-started/linux/</guid><description>
+&lt;h2 id="requirements">Requirements:&lt;/h2>
+&lt;h3 id="required">Required&lt;/h3>
 &lt;ul>
-&lt;li>User is &lt;code>user&lt;/code>&lt;/li>
-&lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="stopping-neuromachine">Stopping neuromachine:&lt;/h2>
-&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neuromachine&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Click on the terminal from which you ran neuromachine&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Press control-C&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Type:&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker stop neuromachine
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>Type:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker rm neuromachine
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Neurodesktop</title><link>https://neurodesk.github.io/docs/overview/neurodesktop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/overview/neurodesktop/</guid><description>
-&lt;p>For operating system specific instructions see Getting started
-&lt;a href="https://neurodesk.github.io/docs/getting-started/">https://neurodesk.github.io/docs/getting-started/&lt;/a>&lt;/p>
-&lt;h2 id="how-to-access-files-from-your-host-computer">How to access files from your Host computer?&lt;/h2>
-&lt;p>The &lt;code>-v C:/neurodesktop:/neurodesktop&lt;/code> part of the docker command links the directory &amp;ldquo;neurodesktop&amp;rdquo; on the &amp;ldquo;C drive&amp;rdquo; of your Windows computer to the directory /neurodesktop inside the Desktop environment. Everything you store in there will be available inside VNM and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. &lt;code>-v D:/moredata:/data&lt;/code>) - this will mount the directory moredata from your D drive to /data inside VNM.&lt;/p>
-&lt;h2 id="how-to-launchdownload-applications">How to launch/download applications&lt;/h2>
-&lt;p>Click on the Launcher icon in bottom-left corner and navigate to the &amp;ldquo;Neurodesktop&amp;rdquo; menu, then select the application and version you wish to launch. If it is the first time you launch the application, it will be downloaded to your desktop environment. The application is ready to use when the &amp;ldquo;Singularity&amp;gt;&amp;rdquo; propmpt appears in the terminal window that opens. If you chose in the menu the GUI of the application (e.g., fsleyesGUI 6.0.3), it will open automatically. If you chose tha application itself (e.g., fsl 6.0.3), a terminal window will open, and you can use it to run any of the utilities packaged with the application, including the grphical utilities (e.g., typing &amp;ldquo;fsl&amp;rdquo; to run FSL&amp;rsquo;s main menu).&lt;/p></description></item><item><title>Docs: MacOS</title><link>https://neurodesk.github.io/docs/getting-started/mac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/mac/</guid><description>
-&lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
-&lt;ol>
-&lt;li>At least 3GB free space for neuromachine base image&lt;/li>
-&lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h2 id="quickstart">Quickstart&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create a local folder where the downloaded applications will be stored, e.g. ~/neurodesktop&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Open a terminal, and type the folowing command to automatically download the neuromachine container and run it&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>Mac:&lt;/li>
-&lt;/ul>
-&lt;pre tabindex="0">&lt;code>docker run --shm-size=1gb -it --privileged --name neuromachine -v ~/neurodesktop:/neurodesktop -e USER=user -p 8080:8080 vnmd/neuromachine:latest
-&lt;/code>&lt;/pre>&lt;p>(notice: There is a bug in docker 3.3.0 for Mac that makes this command not run correctly and there will be no application menu when you start the desktop. Update your docker version when you see this!)&lt;/p>
-&lt;p>(notice: if you get errors in neuromachine then check if the ~/neurodesktop directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop&lt;/code>)&lt;/p>
-&lt;ol start="4">
-&lt;li>Once neuromachine is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>http://localhost:8080/#/?username=user&amp;amp;password=password
-&lt;/code>&lt;/pre>&lt;p>or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call)&lt;/p>
-&lt;ol start="5">
-&lt;li>neuromachine is ready to use!&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>User is &lt;code>user&lt;/code>&lt;/li>
-&lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="stopping-neuromachine">Stopping neuromachine:&lt;/h2>
-&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neuromachine&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Click on the terminal from which you ran neuromachine&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Press control-C&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Type:&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker stop neuromachine
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>Type:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker rm neuromachine
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Neurocommand</title><link>https://neurodesk.github.io/docs/overview/neurocommand/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/overview/neurocommand/</guid><description>
-&lt;p>Requires a Linux host machine, virtual machine or WSL for Windows.&lt;/p>
-&lt;h2 id="linux">Linux&lt;/h2>
-&lt;h3 id="requirements">Requirements:&lt;/h3>
-&lt;h4 id="required">Required&lt;/h4>
-&lt;ul>
-&lt;li>python &lt;a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">https://docs.conda.io/en/latest/miniconda.html#linux-installers&lt;/a>&lt;/li>
+&lt;li>python 3.6+ &lt;a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">https://docs.conda.io/en/latest/miniconda.html#linux-installers&lt;/a>&lt;/li>
 &lt;li>singularity &lt;a href="https://sylabs.io/guides/3.5/user-guide/quick_start.html">https://sylabs.io/guides/3.5/user-guide/quick_start.html&lt;/a>&lt;/li>
+&lt;li>git&lt;/li>
 &lt;/ul>
-&lt;h4 id="optional">Optional&lt;/h4>
+&lt;h3 id="optional">Optional&lt;/h3>
 &lt;ul>
 &lt;li>lmod &lt;a href="https://sylabs.io/guides/3.5/user-guide/quick_start.html">https://lmod.readthedocs.io/en/latest/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="inital-install">Inital install&lt;/h3>
-&lt;h4 id="command-line-mode---for-non-desktop-experience-eg-running-on-an-hpc">command line mode - For non-desktop experience (e.g. running on an HPC)&lt;/h4>
-&lt;p>If running on cli only &amp;hellip;&lt;/p>
+&lt;h3 id="command-line-mode-eg-running-on-an-hpc-or-cvl">command line mode (e.g. running on an HPC or CVL)&lt;/h3>
 &lt;ul>
 &lt;li>Load singularity and for best performance it should be 3.x e.g. &lt;code>module load singularity/3.5.0&lt;/code>&lt;/li>
-&lt;li>Run &lt;code>git clone https://github.com/NeuroDesk/neurodesk.git&lt;/code> to clone the repository - make sure to clone this to a directory with enough storage, write permissions and NOT a symbolic link (to be sure run cd `pwd -P`)!&lt;/li>
-&lt;li>Run &lt;code>cd neurodesk&lt;/code> to change into the directory&lt;/li>
+&lt;li>Load or install aria2 to optimize the download performance of our containers e.g. &lt;code>module load aria2c&lt;/code>&lt;/li>
+&lt;li>Run &lt;code>git clone https://github.com/NeuroDesk/neurocommand.git&lt;/code> to clone the repository - make sure to clone this to a directory with enough storage, write permissions and NOT a symbolic link (to be sure run cd `pwd -P`)!&lt;/li>
+&lt;li>Run &lt;code>cd neurocommand&lt;/code> to change into the directory&lt;/li>
+&lt;li>Run &lt;code>pip3 install -r neurodesk/requirements.txt --user&lt;/code> to install pre-requisite python packages&lt;/li>
 &lt;li>Run &lt;code>bash build.sh --cli&lt;/code> to install in cli mode&lt;/li>
 &lt;li>Run &lt;code>bash containers.sh&lt;/code> for installing indiviual containers or &lt;code>bash containers.sh --all&lt;/code> for installing all containers&lt;/li>
 &lt;li>Run &lt;code>module use $PWD/local/containers/modules/&lt;/code> to add the containers to your module search path. Add this to your .bashrc if working.&lt;/li>
-&lt;li>Run &lt;code>ml avail&lt;/code> to see the installed containers at the top of the list (neurodesk containers will take preference over system modules with the same name). If a container is not yet there run &lt;code>ml --ignore_cache avail&lt;/code>&lt;/li>
+&lt;li>Run &lt;code>ml avail&lt;/code> to see the installed containers at the top of the list (neurodesk containers will take preference over system modules with the same name). - If a container is not yet there run &lt;code>ml --ignore_cache avail&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h4 id="for-lxde-desktops">For Lxde desktops&lt;/h4>
+&lt;h3 id="for-lxde-desktops">For Lxde desktops&lt;/h3>
 &lt;p>If running on an lxde desktop&amp;hellip;
 Run &lt;code>bash build.sh --lxde --edit&lt;/code>&lt;/p>
-&lt;h4 id="for-mate-desktops">For Mate desktops&lt;/h4>
+&lt;h3 id="for-mate-desktops">For Mate desktops&lt;/h3>
 &lt;p>Run &lt;code>bash build.sh --init&lt;/code> (or &lt;code>bash build.sh --lxde --edit&lt;/code>)&lt;br>
 lxde/mate: Mate&lt;br>
-installdir: Where all the neurodesk files will be stored (Default: ./local)&lt;br>
+installdir: Where all the neurocommand files will be stored (Default: ./local)&lt;br>
 appmenu: The linux menu xml file. (Usually /etc/xdg/menus/****-applications.menu)&lt;br>
 appdir: Location for the .desktop files for this linux desktop (Usually /usr/share/applications)&lt;br>
 deskdir: Location for the .directory files for this linux desktop (Typically /usr/share/desktop-directories)&lt;/p>
-&lt;h4 id="for-desktop-menus">For desktop menus:&lt;/h4>
+&lt;h3 id="for-desktop-menus">For desktop menus:&lt;/h3>
 &lt;p>&lt;code>sudo bash install.sh&lt;/code> to install&lt;br>
 &lt;em>Creates symlinks to menu files in installation dir&lt;/em>&lt;/p>
 &lt;p>&lt;code>sudo bash uninstall.sh&lt;/code> to uninstall&lt;br>
 &lt;em>Removes symlinks&lt;/em>&lt;/p>
-&lt;h3 id="to-update">To update&lt;/h3>
+&lt;h2 id="to-update">To update&lt;/h2>
 &lt;p>Run &lt;code>git pull&lt;/code>&lt;br>
 Run &lt;code>bash build.sh&lt;/code>&lt;br>
 &lt;em>install.sh does not need to be run again&lt;/em>&lt;/p>
-&lt;h4 id="to-download-all-containers">To download all containers&lt;/h4>
-&lt;p>Run &lt;code>bash containers.sh --all&lt;/code>&lt;/p>
-&lt;h2 id="windows">Windows&lt;/h2>
-&lt;h3 id="wsl-w-ubuntu--lxde">WSL (w/ Ubuntu + LXDE)&lt;/h3>
+&lt;h3 id="to-download-all-containers">To download all containers&lt;/h3>
+&lt;p>Run &lt;code>bash containers.sh --all&lt;/code>&lt;/p></description></item><item><title>Docs: Linux</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/linux/</guid><description>
+&lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
+&lt;ol>
+&lt;li>At least 3GB free space for neurodesktop base image&lt;/li>
+&lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;h3 id="1-install-docker">1. Install Docker&lt;/h3>
+&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>. Additional information available &lt;a href="#installing-docker">below&lt;/a>&lt;/p>
+&lt;h3 id="2-run-neurodesktop">2. Run Neurodesktop&lt;/h3>
+&lt;p>Before the first run, create a local folder where the downloaded applications will be stored, e.g. &lt;code>~/neurodesktop-storage&lt;/code>&lt;/p>
+&lt;p>Then use one of the following options to run Neurodesktop:&lt;/p>
+&lt;h4 id="option-1-neurodesktoprun">Option 1: NeuroDesktop.run&lt;/h4>
+&lt;p>Download and run the following executable
+&lt;a href="https://github.com/NeuroDesk/neurodesktop/raw/main/Linux_run_Neurodesk/NeuroDesktop.run">https://github.com/NeuroDesk/neurodesktop/raw/main/Linux_run_Neurodesk/NeuroDesktop.run&lt;/a>&lt;/p>
+&lt;h4 id="option-2-using-terminal">Option 2: Using Terminal&lt;/h4>
+&lt;ol>
+&lt;li>Open a terminal, and type the folowing command to automatically download the neurodesktop container and run it (Mac, Windows, Linux commands listed below)&lt;/li>
+&lt;/ol>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="2-6">
+&lt;code>sudo docker run \
+--shm-size=1gb -it --privileged --name neurodesktop \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-p 8080:8080 -h neurodesktop-20211207 \
+vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;!-- neurodesktop version found in neurodesk.github.io/data/neurodesktop.toml -->
+&lt;div class="alert alert-primary" role="alert">
+If you get errors in neurodesktop then check if the ~/neurodesktop-storage directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop-storage&lt;/code>
+&lt;/div>
+&lt;ol start="3">
+&lt;li>Once neurodesktop is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">http://localhost:8080/#/?username=user&amp;amp;password=password
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>neurodesktop is ready to use!&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>User is &lt;code>user&lt;/code>&lt;/li>
+&lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="stopping-neurodesktop">Stopping neurodesktop:&lt;/h2>
+&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neurodesktop&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click on the terminal from which you ran neurodesktop&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Press &lt;code>Ctrl-C&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Run:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>docker stop neurodesktop&lt;/code>
+&lt;/pre>
+&lt;ol start="4">
+&lt;li>Run:&lt;/li>
+&lt;/ol>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>docker rm neurodesktop&lt;/code>
+&lt;/pre>
+&lt;h2 id="installing-docker">Installing Docker&lt;/h2>
+&lt;p>For general installation instructions, refer to &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
+&lt;h3 id="rhelcentos-yum-based">RHEL/CentOS (yum-based)&lt;/h3>
+&lt;p>Refer to &lt;a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/&lt;/a>&lt;/p>
+&lt;p>One example to install docker in a yum-based distribution could look like this:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>sudo dnf install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo docker version
+sudo docker info
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo chown root:docker /var/run/docker.sock
+newgrp docker&lt;/code>
+&lt;/pre>
+&lt;h3 id="ubuntudebian-apt-based">Ubuntu/Debian (apt-based)&lt;/h3>
+&lt;p>Refer to &lt;a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/&lt;/a>&lt;/p>
+&lt;p>One example to install docker in a apt-based distribution could look like this:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="5">
+&lt;code>sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io&lt;/code>
+&lt;/pre>
+&lt;h2 id="gpu-support">GPU support&lt;/h2>
+&lt;h3 id="rhelcentos-yum-based-1">RHEL/CentOS (yum-based)&lt;/h3>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="4-9">
+&lt;code>sudo yum install nvidia-container-toolkit -y&lt;/code>
+&lt;/pre>
+&lt;h3 id="running-neurodesktop-container-with-gpu">Running neurodesktop container with GPU&lt;/h3>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="2-9">
+&lt;code>sudo docker run \
+--shm-size=1gb -it --privileged --name neurodesktop \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-e NVIDIA_VISIBLE_DEVICES=all \
+-e NVIDIA_DISABLE_REQUIRE=1 \
+-p 8080:8080 -h neurodesktop-20211207 \
+vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;!-- neurodesktop version found in neurodesk.github.io/data/neurodesktop.toml -->
+&lt;p>Then inside the neurodesktop container run:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>
+sudo apt update
+sudo apt install libcudart10.1
+&lt;/code>
+&lt;/pre>
+&lt;p>For a GPU with Nvidia driver Version &amp;gt; 495.29.05:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>
+wget https://developer.download.nvidia.com/compute/cuda/11.5.0/local_installers/cuda_11.5.0_495.29.05_linux.run
+sudo sh ./cuda_11.5.0_495.29.05_linux.run
+&lt;/code>
+&lt;/pre>
+&lt;h4 id="running-tensorflow-w-gpu">Running tensorflow (w/ GPU)&lt;/h4>
+&lt;h5 id="using-tensorflow-python">Using tensorflow (python)&lt;/h5>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>
+conda install tensorflow-gpu
+python&lt;/code>
+&lt;/pre>
+&lt;pre class="language-python command-line" data-prompt=">>>">
+&lt;code>import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))&lt;/code>
+&lt;/pre>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/4021595/135446560-d135f6ce-b699-4e46-8534-b72b4d9f2d41.png" alt="image">&lt;/p>
+&lt;h5 id="using-tensorflow-singularity-container-in-neurodesktop">Using tensorflow (singularity container in neurodesktop)&lt;/h5>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>singularity pull docker://tensorflow/tensorflow:latest-gpu
+singularity run --nv tensorflow_latest-gpu.sif
+python&lt;/code>
+&lt;/pre>
+&lt;pre class="language-python command-line" data-prompt=">>>">
+&lt;code>import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))&lt;/code>
+&lt;/pre>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/4021595/135449288-6c3e9bbd-fe5f-4f43-aa4a-8a798ba629e6.png" alt="image">&lt;/p>
+&lt;h2 id="using-an-rdp-client">Using an RDP Client&lt;/h2>
+&lt;p>Startup Neurodesktop using the following command:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="2-6">
+&lt;code>sudo docker run \
+--shm-size=1gb -it --privileged --name neurodesktop \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-p 3390:3389 -p 8080:8080 -h neurodesktop-20211207 \
+vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;div class="alert alert-primary" role="alert">
+If you want to connect via RDP using a different port, replace 3390 in the previous and next step with your port
+&lt;/div>
+&lt;p>Open your RDP client and connect to Computer &lt;code>localhost:3390&lt;/code>&lt;/p>
+&lt;p>Use the following details to login if prompted&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">username: user
+password: password
+&lt;/code>&lt;/pre>&lt;/div>&lt;!--
+## Using a VNC Client
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e VNC_ENABLE=1 -p 5901:5901 -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call) --></description></item><item><title>Docs: MacOS</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/mac/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/mac/</guid><description>
+&lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
+&lt;ol>
+&lt;li>At least 3GB free space for neurodesktop base image&lt;/li>
+&lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;h3 id="1-install-docker">1. Install Docker&lt;/h3>
+&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
+&lt;h3 id="2-run-neurodesktop">2. Run Neurodesktop&lt;/h3>
+&lt;p>Create a local folder where the downloaded applications will be stored, e.g. ~/neurodesktop-storage&lt;/p>
+&lt;ol>
+&lt;li>Open a terminal, and type the folowing command to automatically download the neurodesktop container and run it&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- neurodesktop version found in neurodesk.github.io/data/neurodesktop.toml -->
+&lt;div class="alert alert-primary" role="alert">
+There is a bug in docker 3.3.0 for Mac that makes this command not run correctly and there will be no application menu when you start the desktop. Update your docker version when you see this!
+&lt;/div>
+&lt;p>if you get errors in neurodesktop then check if the ~/neurodesktop-storage directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop-storage&lt;/code>&lt;/p>
+&lt;ol start="2">
+&lt;li>Once neurodesktop is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">http://localhost:8080/#/?username=user&amp;amp;password=password
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>neurodesktop is ready to use!&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>User is &lt;code>user&lt;/code>&lt;/li>
+&lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="stopping-neurodesktop">Stopping neurodesktop:&lt;/h2>
+&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neurodesktop&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click on the terminal from which you ran neurodesktop&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Press control-C&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Type:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker stop neurodesktop
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Type:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker rm neurodesktop
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="using-an-rdp-client">Using an RDP Client&lt;/h2>
+&lt;p>Startup Neurodesktop using the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 3390:3389 -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+If you want to connect via RDP using a different port, replace 3390 in the previous and next step with your port
+&lt;/div>
+&lt;p>Open your RDP client and connect to Computer &lt;code>localhost:3390&lt;/code>&lt;/p>
+&lt;p>Use the following details to login if prompted&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">username: user
+password: password
+&lt;/code>&lt;/pre>&lt;/div>&lt;!--
+## Using a VNC Client
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e VNC_ENABLE=1 -p 5901:5901 -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call) --></description></item><item><title>Docs: What's next?</title><link>https://neurodesk.github.io/docs/neurodesktop/whats-next/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/whats-next/</guid><description>
+&lt;p>Now that you’ve installed and launched neurodesktop, you should see a virtual desktop environment in your browser, which might look something like this:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/Desktop.png" alt="desktop" title="desktop">&lt;/p>
+&lt;p>In this linux desktop environment, you can access the menu, launch programs, write analysis code, use version control software (i.e. git) and develop analysis pipelines as though you were on your own computer.&lt;/p>
+&lt;h2 id="release">Release&lt;/h2>
+&lt;p>Keep a note of the release date of the container image that you installed. Regardless of what operating system you installed neurodesktop into, the release date would have been at the end of the &lt;em>docker run&lt;/em> command:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/version.png" alt="version" title="version">&lt;/p>
+&lt;p>We regularly update neurodesktop to make sure it’s running well and has up-to-date software. You can check the &lt;a href="https://neurodesk.github.io/docs/neurodesktop/release-history/">Release History&lt;/a> page for details of previous releases. If you’d like to update your container at any time, simply switch out the release number for the version you would like. If you’ve finished working on an analysis pipeline and would like to share it with others, you can point them toward the stable release number that you worked in. That way anyone, on any computer around the world can replicate your analysis pipeline in the exact same computing environment that you developed it in.&lt;/p>
+&lt;h2 id="video-tutorial">Video tutorial&lt;/h2>
+&lt;p>Click &lt;a href="https://www.youtube.com/watch?v=JLv_5fycugw">here&lt;/a> to watch a 2 minute tutorial video from OHBM 2021&lt;/p>
+&lt;h2 id="how-to-access-files-from-your-host-computer">How to access files from your Host computer&lt;/h2>
+&lt;p>There are various ways of connecting your data to to Neurodesktop. For more information see our Storage section: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/p>
+&lt;h2 id="how-to-launch-applications">How to launch applications&lt;/h2>
+&lt;p>Click on the Launcher icon in bottom-left corner and navigate to the &amp;ldquo;Neurodesk&amp;rdquo; menu, then select the application and version you wish to launch. If it is the first time you launch the application, it will be downloaded to your desktop environment. The application is ready to use when the &amp;ldquo;Singularity&amp;gt;&amp;rdquo; prompt appears in the terminal window that opens. If you chose in the menu the GUI of the application (e.g., fsleyesGUI 6.0.3), it will open automatically. If you chose that application itself (e.g., fsl 6.0.3), a terminal window will open, and you can use it to run any of the utilities packaged with the application, including the graphical utilities (e.g., typing &amp;ldquo;fsl&amp;rdquo; to run FSL&amp;rsquo;s main menu).&lt;/p>
+&lt;h2 id="how-to-keep-your-modifications-in-the-container">How to keep your modifications in the container&lt;/h2>
+&lt;p>We designed neurodesk with reproducibility as a main goal, so the desktop containers should not be modified if one aims for full reproducibility. However, there is one good option to keep your settings across different container versions: You can write a shell script that installs additional packages and modifies the environment so it&amp;rsquo;s perfect for you. This script can then be re-executed in a new desktop version and will enable a reprudcible customization.&lt;/p>
+&lt;p>Another option is to &amp;ldquo;save&amp;rdquo; your docker container including all changes you made. This could be useful when your changes are too difficult to write a shell script or when you do not care about reproducibilty as much and you just want to get the job done. To do this you can commit (&lt;a href="https://docs.docker.com/engine/reference/commandline/commit/">https://docs.docker.com/engine/reference/commandline/commit/&lt;/a>) your container and by uploading the container to your own docker hub you could even share it.&lt;/p>
+&lt;h2 id="how-to-force-a-complete-container-download-to-your-system">How to force a complete container download to your system&lt;/h2>
+&lt;p>To increase speed and reliability of Neurodesktop we mount the application containers from a CVMFS mount and download only the files required to run your current task. Although we aim to keep everything on there reproducible, there might be a reason that you want to fully download the containers to your system. You can force this behaviour by adding another parameter to the docker call: &lt;code>-e CVMFS_DISABLE=true&lt;/code>&lt;/p>
+&lt;p>For windows an example would look like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e &lt;span style="color:#000">CVMFS_DISABLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Windows</title><link>https://neurodesk.github.io/docs/neurocommand/getting-started/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocommand/getting-started/windows/</guid><description>
+&lt;h2 id="wsl-w-ubuntu--lxde">WSL (w/ Ubuntu + LXDE)&lt;/h2>
 &lt;p>For more information on WSL: &lt;a href="https://docs.microsoft.com/en-us/windows/wsl">https://docs.microsoft.com/en-us/windows/wsl&lt;/a>&lt;/p>
-&lt;h4 id="setting-up">Setting up&lt;/h4>
+&lt;h3 id="setting-up">Setting up&lt;/h3>
 &lt;ol>
 &lt;li>Setup WSL2 using the following instructions &lt;em>(Ubuntu 18.04 recommended)&lt;/em>&lt;br>
 &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10&lt;/a>
@@ -170,61 +314,107 @@ Run &lt;code>bash build.sh&lt;/code>&lt;br>
 Change &lt;code>port=3389&lt;/code> to &lt;code>port=3390&lt;/code> and save&lt;/li>
 &lt;li>Run &lt;code>echo startlxde &amp;gt; ~/.xsession&lt;/code>&lt;/li>
 &lt;/ol>
-&lt;h4 id="running">Running&lt;/h4>
+&lt;h3 id="running">Running&lt;/h3>
 &lt;ol>
 &lt;li>&lt;code>sudo service xrdp start&lt;/code> to start xrdp server&lt;/li>
 &lt;li>Open Microsoft Remote Desktop Connection in Windows host&lt;/li>
 &lt;li>Connect to &lt;code>localhost:3390&lt;/code>&lt;/li>
 &lt;li>In the next login page, leave Session as &lt;code>Xorg&lt;/code>. Enter your WSL username and password and click &lt;code>OK&lt;/code>&lt;/li>
-&lt;li>This should open an LXDE Linux Desktop environment. Follow Linux guide from here on&lt;/li>
-&lt;/ol>
-&lt;h2 id="mac">Mac&lt;/h2>
-&lt;p>Currently supported via &lt;a href="https://github.com/NeuroDesk/vnm">VNM&lt;/a>&lt;/p>
-&lt;h2 id="advanced-usage">Advanced usage&lt;/h2>
-&lt;p>For advanced VNM and Neurodesk installer usage, check &lt;a href="https://neurodesk.github.io/docs/advanced">here&lt;/a>&lt;/p></description></item><item><title>Docs: Neurocontainers</title><link>https://neurodesk.github.io/docs/overview/neurocontainers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/overview/neurocontainers/</guid><description>
-&lt;p>Neurocontainers is our collection of neuro containers hosted on dockerhub (&lt;a href="https://hub.docker.com/orgs/vnmd/repositories">https://hub.docker.com/orgs/vnmd/repositories&lt;/a>) or github (&lt;a href="https://github.com/NeuroDesk/neurocontainers/packages">https://github.com/NeuroDesk/neurocontainers/packages&lt;/a>)&lt;/p>
-&lt;h1 id="pull-containers">pull containers&lt;/h1>
-&lt;p>docker&lt;/p>
-&lt;pre tabindex="0">&lt;code>docker pull vnmd/julia_1.6.1
-&lt;/code>&lt;/pre>&lt;p>build singularity image from dockerhub&lt;/p>
-&lt;pre tabindex="0">&lt;code>singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Windows</title><link>https://neurodesk.github.io/docs/getting-started/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/windows/</guid><description>
+&lt;li>This should open an LXDE Linux Desktop environment. Follow &lt;a href="https://neurodesk.github.io/docs/neurocommand/getting-started/linux">Linux guide&lt;/a> from here on&lt;/li>
+&lt;/ol></description></item><item><title>Docs: What's in the box?</title><link>https://neurodesk.github.io/docs/neurodesktop/whatsinthebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/whatsinthebox/</guid><description>
+&lt;p>Neurodesktop comes with the essential software required for neuroimaging data analysis pre-installed. Each release is built with the most recent version of these packages available at the build date. Some example packages include:&lt;/p>
+&lt;ul>
+&lt;li>Editors and Programming:
+&lt;ul>
+&lt;li>Visual Studio Code&lt;/li>
+&lt;li>Emacs&lt;/li>
+&lt;li>Gedit&lt;/li>
+&lt;li>Vim&lt;/li>
+&lt;li>Python&lt;/li>
+&lt;li>Git&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Workflow systems:
+&lt;ul>
+&lt;li>Nipype (including GraphVis)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Data Syncronisation tools: (See our Storage section for more information: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>)
+&lt;ul>
+&lt;li>Rsync&lt;/li>
+&lt;li>Rclone &lt;a href="https://rclone.org/">https://rclone.org/&lt;/a>&lt;/li>
+&lt;li>Nextcloud client&lt;/li>
+&lt;li>Owncloud client&lt;/li>
+&lt;li>Globus personal connect &lt;a href="https://docs.globus.org/how-to/globus-connect-personal-linux/">https://docs.globus.org/how-to/globus-connect-personal-linux/&lt;/a>
+&lt;ul>
+&lt;li>installed in /opt/globusconnectpersonal/&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>System Management:
+&lt;ul>
+&lt;li>Lmod (inlcuding Lua)&lt;/li>
+&lt;li>Singularity&lt;/li>
+&lt;li>Htop&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Misc
+&lt;ul>
+&lt;li>Imagemagic&lt;/li>
+&lt;li>Firefox&lt;/li>
+&lt;li>OpenSSH client&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>The neurodesktop environment is built to be light and fast to download and start-up. Most additional programs are therefore downloaded when they are first used. A list of these additional packages can be found &lt;a href="https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt">here&lt;/a>&lt;/p></description></item><item><title>Docs: Windows</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/</guid><description>
 &lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
 &lt;ol>
-&lt;li>At least 3GB free space for neuromachine base image&lt;/li>
+&lt;li>At least 3GB free space for neurodesktop base image&lt;/li>
 &lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
 &lt;li>If installing docker using WSL, atleast 20GB space recommended for WSL with Ubuntu&lt;/li>
 &lt;/ol>
 &lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;h3 id="1-install-docker">1. Install Docker&lt;/h3>
+&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>
+&lt;div class="alert alert-primary" role="alert">
+The docker installation will reboot your computer a few times and there might be warnings regardings WSL2 and this also might require a few more installation steps that unfortunatley differ for every system. Please get in touch if you are stuck and have a look at our troubleshoot page.
+&lt;/div>
+&lt;/p>
+&lt;h3 id="2-run-neurodesktop">2. Run Neurodesktop&lt;/h3>
+&lt;p>Use one of the following options to run Neurodesktop:&lt;/p>
+&lt;h4 id="option-1-neurodesktopexe">Option 1: NeuroDesktop.exe&lt;/h4>
+&lt;p>Download and run the following executable
+&lt;a href="https://github.com/NeuroDesk/neurodesktop/raw/main/Windows_run_Neurodesk/NeuroDesktop.exe">https://github.com/NeuroDesk/neurodesktop/raw/main/Windows_run_Neurodesk/NeuroDesktop.exe&lt;/a>&lt;/p>
+&lt;h4 id="option-2-using-terminal">Option 2: Using Terminal&lt;/h4>
 &lt;ol>
-&lt;li>
-&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create a local folder where the downloaded applications will be stored, e.g. C:\neurodesktop&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Open a terminal, and type the folowing command to automatically download the neuromachine container and run it&lt;/p>
-&lt;/li>
+&lt;li>Open a terminal (e.g. Powershell), and type the folowing command to automatically download the neurodesktop container and run it&lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker run --shm-size=1gb -it --privileged --name neuromachine -v C:/neurodesktop:/neurodesktop -e USER=user -p 8080:8080 vnmd/neuromachine:latest
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>Once neuromachine is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;!-- neurodesktop version found in neurodesk.github.io/data/neurodesktop.toml -->
+&lt;ol start="2">
+&lt;li>Once neurodesktop is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>http://localhost:8080/#/?username=user&amp;amp;password=password
-&lt;/code>&lt;/pre>&lt;p>or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call)&lt;/p>
-&lt;ol start="5">
-&lt;li>neuromachine is ready to use!&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">http://localhost:8080/#/?username=user&amp;amp;password=password
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+We do not recommend the use of the Firefox browser for accessing Neurodesktop, as this may lead to performance issues.
+&lt;/div>
+&lt;ol start="3">
+&lt;li>neurodesktop is ready to use!&lt;/li>
 &lt;/ol>
 &lt;ul>
 &lt;li>User is &lt;code>user&lt;/code>&lt;/li>
 &lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h2 id="stopping-neuromachine">Stopping neuromachine:&lt;/h2>
-&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neuromachine&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
+&lt;h2 id="stopping-neurodesktop">Stopping neurodesktop:&lt;/h2>
+&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neurodesktop&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Click on the terminal from which you ran neuromachine&lt;/p>
+&lt;p>Click on the terminal from which you ran neurodesktop&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Press control-C&lt;/p>
@@ -233,618 +423,474 @@ Change &lt;code>port=3389&lt;/code> to &lt;code>port=3390&lt;/code> and save&lt;
 &lt;p>Type:&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker stop neuromachine
-&lt;/code>&lt;/pre>&lt;ol start="4">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker stop neurodesktop
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
 &lt;li>Type:&lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker rm neuromachine
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Add tool</title><link>https://neurodesk.github.io/docs/advanced/add_tool/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/advanced/add_tool/</guid><description>
-&lt;p>The goal of &lt;em>VNM&lt;/em> is to provide users with a large choice of tools to use in their pipelines.
-Here is how you can add a tool to &lt;em>VNM&lt;/em>.&lt;/p>
-&lt;p>To decide if a tool should be packaged in a singularity container, or being installed in the main VNM container we are currently following these guiding principles:&lt;/p>
-&lt;ol>
-&lt;li>VNM is not a package manager. This means we are not distribution tools in containers that can easily be installed via a standard package manager&lt;/li>
-&lt;li>VNM allows users to have multiple versions of tools in parallel via lmod, this means that if different versions of tool can&amp;rsquo;t be installed in parallel we package it inside a container.&lt;/li>
-&lt;li>VNM aims to provide simple tooling to link tools from different containers. This means that if a tool if required to coordinate container-tools, it should be in the main image.&lt;/li>
-&lt;/ol>
-&lt;p>Examples:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>&lt;/th>
-&lt;th>easy install&lt;/th>
-&lt;th>coordinates containers&lt;/th>
-&lt;th>small in size&lt;/th>
-&lt;th>latest version is ok&lt;/th>
-&lt;th>useful more most users&lt;/th>
-&lt;th>Conclusion&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>git&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>base&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>lmod&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>base&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>nipype&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>base&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>vscode&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>base&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>itksnap&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>container -&amp;gt; could be in base?&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>matlab&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>container due to size?&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>convert3D&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>container&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>fsl&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>container&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>mrtrix&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>container&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>freesurfer&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>container&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Build container:&lt;/p>
-&lt;ol>
-&lt;li>add recipe to neurodocker if relevant &lt;a href="https://github.com/NeuroDesk/neurodocker">https://github.com/NeuroDesk/neurodocker&lt;/a> and create pull request to neurodocker&lt;/li>
-&lt;li>build container here &lt;a href="https://github.com/NeuroDesk/caid">https://github.com/NeuroDesk/caid&lt;/a>&lt;/li>
-&lt;li>test container and if successful add container to Readme table here &lt;a href="https://github.com/NeuroDesk/neurodesk">https://github.com/NeuroDesk/neurodesk&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;p>As we want to propose several versions of the tools, each peace of software should have its own submenu under &lt;code>VNM Neuroimaging&lt;/code>.
-To do so, you first have to add a submenu to &lt;code>menus/vnm-applications.menu&lt;/code> by adding:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- [[Tool Name]] submenu --&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Menu&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Name&amp;gt;&lt;/span>[[Tool Name]]&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Name&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Directory&amp;gt;&lt;/span>vnm-[[tool-name]].directory&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Directory&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Include&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;And&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Category&amp;gt;&lt;/span>[[Tool-Name]]&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Category&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/And&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Include&amp;gt;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Menu&amp;gt;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- End [[Tool Name]] --&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following table showns what to replace by what:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Placeholder&lt;/th>
-&lt;th>Rule&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>[[Tool name]]&lt;/code>&lt;/td>
-&lt;td>Capitalized, spaces&lt;/td>
-&lt;td>&lt;code>ITK snap&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>[[tool-name]]&lt;/code>&lt;/td>
-&lt;td>Lower case, no spaces (use &lt;code>-&lt;/code> instead)&lt;/td>
-&lt;td>&lt;code>itk-snap&lt;/code> or &lt;code>itksnap&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>[[Tool-name]]&lt;/code>&lt;/td>
-&lt;td>Capitalized, no spaces (use &lt;code>-&lt;/code> instead)&lt;/td>
-&lt;td>&lt;code>ITK-snap&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Next, we have to create the submenu itself as we referenced it by &lt;code>vnm-[[tool-name]].directory&lt;/code>. To do so, create the file &lt;code>menus/submenus&lt;/code>vnm-[[tool-name]].directory` and add the following information inside:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ini" data-lang="ini">&lt;span style="color:#204a87;font-weight:bold">[Desktop Entry]&lt;/span>
-&lt;span style="color:#c4a000">Name&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">[[Tool Name]]&lt;/span>
-&lt;span style="color:#c4a000">Comment&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">[[Tool Name]]&lt;/span>
-&lt;span style="color:#c4a000">Icon&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">/home/neuro/.config/lxpanel/LXDE/icons/[[icon-name]].png&lt;/span>
-&lt;span style="color:#c4a000">Type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">Directory&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>If a specific icon is available in the &lt;code>menus/icons&lt;/code> directory, replace &lt;code>[[icon-name]]&lt;/code> by its name. Otherwise, use &lt;code>vnm&lt;/code>.&lt;/p>
-&lt;p>Finally, we have to create the actual application by creating the file &lt;code>menus/applications/vnm-[[tool-name]]-[[0.0.0]].desktop&lt;/code>. The name of this file must contain the version of the tool (once again to allow multiple versions to live inside the same directory). Add the following description to this file:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ini" data-lang="ini">&lt;span style="color:#204a87;font-weight:bold">[Desktop Entry]&lt;/span>
-&lt;span style="color:#c4a000">Name&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">[[Tool Name]] [[0.0.0]] [[(Install only)]]&lt;/span>
-&lt;span style="color:#c4a000">GenericName&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">[[Tool Name]] [[0.0.0]]&lt;/span>
-&lt;span style="color:#c4a000">Comment&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">The description of what clicking on this application does. # This will be the tooltip of the application.&lt;/span>
-&lt;span style="color:#c4a000">Exec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">The command used to run the application.&lt;/span>
-&lt;span style="color:#c4a000">Icon&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">/home/neuro/.config/lxpanel/LXDE/icons/[[icon-name]].png&lt;/span>
-&lt;span style="color:#c4a000">Type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">Application&lt;/span>
-&lt;span style="color:#c4a000">Categories&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">[[Tool-name]]&lt;/span>
-&lt;span style="color:#c4a000">Terminal&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">true # or false&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The important part here is the value of &lt;code>Exec&lt;/code>. If the tool is in the form of a singularity image, you should the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">bash /usr/share/fetch_and_run.sh &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>tool-name&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>0.0.0&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>YYYYMMDD&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>cmd&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>args&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>What &lt;code>fetch_and_run.sh&lt;/code> does is check if the image is already installed as a module. If not, it checks whether it can be installed or not (return &lt;code>1&lt;/code> if not possible). After that, it installs the image as a module.
-If &lt;code>[[cmd]]&lt;/code> is specified, once the image is installed, it runs the command by giving the arguments from &lt;code>[[args]]&lt;/code>.
-Here are two examples for FreeSurfer and FreeView. This first one only installs the image as a module:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">bash /usr/share/fetch_and_run.sh freesurfer 6.0.1 &lt;span style="color:#0000cf;font-weight:bold">20200506&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>And this does the same but runs FreeView afterward:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">bash /usr/share/fetch_and_run.sh freesurfer 6.0.1 &lt;span style="color:#0000cf;font-weight:bold">20200506&lt;/span> freeview
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The resulting &lt;code>.desktop&lt;/code> file corresponding to FreeView contains:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ini" data-lang="ini">&lt;span style="color:#204a87;font-weight:bold">[Desktop Entry]&lt;/span>
-&lt;span style="color:#c4a000">Name&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">FreeView 6.0.1&lt;/span>
-&lt;span style="color:#c4a000">GenericName&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">FreeView 6.0.1&lt;/span>
-&lt;span style="color:#c4a000">Comment&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">Start FreeView 6.0.1&lt;/span>
-&lt;span style="color:#c4a000">Exec&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">bash /usr/share/fetch_and_run.sh freesurfer 6.0.1 20200506 freeview&lt;/span>
-&lt;span style="color:#c4a000">Icon&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">/home/neuro/.config/lxpanel/LXDE/icons/run.png&lt;/span>
-&lt;span style="color:#c4a000">Type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">Application&lt;/span>
-&lt;span style="color:#c4a000">Categories&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">FreeSurfer&lt;/span>
-&lt;span style="color:#c4a000">Terminal&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">true&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: HPC</title><link>https://neurodesk.github.io/docs/getting-started/hpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/hpc/</guid><description>
-&lt;p>One way of running this project on HPCs is via &lt;a href="https://neurodesk.github.io/docs/overview/neurocommand/">https://neurodesk.github.io/docs/overview/neurocommand/&lt;/a>&lt;/p></description></item><item><title>Docs: Storage</title><link>https://neurodesk.github.io/docs/advanced/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/advanced/storage/</guid><description>
-&lt;h2 id="mount-volume-using-sshfs">Mount volume using SSHFS&lt;/h2>
-&lt;p>&lt;code>sshfs -o allow_root USER@TARGET_HOST:TARGET_PATH SOURCE_PATH&lt;/code>&lt;/p>
-&lt;h2 id="not-enough-free-space">Not enough free space&lt;/h2>
-&lt;p>For Windows&lt;/p>
-&lt;p>&lt;a href="https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html">https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html&lt;/a>&lt;/p></description></item><item><title>Docs: Tested</title><link>https://neurodesk.github.io/docs/advanced/tested/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/advanced/tested/</guid><description>
-&lt;p>Please test and add if working :)&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>&lt;/th>
-&lt;th>hypervisor&lt;/th>
-&lt;th>container engine&lt;/th>
-&lt;th>build&lt;/th>
-&lt;th>client&lt;/th>
-&lt;th>who&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>windows 10 Enterprise, build 18363&lt;/td>
-&lt;td>wsl2, hyperv&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>vnc, edge&lt;/td>
-&lt;td>Steffen&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>windows 10 Pro&lt;/td>
-&lt;td>wsl2, hyperv&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>Tom&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>windows 10 Home, build 19041&lt;/td>
-&lt;td>wsl2, hyperv&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>chrome&lt;/td>
-&lt;td>Geeta&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>windows 10 Home, Docker toolbox&lt;/td>
-&lt;td>virtualbox&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>chrome&lt;/td>
-&lt;td>Geeta&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Debian Bullseye&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>firefox&lt;/td>
-&lt;td>Jakub&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Ubuntu 20.04&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>firefox&lt;/td>
-&lt;td>Martin&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>macOS Catalina (10.15.5)&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>firefox, safari, chrome&lt;/td>
-&lt;td>Jakub&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>HPC Centos 6&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>singularity&lt;/td>
-&lt;td>no&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>Steffen&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Ubuntu 18.04 on OpenStack (NECTAR)&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>docker&lt;/td>
-&lt;td>yes&lt;/td>
-&lt;td>firefox&lt;/td>
-&lt;td>Oren&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h1 id="run-neurodesk-vnm-for-free-on-cloud-providers">Run Neurodesk VNM for free on cloud providers&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker rm neurodesktop
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="using-an-rdp-client">Using an RDP Client&lt;/h2>
+&lt;p>Startup Neurodesktop using the following command:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -p 3390:3389 -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;div class="alert alert-primary" role="alert">
+If you want to connect via RDP using a different port, replace 3390 in the previous and next step with your port
+&lt;/div>
+&lt;p>Open Windows Remote Desktop Connection and connect to Computer &lt;code>localhost:3390&lt;/code> as shown below.&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/neurodesktop/getting-started/win-rdp-1.png" alt="win-rdp-1" title="win-rdp-1">&lt;/p>
+&lt;p>Resolution and multi-monitor settings can be set from the Display tab.&lt;/p>
+&lt;p>Once ready, click Connect. This will take you to the following prompt&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/neurodesktop/getting-started/win-rdp-2.png" alt="win-rdp-1" title="win-rdp-2">&lt;/p>
+&lt;p>Use the following details to login&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">Session: Xorg
+username: user
+password: password
+&lt;/code>&lt;/pre>&lt;/div>&lt;!--
+## Using a VNC Client
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e VNC_ENABLE=1 -p 5901:5901 -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call) --></description></item><item><title>Docs: CVMFS</title><link>https://neurodesk.github.io/docs/neurocontainers/cvmfs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/cvmfs/</guid><description>
+&lt;h1 id="install-cvmfs">Install CVMFS&lt;/h1>
+&lt;p>First you need to install CVMFS. Follow the official instructions here: &lt;a href="https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software">https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software&lt;/a>&lt;/p>
+&lt;p>one example for Windows Subsystem for Linux (WSL) could look like this:&lt;/p>
+&lt;div class="highlight">&lt;div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo apt-get install lsb-release
+wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
+sudo dpkg -i cvmfs-release-latest_all.deb
+rm -f cvmfs-release-latest_all.deb
+sudo apt-get update
+sudo apt-get install cvmfs
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="configure-cvmfs">Configure CVMFS&lt;/h1>
+&lt;p>Once installed create the keys and configure the servers used:&lt;/p>
+&lt;div class="highlight">&lt;div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo mkdir -p /etc/cvmfs/keys/ardc.edu.au/
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-----BEGIN PUBLIC KEY-----
+&lt;/span>&lt;span style="color:#4e9a06">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
+&lt;/span>&lt;span style="color:#4e9a06">Bi2TQcLoh5AJ//HSIz68ypjOGFjwExGlHb95Frhu1SpcH5OASbV+jJ60oEBLi3sD
+&lt;/span>&lt;span style="color:#4e9a06">qA6rGYt9kVi90lWvEjQnhBkPb0uWcp1gNqQAUocybCzHvoiG3fUzAe259CrK09qR
+&lt;/span>&lt;span style="color:#4e9a06">pX8sZhgK3eHlfx4ycyMiIQeg66AHlgVCJ2fKa6fl1vnh6adJEPULmn6vZnevvUke
+&lt;/span>&lt;span style="color:#4e9a06">I6U1VcYTKm5dPMrOlY/fGimKlyWvivzVv1laa5TAR2Dt4CfdQncOz+rkXmWjLjkD
+&lt;/span>&lt;span style="color:#4e9a06">87WMiTgtKybsmMLb2yCGSgLSArlSWhbMA0MaZSzAwE9PJKCCMvTANo5644zc8jBe
+&lt;/span>&lt;span style="color:#4e9a06">NQIDAQAB
+&lt;/span>&lt;span style="color:#4e9a06">-----END PUBLIC KEY-----&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/keys/ardc.edu.au/neurodesk.ardc.edu.au.pub
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_USE_GEOAPI=yes&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;CVMFS_SERVER_URL=&amp;#34;http://203.101.231.144/cvmfs/@fqrn@;http://150.136.239.221/cvmfs/@fqrn@;http://132.145.96.34/cvmfs/@fqrn@;http://140.238.170.185/cvmfs/@fqrn@;http://130.61.74.69/cvmfs/@fqrn@;http://152.67.114.42/cvmfs/@fqrn@&amp;#34;&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;CVMFS_KEYS_DIR=&amp;#34;/etc/cvmfs/keys/ardc.edu.au/&amp;#34;&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_HTTP_PROXY=DIRECT&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/default.local
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_QUOTA_LIMIT=5000&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/default.local
+sudo cvmfs_config setup
+&lt;span style="color:#8f5902;font-style:italic"># this is only necessary for WSL:&lt;/span>
+sudo cvmfs_config wsl2_start
+sudo cvmfs_config chksetup
+ls /cvmfs/neurodesk.ardc.edu.au
+sudo cvmfs_talk -i neurodesk.ardc.edu.au host probe
+sudo cvmfs_talk -i neurodesk.ardc.edu.au host info
+cvmfs_config stat -v neurodesk.ardc.edu.au
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="use-of-neurodesk-cvmfs-containers">use of Neurodesk CVMFS containers&lt;/h1>
+&lt;p>The containers are now available in /cvmfs/neurodesk.ardc.edu.au/containers/ and can be started with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">singularity shell /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>make sure that SINGULARITY_BINDPATH include the directories you want to work with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">SINGULARITY_BINDPATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/cvmfs,/mnt,/home&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="wsl-doesnt-support-homedirectory---so-dont-mount-this">WSL doesn&amp;rsquo;t support homedirectory - so don&amp;rsquo;t mount this&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">singularity shell --no-home /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>or configure permanently:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">sudo vi /etc/singularity/singularity.conf
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>set&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">mount home = no
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="use-of-containers-in-the-module-system">use of containers in the module system:&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">export SINGULARITY_BINDPATH=&amp;#39;/cvmfs,/mnt,/home&amp;#39;
+module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+ml fsl
+fslmaths
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Docker</title><link>https://neurodesk.github.io/docs/neurocontainers/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/docker/</guid><description>
+&lt;p>Our containers are automatically built in &lt;a href="https://github.com/NeuroDesk/neurocontainers/">https://github.com/NeuroDesk/neurocontainers/&lt;/a> and hosted on &lt;a href="https://hub.docker.com/orgs/vnmd/repositories">dockerhub&lt;/a> or on &lt;a href="https://github.com/NeuroDesk/neurocontainers/packages">github&lt;/a>&lt;/p>
+&lt;h2 id="pull-docker-containers">Pull Docker containers&lt;/h2>
+&lt;p>e.g. for a julia container
+docker&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker pull vnmd/julia_1.6.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>build singularity image from dockerhub&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application&lt;/p></description></item><item><title>Docs: HPC</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/hpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/hpc/</guid><description>
+&lt;p>One way of running this project on HPCs is via &lt;a href="https://neurodesk.github.io/docs/neurocommand/getting-started/linux/">https://neurodesk.github.io/docs/neurocommand/getting-started/linux/&lt;/a>&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
+&lt;p>Our docker containers are converted to singularity containers and stored on Object storage.&lt;/p>
+&lt;h2 id="download-singularity-containers">Download Singularity Containers&lt;/h2>
+&lt;p>First get an overview which containers are available as Singularity containers:
+&lt;a href="https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt">https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>assign the container name to a variable:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then download the containers. An easy way is to use CURL (e.g. downloading from the US location):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -X GET https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>or from australia&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -X GET https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>A faster way is pulling from multiple storage locations at once using aria2:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">aria2c https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://swift.rc.nectar.org.au/v1/AUTH_dead991e1fa847e3afcca2d3a7041f5d/neurodesk/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="transparent-singularity">Transparent Singularity&lt;/h2>
+&lt;p>The singularity containers can be also be used in combination with our &lt;a href="https://neurodesk.github.io/developers/transparent_singularity//">Transparent Singularity Tool&lt;/a> tool, that wraps the executables inside a container to make them easily available for pipelines. More information can be found here:&lt;/p>
+&lt;p>one example to do this is:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
+git clone https://github.com/NeuroDesk/transparent-singularity &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+./run_transparent_singularity.sh &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Storage</title><link>https://neurodesk.github.io/docs/neurodesktop/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/storage/</guid><description>
+&lt;h1 id="cloud-storage">Cloud-storage&lt;/h1>
+&lt;p>The easiest way to get your data into Neurodesktop is to use a cloud storage provider like CloudStor, Dropbox, OneDrive and their sync tools like OwnCloud, Nextcloud or very flexible tools like rclone or davfs2. Another good option could be to utilize Globus for large amounts of data.&lt;/p>
+&lt;h2 id="nextcloud-and-owncloud-desktop-clients">Nextcloud and Owncloud desktop clients&lt;/h2>
+&lt;p>Under the menu item &amp;ldquo;Accessories&amp;rdquo; you can find &amp;ldquo;Nextcloud&amp;rdquo; and &amp;ldquo;ownCloud&amp;rdquo; desktop sync clients that you can configure with your cloud service accounts.&lt;/p>
+&lt;p>To connect for example to your AARNET cloudstor account you can start the ownCloud client and enter the Server Address:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">https://cloudstor.aarnet.edu.au/plus/
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then generate an app-password here: &lt;a href="https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security">https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security&lt;/a>&lt;/p>
+&lt;h2 id="mounting-webdav-storage-using-davfs2">Mounting webdav storage using davfs2&lt;/h2>
+&lt;p>Another option is to directly mount webdav storage. Here is an example how to mount CloudStor into Neurodesktop:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo mount -t davfs https://cloudstor.aarnet.edu.au/plus/remote.php/webdav/ /data/
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>It then asks you for a username and password, which you can generate here: &lt;a href="https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security">https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security&lt;/a>&lt;/p>
+&lt;h2 id="rclone">Rclone&lt;/h2>
+&lt;p>Rclone is a command line tool that enables the interaction with various cloud services. Here is an example how to setup rclone with CloudStor Aarnet:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://mri.sbollmann.net/index.php/2020/12/08/run-neurodesk-on-oracle-cloud-free-tier">Oracle OCI&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://henryjburg.medium.com/neurodesk-running-on-azure-3e38c590a152">Microsoft Azure&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Cloud</title><link>https://neurodesk.github.io/docs/getting-started/cloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/cloud/</guid><description>
+&lt;li>start the configuration in a terminal window &lt;code>rclone config&lt;/code>&lt;/li>
+&lt;li>Create a new remote: &lt;code>n&lt;/code>&lt;/li>
+&lt;li>Provide a name for the remote: &lt;code>CloudStor&lt;/code>&lt;/li>
+&lt;li>For the “Storage” option choose: &lt;code>webdav&lt;/code>&lt;/li>
+&lt;li>As “url” set: &lt;code>https://cloudstor.aarnet.edu.au/plus/remote.php/webdav/&lt;/code>&lt;/li>
+&lt;li>As “vendor” set OwnCloud: &lt;code>2&lt;/code>&lt;/li>
+&lt;li>Set your CloudStor username after generating an access token &lt;a href="https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security">https://cloudstor.aarnet.edu.au/plus/settings/personal?sectionid=security&lt;/a>&lt;/li>
+&lt;li>Choose to type in your own password: y&lt;/li>
+&lt;li>Enter the Password / Token from the CloudStor App passwords page and confirm it again:&lt;/li>
+&lt;li>Leave blank the bearer_token: &lt;code>&amp;lt;hit Enter&amp;gt;&lt;/code>&lt;/li>
+&lt;li>No advanced config necessary: &lt;code>&amp;lt;hit Enter&amp;gt;&lt;/code>&lt;/li>
+&lt;li>accept the configuration: &lt;code>&amp;lt;hit Enter&amp;gt;&lt;/code>&lt;/li>
+&lt;li>Quit the config: &lt;code>q&lt;/code>&lt;/li>
+&lt;li>Now we can download data to the HPC easily: &lt;code>rclone copy --progress --transfers 8 CloudStor:/raw-data-for-science-paper .&lt;/code>&lt;/li>
+&lt;li>or upload data to CloudStor: &lt;code>rclone copy --progress --transfers 8 . CloudStor:/data-processed&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="globus">Globus&lt;/h2>
+&lt;p>We also provide the globus client, so you can transfer large amounts of data between globus endpoints and Neurodesktop. You can configure it by running:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">/opt/globusconnectpersonal/globusconnectpersonal-*/globusconnectpersonal
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once authenticated you can go to the globus file-manager &lt;a href="https://app.globus.org/file-manager">https://app.globus.org/file-manager&lt;/a> and your neurodesktop instance will be an endpoint for globus.&lt;/p>
+&lt;h1 id="mounting-network-storage-on-your-host-computer">Mounting network storage on your host-computer&lt;/h1>
+&lt;p>The -v C:/neurodesktop-storage:/neurodesktop-storage part of the docker command links the directory &amp;ldquo;neurodesktop-storage&amp;rdquo; on the “C drive” of your Windows computer to the directory /neurodesktop-storage inside the Desktop environment. Everything you store in there will be available inside the desktop and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. -v D:/moredata:/data) - this will mount the directory moredata from your D drive to /data inside neurodesktop. Improtant: the mountpoint inside neurodesktop should be named /data (or anything from this list: &lt;a href="https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt">https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt&lt;/a>) - otherwise most of the tools will not be able to access the data.&lt;/p>
+&lt;h1 id="mount-volume-using-sshfs">Mount volume using SSHFS&lt;/h1>
+&lt;p>It is theoretically possible to mount an SSH target inside Neurodesktop, but it&amp;rsquo;s not a very reliable way of mounting storage:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sshfs -o allow_root USER@TARGET_HOST:TARGET_PATH SOURCE_PATH
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>A better option is to use &lt;code>scp&lt;/code> and copy data from an SSH endpoint:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">scp /neurodesk/myfile user@remoteserver:/data/
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Visual Studio Code</title><link>https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/</guid><description>
+&lt;p>Following guide is for connecting to a Neurodesktop using a VS Code installation running on your host machine.&lt;/p>
+&lt;blockquote>
+&lt;p>Additional instructions if your Neurodesktop is running remotely (i.e. Cloud, HPC, VM)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="pre-requisites">Pre-requisites&lt;/h2>
+&lt;p>Visual Studio Code &lt;em>(&lt;a href="https://code.visualstudio.com">https://code.visualstudio.com&lt;/a>)&lt;/em> installed on your host. Standalone version should work fine&lt;/p>
+&lt;p>Install the following VS Code extensions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker extension&lt;/a> (Required)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote development extension pack&lt;/a>. Includes the following extensions
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers&lt;/a> (Required)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH&lt;/a> (For remote servers)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL&lt;/a> (For windows hosts)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="for-remote-servers">For Remote servers&lt;/h2>
+&lt;p>Open VS Code&lt;/p>
+&lt;p>Open the Command Palette (Ctrl+Shift+P)&lt;/p>
+&lt;p>Find &lt;code>Remote-SSH: Connect to Host...&lt;/code> and select your remote host&lt;/p>
+&lt;blockquote>
+&lt;p>More information on remote hosts available at &lt;a href="https://code.visualstudio.com/docs/remote/ssh">https://code.visualstudio.com/docs/remote/ssh&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>This will open a new VS Code instance connected to the remote host via SSH. You may close the previous VS Code instance.&lt;/p>
+&lt;p>Follow the steps in the next section using the new VS Code instance&lt;/p>
+&lt;h2 id="connecting-to-neurodesktop">Connecting to Neurodesktop&lt;/h2>
+&lt;p>Open VS Code and open a Folder (File &amp;gt; Open Folder)&lt;/p>
+&lt;blockquote>
+&lt;p>This can be any folder (e.g. home or project folder). VS Code runs into errors if no folder is opened.&lt;/p>
+&lt;/blockquote>
+&lt;p>Open the Command Palette (Ctrl+Shift+P).&lt;/p>
+&lt;p>Select &lt;code>Remote-Containers: Attach to Running Container&lt;/code> from the dropdown panel&lt;/p>
+&lt;p>Start typing in &amp;lsquo;neurodesktop. Select &lt;code>/neurodesktop&lt;/code> from the list&lt;/p>
+&lt;p>This should open a VS Code Window connected to the neurodesktop as a Dev Container.&lt;/p>
+&lt;blockquote>
+&lt;p>First time connection will take about a minute, as VS code has to install the VS Code server onto the container. Repeat connections should be faster&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="first-time-connection">First time connection&lt;/h3>
+&lt;blockquote>
+&lt;p>First time connection will default to using neurodesktop root user. We want to default connection to be as the normal user to avoid permission issues.
+To check which user is being use, open the terminal in the neurodesktop VS Code and check if the user is &lt;code>user&lt;/code> or &lt;code>root&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>Follow the following steps to configure your VS Code to connect to neurodesktop as normal user by default&lt;/p>
+&lt;p>Open the Command Palette (Ctrl+Shift+P).&lt;/p>
+&lt;p>Select &lt;code>Remote-Containers: Open Container Configuration File&lt;/code> from the dropdown panel&lt;/p>
+&lt;p>This will open a &lt;code>neurodesktop%3alatest.json&lt;/code> file. Overwrite the file with the following contents&lt;/p>
+&lt;pre class=""
+>&lt;code
+>{
+&amp;#34;workspaceFolder&amp;#34;: &amp;#34;/home/user&amp;#34;,
+&amp;#34;remoteUser&amp;#34;: &amp;#34;user&amp;#34;
+}
+&lt;/code>&lt;/pre>
+&lt;p>Close this VS Code window. Use steps in &lt;a href="https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/#connecting-to-neurodesktop">previous section&lt;/a> to connect normally&lt;/p></description></item><item><title>Docs: Cloud</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/cloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/cloud/</guid><description>
 &lt;h2 id="minimum-system-requirements">Minimum System Requirements&lt;/h2>
 &lt;ol>
-&lt;li>At least 3GB free space for neuromachine base image&lt;/li>
+&lt;li>At least 3GB free space for neurodesktop base image&lt;/li>
 &lt;li>Docker requirements. Details found under &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;h3 id="1-connect-to-cloud-server">1. Connect to cloud server&lt;/h3>
+&lt;p>Open an SSH connection to your cloud instance with port forwarding (USER should be substituted with a username that has admin privileges on the cloud instance, and IP should be substituted with the IP address of the cloud instance)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">ssh -L 8080:127.0.0.1:8080 USER@IP
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-install-docker">2. Install Docker&lt;/h3>
+&lt;p>Install Docker on the cloud instance from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>. Additional information available here: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/getting-started/linux/#installing-docker">https://neurodesk.github.io/docs/neurodesktop/getting-started/linux/#installing-docker&lt;/a>&lt;/p>
+&lt;h3 id="3-run-neurodesktop">3. Run Neurodesktop&lt;/h3>
+&lt;p>Create a local folder ~/neurodesktop-storage on the cloud instance to store persistent data (data that will not disappear if neurodesktop is stopped)&lt;/p>
+&lt;h4 id="option-1-neurodesktoprun">Option 1: NeuroDesktop.run&lt;/h4>
+&lt;p>Download and run the following executable
+&lt;a href="https://github.com/NeuroDesk/neurodesktop/raw/main/Linux_run_Neurodesk/NeuroDesktop.run">https://github.com/NeuroDesk/neurodesktop/raw/main/Linux_run_Neurodesk/NeuroDesktop.run&lt;/a>&lt;/p>
+&lt;h4 id="option-2-using-terminal">Option 2: Using Terminal&lt;/h4>
 &lt;ol>
+&lt;li>Type the folowing command on the cloud instance to automatically download the neurodesktop container and run it (Mac, Windows, Linux commands listed below)&lt;/li>
+&lt;/ol>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="2-9">
+&lt;code>sudo docker run \
+--shm-size=1gb -it --privileged --name neurodesktop \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-p 8080:8080 -h neurodesktop-20211207 \
+vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
+&lt;!-- neurodesktop version found in neurodesk.github.io/data/neurodesktop.toml -->
+&lt;div class="alert alert-primary" role="alert">
+If you get errors in neurodesktop then check if the ~/neurodesktop-storage directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop-storage&lt;/code>
+&lt;/div>
+&lt;ol start="2">
 &lt;li>
-&lt;p>Install Docker from here: &lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>&lt;/p>
+&lt;p>Once neurodesktop is downloaded to the cloud instance (&lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal), leave the terminal open and neurodesktop running (i.e., do not press CTRL+C)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Create a local folder where the downloaded applications will be stored, e.g. ~/neurodesktop&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Open a terminal, and type the folowing command to automatically download the neuromachine container and run it (Mac, Windows, Linux commands listed below)&lt;/p>
+&lt;p>Open a browser on your computer, and go to:&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>sudo docker run --shm-size=1gb -it --privileged --name neuromachine -v ~/neurodesktop:/neurodesktop -e USER=user -p 8080:8080 vnmd/neuromachine:latest
-&lt;/code>&lt;/pre>&lt;p>(notice: if you get errors in neuromachine then check if the ~/neurodesktop directory is writable to all users, otherwise run &lt;code>chmod a+rwx ~/neurodesktop&lt;/code>)&lt;/p>
-&lt;ol start="4">
-&lt;li>Once neuromachine is downloaded i.e. &lt;code>guacd[77]: INFO: Listening on host 127.0.0.1, port 4822&lt;/code> is displayed in terminal, open a browser and go to:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>http://localhost:8080/#/?username=user&amp;amp;password=password
-&lt;/code>&lt;/pre>&lt;p>or open a VNC Client and connect to port 5901 (for this -p 5901:5901 has to be added to the docker call)&lt;/p>
-&lt;ol start="5">
-&lt;li>neuromachine is ready to use!&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">http://localhost:8080/#/?username=user&amp;amp;password=password
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>neurodesktop is ready to use!&lt;/li>
 &lt;/ol>
 &lt;ul>
 &lt;li>User is &lt;code>user&lt;/code>&lt;/li>
 &lt;li>Password is &lt;code>password&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h2 id="stopping-neuromachine">Stopping neuromachine:&lt;/h2>
-&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neuromachine&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
+&lt;ol start="5">
+&lt;li>if your computer hibernated/rebooted/etc., if the network connnection has been temprarily lost, or if you want to connect to the same instance of Neurodesktop from another computer, only repeat steps 1 and 6, and you will be reconnected to neurodesktop&lt;/li>
+&lt;/ol>
+&lt;h2 id="stopping-neurodesktop">Stopping neurodesktop:&lt;/h2>
+&lt;p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error (&amp;quot;&amp;hellip; The container name &amp;ldquo;/neurodesktop&amp;rdquo; is already in use&amp;hellip;&amp;quot;)&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Click on the terminal from which you ran neuromachine&lt;/p>
+&lt;p>Click on the terminal from which you ran neurodesktop&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Press control-C&lt;/p>
+&lt;p>Press Ctrl-C&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Type:&lt;/p>
+&lt;p>Run:&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker stop neuromachine
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>Type:&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>docker rm neuromachine
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Example Page</title><link>https://neurodesk.github.io/docs/development/example-page/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/development/example-page/</guid><description>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
-&lt;/div>
-&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
-&lt;p>There should be whitespace between paragraphs. Vape migas chillwave sriracha poutine try-hard distillery. Tattooed shabby chic small batch, pabst art party heirloom letterpress air plant pop-up. Sustainable chia skateboard art party banjo cardigan normcore affogato vexillologist quinoa meggings man bun master cleanse shoreditch readymade. Yuccie prism four dollar toast tbh cardigan iPhone, tumblr listicle live-edge VHS. Pug lyft normcore hot chicken biodiesel, actually keffiyeh thundercats photo booth pour-over twee fam food truck microdosing banh mi. Vice activated charcoal raclette unicorn live-edge post-ironic. Heirloom vexillologist coloring book, beard deep v letterpress echo park humblebrag tilde.&lt;/p>
-&lt;p>90&amp;rsquo;s four loko seitan photo booth gochujang freegan tumeric listicle fam ugh humblebrag. Bespoke leggings gastropub, biodiesel brunch pug fashion axe meh swag art party neutra deep v chia. Enamel pin fanny pack knausgaard tofu, artisan cronut hammock meditation occupy master cleanse chartreuse lumbersexual. Kombucha kogi viral truffaut synth distillery single-origin coffee ugh slow-carb marfa selfies. Pitchfork schlitz semiotics fanny pack, ugh artisan vegan vaporware hexagon. Polaroid fixie post-ironic venmo wolf ramps &lt;strong>kale chips&lt;/strong>.&lt;/p>
-&lt;blockquote>
-&lt;p>There should be no margin above this first sentence.&lt;/p>
-&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
-&lt;p>There should be no margin below this final sentence.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="first-header-2">First Header 2&lt;/h2>
-&lt;p>This is a normal paragraph following a header. Knausgaard kale chips snackwave microdosing cronut copper mug swag synth bitters letterpress glossier &lt;strong>craft beer&lt;/strong>. Mumblecore bushwick authentic gochujang vegan chambray meditation jean shorts irony. Viral farm-to-table kale chips, pork belly palo santo distillery activated charcoal aesthetic jianbing air plant woke lomo VHS organic. Tattooed locavore succulents heirloom, small batch sriracha echo park DIY af. Shaman you probably haven&amp;rsquo;t heard of them copper mug, crucifix green juice vape &lt;em>single-origin coffee&lt;/em> brunch actually. Mustache etsy vexillologist raclette authentic fam. Tousled beard humblebrag asymmetrical. I love turkey, I love my job, I love my friends, I love Chardonnay!&lt;/p>
-&lt;p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.&lt;/p>
-&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
-&lt;p>Scenester tumeric pickled, authentic crucifix post-ironic fam freegan VHS pork belly 8-bit yuccie PBR&amp;amp;B. &lt;strong>I love this life we live in&lt;/strong>.&lt;/p>
-&lt;h2 id="second-header-2">Second Header 2&lt;/h2>
-&lt;blockquote>
-&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="header-3">Header 3&lt;/h3>
-&lt;pre tabindex="0">&lt;code>This is a code block following a header.
-&lt;/code>&lt;/pre>&lt;p>Next level leggings before they sold out, PBR&amp;amp;B church-key shaman echo park. Kale chips occupy godard whatever pop-up freegan pork belly selfies. Gastropub Belinda subway tile woke post-ironic seitan. Shabby chic man bun semiotics vape, chia messenger bag plaid cardigan.&lt;/p>
-&lt;h4 id="header-4">Header 4&lt;/h4>
-&lt;ul>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;/ul>
-&lt;h5 id="header-5">Header 5&lt;/h5>
-&lt;ol>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;/ol>
-&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;pre class="language-shell command-line" data-prompt="$">
+&lt;code>sudo docker stop neurodesktop &amp;&amp; sudo docker rm neurodesktop&lt;/code>
+&lt;/pre>
+&lt;h2 id="portforwarding-to-an-ios-ipad">Portforwarding to an iOS ipad&lt;/h2>
+&lt;p>You can also connect to this cloud instance from your iOS device :) For this install &lt;a href="https://webssh.net/documentation/help/networking/port-forwarding/">https://webssh.net/documentation/help/networking/port-forwarding/&lt;/a> and create a tunnel (the tool is free for one connection). Start the docker container in a screen session and then connect to it from your ios device in the browser.&lt;/p>
+&lt;h2 id="cloud-provider-specific-tutorials">Cloud-provider specific Tutorials&lt;/h2>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>What&lt;/th>
-&lt;th>Follows&lt;/th>
+&lt;th>Cloud provider&lt;/th>
+&lt;th>link&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
+&lt;td>Oracle&lt;/td>
+&lt;td>&lt;a href="https://mri.sbollmann.net/index.php/2020/12/08/run-neurodesk-on-oracle-cloud-free-tier/">https://mri.sbollmann.net/index.php/2020/12/08/run-neurodesk-on-oracle-cloud-free-tier/&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
+&lt;td>Azure&lt;/td>
+&lt;td>&lt;a href="https://henryjburg.medium.com/neurodesk-running-on-azure-3e38c590a152">https://henryjburg.medium.com/neurodesk-running-on-azure-3e38c590a152&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;hr>
-&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
-&lt;hr>
-&lt;p>Here is an unordered list:&lt;/p>
-&lt;ul>
-&lt;li>Liverpool F.C.&lt;/li>
-&lt;li>Chelsea F.C.&lt;/li>
-&lt;li>Manchester United F.C.&lt;/li>
-&lt;/ul>
-&lt;p>And an ordered list:&lt;/p>
-&lt;ol>
-&lt;li>Michael Brecker&lt;/li>
-&lt;li>Seamus Blake&lt;/li>
-&lt;li>Branford Marsalis&lt;/li>
-&lt;/ol>
-&lt;p>And an unordered task list:&lt;/p>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a Hugo theme&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
-&lt;/ul>
-&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
-&lt;ul>
-&lt;li>&lt;input disabled="" type="checkbox"> Pack bags&lt;/li>
-&lt;li>?&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Travel!&lt;/li>
-&lt;/ul>
-&lt;p>And a nested list:&lt;/p>
-&lt;ul>
-&lt;li>Jackson 5
-&lt;ul>
-&lt;li>Michael&lt;/li>
-&lt;li>Tito&lt;/li>
-&lt;li>Jackie&lt;/li>
-&lt;li>Marlon&lt;/li>
-&lt;li>Jermaine&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>TMNT
-&lt;ul>
-&lt;li>Leonardo&lt;/li>
-&lt;li>Michelangelo&lt;/li>
-&lt;li>Donatello&lt;/li>
-&lt;li>Raphael&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Definition lists can be used with Markdown syntax. Definition headers are bold.&lt;/p>
-&lt;dl>
-&lt;dt>Name&lt;/dt>
-&lt;dd>Godzilla&lt;/dd>
-&lt;dt>Born&lt;/dt>
-&lt;dd>1952&lt;/dd>
-&lt;dt>Birthplace&lt;/dt>
-&lt;dd>Japan&lt;/dd>
-&lt;dt>Color&lt;/dt>
-&lt;dd>Green&lt;/dd>
-&lt;/dl>
-&lt;hr>
-&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Artist&lt;/th>
-&lt;th>Album&lt;/th>
-&lt;th>Year&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Michael Jackson&lt;/td>
-&lt;td>Thriller&lt;/td>
-&lt;td>1982&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Prince&lt;/td>
-&lt;td>Purple Rain&lt;/td>
-&lt;td>1984&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Beastie Boys&lt;/td>
-&lt;td>License to Ill&lt;/td>
-&lt;td>1986&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Artist&lt;/th>
-&lt;th>Album&lt;/th>
-&lt;th>Year&lt;/th>
-&lt;th>Label&lt;/th>
-&lt;th>Awards&lt;/th>
-&lt;th>Songs&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Michael Jackson&lt;/td>
-&lt;td>Thriller&lt;/td>
-&lt;td>1982&lt;/td>
-&lt;td>Epic Records&lt;/td>
-&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
-&lt;td>Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Prince&lt;/td>
-&lt;td>Purple Rain&lt;/td>
-&lt;td>1984&lt;/td>
-&lt;td>Warner Brothers Records&lt;/td>
-&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
-&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Beastie Boys&lt;/td>
-&lt;td>License to Ill&lt;/td>
-&lt;td>1986&lt;/td>
-&lt;td>Mercury Records&lt;/td>
-&lt;td>noawardsbutthistablecelliswide&lt;/td>
-&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
-&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
-&lt;p>Code can also be shown in a block element.&lt;/p>
-&lt;pre tabindex="0">&lt;code>foo := &amp;quot;bar&amp;quot;;
-bar := &amp;quot;foo&amp;quot;;
-&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
-&lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Language&lt;/th>
-&lt;th>Code&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Javascript&lt;/td>
-&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Ruby&lt;/td>
-&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;p>Small images should be shown at their actual size.&lt;/p>
-&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
-&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
-&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
-&lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
-&lt;h2 id="components">Components&lt;/h2>
-&lt;h3 id="alerts">Alerts&lt;/h3>
-&lt;p>
+&lt;h2 id="using-an-rdp-client">Using an RDP Client&lt;/h2>
+&lt;p>Open an SSH connection to your cloud instance with the following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">ssh -L 3390:127.0.0.1:3390 USER@IP
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Startup Neurodesktop using the following command:&lt;/p>
+&lt;pre class="language-shell command-line" data-prompt="$" data-output="2-6">
+&lt;code>sudo docker run \
+--shm-size=1gb -it --privileged --name neurodesktop \
+-v ~/neurodesktop-storage:/neurodesktop-storage \
+-e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
+-p 3390:3389 -p 8080:8080 -h neurodesktop-20211207 \
+vnmd/neurodesktop:20211207&lt;/code>
+&lt;/pre>
 &lt;div class="alert alert-primary" role="alert">
-This is an alert.
+If you want to connect via RDP using a different port, replace 3390 in the previous two steps and next step with your port
 &lt;/div>
+&lt;p>Open your RDP client and connect to Computer &lt;code>localhost:3390&lt;/code>&lt;/p>
+&lt;p>Use the following details to login if prompted&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">username: user
+password: password
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Troubleshooting</title><link>https://neurodesk.github.io/docs/neurodesktop/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/troubleshooting/</guid><description>
+&lt;p>Neurodesk is an open-source project that is always evolving. If you are experiencing an issue not listed here, please open a &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/issues">new issue&lt;/a>, so that we can aim to solve it and update our help documentation.&lt;/p>
+&lt;p>To ask questions or suggest new features, &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/discussions">join the discussion&lt;/a> on github.&lt;/p>
+&lt;h2 id="docker-cannot-connect-to-the-docker-daemon-at-unixvarrundockersock-is-the-docker-daemon-running">docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.&lt;/h2>
+&lt;p>This is usually a docker-related error, not related to neurodesktop itself. To troubleshoot docker, we can try a simpler container first:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker run hello-world
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Try the following solutions (in this order, until the above command works)&lt;/p>
+&lt;ol>
+&lt;li>Win/Mac: Open docker GUI and accept T&amp;amp;Cs. Check that the docker engine is running&lt;/li>
+&lt;li>Close and open the terminal and retry.&lt;/li>
+&lt;li>Log out and login again, or restart the machine (current user environment doesnt fully know docker is running)&lt;/li>
+&lt;li>Add your user to the OS docker group (current user doesnt have permission to run docker)&lt;/li>
+&lt;li>docker.sock permissions need to be changed (raise a github issue &lt;a href="https://github.com/NeuroDesk/neurodesktop/issues/new/choose">here&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;h2 id="windows-users-wsl-not-installed-properly">Windows users: WSL not installed properly&lt;/h2>
+&lt;p>The Docker engine relies on the Windows subsystem for Linux (&lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL&lt;/a>) to run on a windows machine.&lt;/p>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
-This is an alert with a title.
+We recommend the &lt;em>manual&lt;/em> install instructions, as the simplified install requires an upgrade to a preview build of Windows that may be unstable.
 &lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-This is an alert with a title and &lt;strong>Markdown&lt;/strong>.
-&lt;/div>
-&lt;div class="alert alert-success" role="alert">
-This is a successful alert.
-&lt;/div>
-&lt;div class="alert alert-warning" role="alert">
-This is a warning.
-&lt;/div>
-&lt;div class="alert alert-warning" role="alert">
-&lt;h4 class="alert-heading">Warning&lt;/h4>
-This is a warning with a title.
-&lt;/div>
-&lt;/p>
-&lt;h2 id="another-heading">Another Heading&lt;/h2>
-&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="this-document">This Document&lt;/h3>
-&lt;p>Inguina genus: Anaphen post: lingua violente voce suae meus aetate diversi. Orbis unam nec flammaeque status deam Silenum erat et a ferrea. Excitus rigidum ait: vestro et Herculis convicia: nitidae deseruit coniuge Proteaque adiciam &lt;em>eripitur&lt;/em>? Sitim noceat signa &lt;em>probat quidem&lt;/em>. Sua longis &lt;em>fugatis&lt;/em> quidem genae.&lt;/p>
-&lt;h3 id="pixel-count">Pixel Count&lt;/h3>
-&lt;p>Tilde photo booth wayfarers cliche lomo intelligentsia man braid kombucha vaporware farm-to-table mixtape portland. PBR&amp;amp;B pickled cornhole ugh try-hard ethical subway tile. Fixie paleo intelligentsia pabst. Ennui waistcoat vinyl gochujang. Poutine salvia authentic affogato, chambray lumbersexual shabby chic.&lt;/p>
-&lt;h3 id="contact-info">Contact Info&lt;/h3>
-&lt;p>Plaid hell of cred microdosing, succulents tilde pour-over. Offal shabby chic 3 wolf moon blue bottle raw denim normcore poutine pork belly.&lt;/p>
-&lt;h3 id="external-links">External Links&lt;/h3>
-&lt;p>Stumptown PBR&amp;amp;B keytar plaid street art, forage XOXO pitchfork selvage affogato green juice listicle pickled everyday carry hashtag. Organic sustainable letterpress sartorial scenester intelligentsia swag bushwick. Put a bird on it stumptown neutra locavore. IPhone typewriter messenger bag narwhal. Ennui cold-pressed seitan flannel keytar, single-origin coffee adaptogen occupy yuccie williamsburg chillwave shoreditch forage waistcoat.&lt;/p>
-&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
-&lt;/code>&lt;/pre></description></item><item><title>Docs: Demo</title><link>https://neurodesk.github.io/docs/getting-started/demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/getting-started/demo/</guid><description>
+&lt;p>If WSL is properly installed, the &lt;em>Resources&lt;/em> tab of the Docker settings should look something like this:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_WSL_correct.png" alt="Docker_WSL_correct" title="Docker_WSL_correct">&lt;/p>
+&lt;p>However, if WSL is missing or incorrectly configured, the &lt;em>Resources&lt;/em> tab of the Docker settings may look something like this:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_WSL_incorrect.png" alt="Docker_WSL_incorrect" title="Docker_WSL_incorrect">&lt;/p>
+&lt;p>If this is the case, follow the manual install instructions to install &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL 2&lt;/a> (including installation of Ubuntu through Microsoft Store).&lt;/p>
+&lt;h2 id="windows-users-not-enough-free-space-on-the-partition-in-windows-and-wsl2">Windows users: Not enough free space on the partition in Windows and WSL2&lt;/h2>
+&lt;p>This could help: &lt;a href="https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html">https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html&lt;/a>&lt;/p>
+&lt;h2 id="windows-users-failure-to-connect-to-neurodesktop-in-firefox">Windows users: Failure to connect to Neurodesktop in Firefox&lt;/h2>
+&lt;p>We recommend using Microsoft Edge or Google Chrome to access Neurodesktop.&lt;/p>
+&lt;h2 id="trouble-installing-neurodesk-images">Trouble installing neurodesk images&lt;/h2>
+&lt;p>This may be a memory issue. First, ensure that there is enough free space on the disk. If there is, try resetting docker settings and data. To do this:&lt;/p>
+&lt;ol>
+&lt;li>Open the docker engine&lt;/li>
+&lt;li>Navigate to &amp;ldquo;Troubleshooting&amp;rdquo; (the bug icon in the top right).&lt;/li>
+&lt;li>Click &amp;ldquo;Reset to factory defaults&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_troubleshooting.png" alt="Docker_troubleshooting" title="Docker_troubleshooting">&lt;/p>
+&lt;p>If you are still experiencing issues after this, you may need to update docker to the latest version. This can be achieved through &amp;ldquo;settings&amp;rdquo; in the docker engine, or (on windows) by right clicking on the docker tray icon:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_update.png" alt="Docker_update" title="Docker_update">&lt;/p></description></item><item><title>Docs: Release History</title><link>https://neurodesk.github.io/docs/neurodesktop/release-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/release-history/</guid><description>
+&lt;h2 id="development">development&lt;/h2>
+&lt;ul>
+&lt;li>neurodesktop can now be accessed via native RDP client as well (e.g. for multi-monitor support): &lt;a href="https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/#using-an-rdp-client">https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/#using-an-rdp-client&lt;/a>&lt;/li>
+&lt;li>there is a new Help button in the menu :)&lt;/li>
+&lt;li>updates of ants 2.3.4 (now includes Scripts as well) + newly added 2.3.5&lt;/li>
+&lt;li>new version of QSMxT 1.1.8 20211211&lt;/li>
+&lt;li>new version of Spinal Cord Toolbox 5.4&lt;/li>
+&lt;/ul>
+&lt;h2 id="20211207">20211207&lt;/h2>
+&lt;ul>
+&lt;li>Physio toolbox compiled and added to SPM + update of SPM&lt;/li>
+&lt;li>added brainstorm&lt;/li>
+&lt;li>new neurodesktop container management scripts for Linux, Mac and Windows: &lt;a href="https://github.com/NeuroDesk/neurodesktop">https://github.com/NeuroDesk/neurodesktop&lt;/a>&lt;/li>
+&lt;li>added fieldtrip&lt;/li>
+&lt;li>Datalad is now in the main image, so datalad run should work&lt;/li>
+&lt;li>added Oshy-X segmentation tool&lt;/li>
+&lt;li>updated freesurfer 7.2.0&lt;/li>
+&lt;/ul>
+&lt;h2 id="20211028">20211028&lt;/h2>
+&lt;ul>
+&lt;li>added EEGLAB&lt;/li>
+&lt;/ul>
+&lt;h2 id="20211018">20211018&lt;/h2>
+&lt;ul>
+&lt;li>added Rstudio, R and multiple R packages (plotly, car, tidyverse, &amp;hellip;)&lt;/li>
+&lt;li>added ClearSWI and ROMEO for MRI phase processing (including new Tutorials: &lt;a href="https://neurodesk.github.io/tutorials/phase_processing/">https://neurodesk.github.io/tutorials/phase_processing/&lt;/a>)&lt;/li>
+&lt;li>added more categories in applications menu (Body, Electrophysiology, Hippocampus, Phase Processing, Rodent Imaging, Shape Analysis, Spine, Statistics)&lt;/li>
+&lt;li>bugfix: improved startup time of the desktop container (miniconda in homedirectory was causing chmod slowdown)&lt;/li>
+&lt;li>bugfix: ssh, vnc and rdp servers are now restarted in case the container was stopped and started again (e.g. on Standby)&lt;/li>
+&lt;/ul>
+&lt;h2 id="20210929">20210929&lt;/h2>
+&lt;ul>
+&lt;li>fixed naming of aidmri to aidamri and added new category &amp;ldquo;Rodent Imaging&amp;rdquo;&lt;/li>
+&lt;li>updated all tool icons and updated neurodesk icon including background image&lt;/li>
+&lt;li>VScode now stores settings in persistent storage /neurodesktop-storage and with this keeps extensions and settings across different neurodesktop versions&lt;/li>
+&lt;li>docker layers are now cached, so updating the desktop to the next version is very fast and consumes less disk space locally&lt;/li>
+&lt;li>default theme of terminal changed from Solarized to Tango as the old theme was hiding information in tools like htop (same font colour on same background&amp;hellip;)&lt;/li>
+&lt;/ul>
+&lt;h2 id="20210923">20210923&lt;/h2>
+&lt;ul>
+&lt;li>removed faulty mriqc 0.15.2 container&lt;/li>
+&lt;li>neurodesk.github.io is now starting page in firefox browser&lt;/li>
+&lt;/ul>
+&lt;h2 id="20210918">20210918&lt;/h2>
+&lt;ul>
+&lt;li>added mriqc 0.16.1 and mrtrix 3.0.3&lt;/li>
+&lt;/ul>
+&lt;h2 id="20210917">20210917&lt;/h2>
+&lt;ul>
+&lt;li>included more tools for connecting to cloud storage services (rclone, owncloud, nextcloud, davfs2, globus). For more info: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/li>
+&lt;li>styling of desktop interface, including background wallpaper and colour scheme in terminal window&lt;/li>
+&lt;li>new categories in menu system (visualization) and added more categories to tools&lt;/li>
+&lt;/ul>
+&lt;h2 id="20210916">20210916&lt;/h2>
+&lt;ul>
+&lt;li>This is the first version of the newly renamed and rebuild neurodesktop (previously vnm and neuromachine)&lt;/li>
+&lt;li>containers are mounted by default from CVMFS, but this can be deactivated by adding &lt;code>-e CVMFS_DISABLE=true&lt;/code> to the docker call&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Demo</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/demo/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
-&lt;p>This page needs to link to MyBinder demo&lt;/p>
+&lt;p>We are working on a demo that directly runs in your browser without the need to install anything. But it&amp;rsquo;s not quite ready yet &amp;hellip;&lt;/p>
 &lt;/div></description></item></channel></rss>

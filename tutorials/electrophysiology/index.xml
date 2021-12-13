@@ -1,0 +1,132 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Electrophysiology</title><link>https://neurodesk.github.io/tutorials/electrophysiology/</link><description>Recent content in Electrophysiology on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/tutorials/electrophysiology/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Analysing EEG Data with MNE</title><link>https://neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</guid><description>
+&lt;h2 id="getting-started">Getting started&lt;/h2>
+&lt;p>Open Visual Studio Code:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1">&lt;/p>
+&lt;p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut2.png" alt="EEGtut2" title="EEGtut2">&lt;/p>
+&lt;p>If this is your first time opening a Jupyter notebook on vscode in neurodesktop, you will see the following popup. If so, click “install” to install the vscode extensions for Jupyter.&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut3.png" alt="EEGtut3" title="EEGtut3">&lt;/p>
+&lt;h2 id="set-up-an-environment">Set up an environment&lt;/h2>
+&lt;blockquote>
+&lt;p>Coming soon! Neurodesktop will soon feature a number of built in conda environments for standard analyses of behavioural, physiological, and encephalographic data.&lt;/p>
+&lt;/blockquote>
+&lt;p>From the top menu in vscode, select Terminal-&amp;gt;New Terminal, or hit [Ctrl]+[Shift]+[`]. From this terminal, create and activate a new conda environment in which to run mne-python.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">conda create --name=mne --channel=conda-forge mne python=3 jupyter nb_conda_kernels
+conda activate mne
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once your new environment is activated, in the top right corner of your empty jupyter notebook, click “Select Kernel”:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut4.png" alt="EEGtut4" title="EEGtut4">&lt;/p>
+&lt;p>Then, select the instance of Python associated with the environment you have just created (“mne”). If your new environment does not appear in the list, you may need to restart vscode:&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut5.png" alt="EEGtut5" title="EEGtut5">&lt;/p>
+&lt;p>At this point you may also be prompted to install the vscode packages for python. Once you have installed these, you’re ready to rumble!&lt;/p>
+&lt;h2 id="download-sample-data">Download sample data&lt;/h2>
+&lt;p>In the terminal, input the following code to download some BIDS formatted sample EEG data:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
+osf -p C689U fetch Data_sample.zip /neurodesktop-storage/EEGDEMO/Data_sample.zip
+unzip Data_sample.zip
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This is a small dataset with only 5 EEG channels from a single participant. The participant is viewing a frequency tagged display and is cued to attend to dots tagged at one frequency or another (6 Hz, 7.5 Hz) for long, 15 s trials. To read more about the dataset, click &lt;a href="https://osf.io/c689u/">here&lt;/a>&lt;/p>
+&lt;h2 id="plotting-settings">Plotting settings&lt;/h2>
+&lt;p>To make sure our plots retain their interactivity, set the following line at the top of your notebook:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">%matplotlib qt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This will mean your figures pop out as individual, interactive plots that will allow you to explore the data, rather than as static, inline plots. You can switch “qt” to “inline” to switch back to default, inline plotting.&lt;/p>
+&lt;h2 id="loading-and-processing-data">Loading and processing data&lt;/h2>
+&lt;blockquote>
+&lt;p>NOTE: MNE has many helpful tutorials which delve into data processing and analysis using MNE-python in much further detail. These can be found &lt;a href="https://mne.tools/stable/auto_tutorials/index.html">here&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Begin by importing the necessary modules and creating a pointer to the data:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Interactive plotting
+%matplotlib qt
+# Import modules
+import os
+import numpy as np
+import mne
+# Load data
+sample_data_folder = &amp;#39;/home/user/Desktop/neurodesktop-storage/EEGDemo/Data_sample&amp;#39;
+sample_data_raw_file = os.path.join(sample_data_folder, &amp;#39;sub-01&amp;#39;, &amp;#39;eeg&amp;#39;,
+&amp;#39;sub-01_task-FeatAttnDec_eeg.vhdr&amp;#39;)
+raw = mne.io.read_raw_brainvision(sample_data_raw_file , preload=True)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>the raw.info structure contains information about the dataset:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Display data info
+print(raw)
+print(raw.info)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This data file did not include a montage. Lets create one using standard values for the electrodes we have:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Create montage
+montage = {&amp;#39;Iz&amp;#39;: [0, -110, -40],
+&amp;#39;Oz&amp;#39;: [0, -105, -15],
+&amp;#39;POz&amp;#39;: [0, -100, 15],
+&amp;#39;O1&amp;#39;: [-40, -106, -15],
+&amp;#39;O2&amp;#39;: [40, -106, -15],
+}
+montageuse = mne.channels.make_dig_montage(ch_pos=montage, lpa=[-82.5, -19.2, -46], nasion=[0, 83.2, -38.3], rpa=[82.2, -19.2, -46]) # based on mne help file on setting 10-20 montage
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Next, lets visualise the data.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">raw.plot()
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This should open an interactive window in which you can scroll through the data. See the MNE documentation for help on how to customise this plot.&lt;/p>
+&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut6.png" alt="EEGtut6" title="EEGtut6">&lt;/p>
+&lt;p>If, upon visual inspection, you decide to exclude one of the channels, you can specify this in raw.info[‘bads’] now. For example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">raw.info[&amp;#39;bads&amp;#39;] = [&amp;#39;POz&amp;#39;]
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Next, we’ll extract our events. The trigger channel in this file is incorrectly scaled, so we’ll correct that before we extract our events:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Correct trigger scaling
+trigchan = raw.pick(&amp;#39;TRIG&amp;#39;).copy()
+trigchan._data = trigchan._data*1000000
+# Extract events
+events = mne.find_events(trigchan, stim_channel=&amp;#39;TRIG&amp;#39;, consecutive=True, initial_event=True, verbose=True)
+print(&amp;#39;Found %s events, first five:&amp;#39; % len(events))
+print(events[:5])
+# Plot events
+mne.viz.plot_events(events, raw.info[&amp;#39;sfreq&amp;#39;], raw.first_samp)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut7.png" alt="EEGtut7" title="EEGtut7">&lt;/p>
+&lt;p>Now that we’ve extracted our events, we can extract our EEG channels and do some simple pre-processing:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># select
+eeg_data = raw.copy().pick_types(eeg=True, exclude=[&amp;#39;TRIG&amp;#39;])
+# Set montage
+eeg_data.info.set_montage(montageuse)
+# Interpolate
+eeg_data_interp = eeg_data.copy().interpolate_bads(reset_bads=True)
+# Filter Data
+eeg_data_interp.filter(l_freq=1, h_freq=45, h_trans_bandwidth=0.1)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let’s visualise our data again now that it’s cleaner:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">#plot results again, this time with some events and scaling.
+eeg_data_interp.plot(events=events, duration=10.0, scalings=dict(eeg=0.00005), color=&amp;#39;k&amp;#39;, event_color=&amp;#39;r&amp;#39;)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut8.png" alt="EEGtut8" title="EEGtut8">&lt;/p>
+&lt;p>That’s looking good! We can even see hints of the frequency tagging. It’s about time to epoch our data.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Epoch to events of interest
+event_id = {&amp;#39;attend 6Hz K&amp;#39;: 23, &amp;#39;attend 7.5Hz K&amp;#39;: 27}
+# Extract 15 s epochs relative to events, baseline correct, linear detrend, and reject
+# epochs where eeg amplitude is &amp;gt; 400
+epochs = mne.Epochs(eeg_data_interp, events, event_id=event_id, tmin=0,
+tmax=15, baseline=(0, 0), reject=dict(eeg=0.000400), detrend=1)
+# Drop bad trials
+epochs.drop_bad()
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can average these epochs to form Event Related Potentials (ERPs):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Average erpochs to form ERPs
+attend6 = epochs[&amp;#39;attend 6Hz K&amp;#39;].average()
+attend75 = epochs[&amp;#39;attend 7.5Hz K&amp;#39;].average()
+# Plot ERPs
+evokeds = dict(attend6=list(epochs[&amp;#39;attend 6Hz K&amp;#39;].iter_evoked()),
+attend75=list(epochs[&amp;#39;attend 7.5Hz K&amp;#39;].iter_evoked()))
+mne.viz.plot_compare_evokeds(evokeds, combine=&amp;#39;mean&amp;#39;)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut9.png" alt="EEGtut9" title="EEGtut9">&lt;/p>
+&lt;p>In this plot, we can see that the data are frequency tagged. While these data were collected, the participant was performing an attention task in which two visual stimuli were flickering at 6 Hz and 7.5 Hz respectively. On each trial the participant was cued to monitor one of these two stimuli for brief bursts of motion. From previous research, we expect that the steady-state visual evoked potential (SSVEP) should be larger at the attended frequency than the unattended frequency. Lets check if this is true.&lt;/p>
+&lt;p>We&amp;rsquo;ll begin by exporting our epoched EEG data to a numpy array&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Preallocate
+n_samples = attend6.data.shape[1]
+sampling_freq = 1200 # sampling frequency
+epochs_np = np.empty((n_samples, 2) )
+# Get data - averaging across EEG channels
+epochs_np[:,0] = attend6.data.mean(axis=0)
+epochs_np[:,1] = attend75.data.mean(axis=0)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Next, we can use a Fast Fourier Transform (FFT) to transform the data from the time domain to the frequency domain. For this, we&amp;rsquo;ll need to import the FFT packages from scipy:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">from scipy.fft import fft, fftfreq, fftshift
+# Get FFT
+fftdat = np.abs(fft(epochs_np, axis=0)) / n_samples
+freq = fftfreq(n_samples, d=1 / sampling_freq) # get frequency bins
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now that we have our frequency transformed data, we can plot our two conditions to assess whether attention altered the SSVEP amplitudes:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+fig,ax = plt.subplots(1, 1)
+ax.plot(freq, fftdat[:,0], &amp;#39;-&amp;#39;, label=&amp;#39;attend 6Hz&amp;#39;, color=[78 / 255, 185 / 255, 159 / 255])
+ax.plot(freq, fftdat[:,1], &amp;#39;-&amp;#39;, label=&amp;#39;attend 7.5Hz&amp;#39;, color=[236 / 255, 85 / 255, 58 / 255])
+ax.set_xlim(4, 17)
+ax.set_ylim(0, 1e-6)
+ax.set_title(&amp;#39;Frequency Spectrum&amp;#39;)
+ax.legend()
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut10.PNG" alt="EEGtut10" title="EEGtut10">&lt;/p>
+&lt;p>This plot shows that the SSVEPs were indeed modulated by attention in the direction we would expect! Congratulations! You’ve run your first analysis of EEG data in neurodesktop.&lt;/p></description></item></channel></rss>
