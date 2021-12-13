@@ -66,7 +66,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.faeb865a42f8e4f007f0f9ddd6273670.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/offline-search-index.fb5afe8f46c2330c84a1e71aa66a3c80.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -105,14 +105,41 @@ This is the multi-page printable view of this section.
 <p>Twitter: @Nameshandle</p>
 </blockquote>
 <p>Welcome to the workflow template, which you can use to contribute your own neurodesk workflow to our documentation. We aim to collect a wide variety of workflows representing the spectrum of tools available under the neurodesk architechture and the diversity in how researchers might apply them. Please add plenty of descriptive detail and make sure that all steps of the workflow work before submitting the tutorial.</p>
-<p>You can embelish your text in this tutorial using markdown conventions; text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>. You can also add <a href=https://neurodesk.github.io/>Links</a>.</p>
+<h2 id=how-to-contribute-a-new-workflow>How to contribute a new workflow</h2>
+<p>Begin by creating a copy of our documentation that you can edit:</p>
+<ol>
+<li>Visit the github repository for the Neurodesk documentation (<a href=https://github.com/NeuroDesk/neurodesk.github.io)>https://github.com/NeuroDesk/neurodesk.github.io)</a>.</li>
+<li>Fork the repository (see <a href=https://docs.github.com/en/get-started/quickstart/fork-a-repo>here</a> for more information on forking github repositories).</li>
+</ol>
+<ul>
+<li><em>You should now have your own copy of the documentation, which you can alter without affecting our official documentation. You should see a panel stating &ldquo;This branch is up to date with Neurodesk:hugo-docsy.&rdquo; If someone else makes a change to the official documentation, the statement will change to reflect this. You can bring your repository up to date by clicking &ldquo;Fetch upstream&rdquo;.</em></li>
+</ul>
+<p>Next, create your workflow:</p>
+<ol>
+<li>Clone your forked version of our documentation to a location of your choice on your computer (see <a href=https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository>here</a> for more info).</li>
+<li>In this new folder, navigate to &ldquo;neurodesk.github.io/content/en/tutorials&rdquo; and then navigate to the subfolder you believe your workflow belongs in (e.g. &ldquo;/functional_imaging&rdquo;).</li>
+<li>Create a new, appropriately named markdown file to house your workflow. (e.g. &ldquo;/physio.md&rdquo;)</li>
+<li>Open this file in the editor of your choice (we recommend <a href=https://code.visualstudio.com/>vscode</a>) and populate it with your workflow! Please use this template as a style guide, it can be located at &ldquo;neurodesk.github.io\content\en\tutorials\documentation\workflowtemplate.md&rdquo;. You&rsquo;re also welcome to have a look at other the workflows already documented on our website for inspiration.</li>
+</ol>
+<p>Finally, contribute your new workflow to the official documentation!:</p>
+<ol>
+<li>Once you are happy with your workflow, make sure you <a href=https://github.com/git-guides/git-commit>commit</a> all your changes and <a href=https://github.com/git-guides/git-push>push</a> these local commits to github.</li>
+<li>Navigate to your forked version of the repository on github.</li>
+<li>Before you proceed, make sure you are up to date with our upstream documentation, you may need to fetch upstream changes (see <a href=https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork>here</a> for more info on syncing a fork).</li>
+<li>To contribute your changes, click &ldquo;Contribute&rdquo;, and then &ldquo;Open pull request&rdquo;. (see <a href=https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests>here</a> for more information about pull requests).</li>
+<li>Give your pull request a title (e.g. &ldquo;Document Physio workflow&rdquo;), leave a comment briefly describing what you have done, and then create the pull request.</li>
+<li>Someone from the Neurodesk team will review and accept your workflow and it will appear on our website soon!.</li>
+</ol>
+<p>Thanks so much for taking the time to contribute your workflow to the Neurodesk community! If you have any feedback on the process, please let us know on <a href=https://github.com/NeuroDesk/neurodesk.github.io/discussions>github discussions</a>.</p>
+<h2 id=formatting-guidelines>Formatting guidelines</h2>
+<p>You can embelish your text in this tutorial using markdown conventions; text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>. You can also add <a href=https://neurodesk.github.io/>Links</a>, and you can organise your tutorial with headers, starting at level 2 (the page title is a level 1 header):</p>
 <h2 id=level-2-heading>Level 2 heading</h2>
-<p>You can organise your tutorial with headers, starting at level 2 (the page title is a level 1 header). You can also include progressively smaller subheadings:</p>
+<p>You can also include progressively smaller subheadings:</p>
 <h3 id=level-3-heading>Level 3 heading</h3>
 <p>Some more detailed information.</p>
 <h4 id=level-4-heading>Level 4 heading</h4>
 <p>Even more detailed information.</p>
-<h2 id=code-blocks>Code blocks</h2>
+<h3 id=code-blocks>Code blocks</h3>
 <p>You can add codeblocks to your tutorial as follows:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Some example code
 import numpy as np
@@ -135,10 +162,10 @@ print(a+b)
 [4 6]</code>
 </pre>
 <p>You can also add code snippets, e.g. <code>var foo = "bar";</code>, which will be shown inline.</p>
-<h2 id=images>Images</h2>
+<h3 id=images>Images</h3>
 <p>To add screenshots to your tutorial, create a subfolder in <code>neurodesk.github.io/static</code> with the same link name as your tutorial. Add your screenshot to this folder, keeping in mind that you may want to adjust your screenshot to a reasonable size before uploading. You can then embed these images in your tutorial using the following convention:</p>
 <p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1> </p>
-<h2 id=alerts-and-warnings>Alerts and warnings</h2>
+<h3 id=alerts-and-warnings>Alerts and warnings</h3>
 <p>You can grab reader&rsquo;s attention to particularly important information with quoteblocks, alerts and warnings:</p>
 <blockquote>
 <p>This is a quoteblock</p>
@@ -168,7 +195,7 @@ This is a warning with a title.
 <p>This is a placeholder. Replace it with your own content.</p>
 </div>
 </p>
-<h2 id=tables>Tables</h2>
+<h3 id=tables>Tables</h3>
 <p>You may want to order information in a table as follows:</p>
 <table>
 <thead>
@@ -196,7 +223,7 @@ This is a warning with a title.
 </tr>
 </tbody>
 </table>
-<h2 id=lists>Lists</h2>
+<h3 id=lists>Lists</h3>
 <p>You may want to organise information in a list as follows:</p>
 <p>Here is an unordered list:</p>
 <ul>
@@ -243,8 +270,6 @@ This is a warning with a title.
 </ul>
 </li>
 </ul>
-<h2 id=thanks>Thanks</h2>
-<p>Thanks so much for taking the time to contribute your workflow to the Neurodesk community! If you have any feedback on the process, please let us know on <a href=https://github.com/NeuroDesk/neurodesk.github.io/discussions>github discussions</a>.</p>
 </div>
 </main>
 </div>
