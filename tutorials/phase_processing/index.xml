@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – MRI phase Processing</title><link>https://neurodesk.github.io/tutorials/phase_processing/</link><description>Recent content in MRI phase Processing on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/tutorials/phase_processing/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Quantitative Susceptibility Mapping</title><link>https://neurodesk.github.io/tutorials/phase_processing/qsm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/phase_processing/qsm/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – MRI phase Processing</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/</link><description>Recent content in MRI phase Processing on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/tutorials/phase_processing/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Quantitative Susceptibility Mapping</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/qsm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/qsm/</guid><description>
 &lt;h2 id="quantitative-susceptibility-mapping-in-qsmxt">Quantitative Susceptibility Mapping in QSMxT&lt;/h2>
 &lt;p>Neurodesk includes QSMxT, a complete and end-to-end QSM processing and analysis framework that excels at automatically reconstructing and processing QSM for large groups of participants.&lt;/p>
 &lt;p>QSMxT provides pipelines implemented in Python that:&lt;/p>
@@ -40,7 +40,7 @@ python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
 &lt;li>Run QSM pipeline:
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">python3 /opt/QSMxT/run_2_qsm.py 01_bids 02_qsm_output
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>Tutorials: SWI</title><link>https://neurodesk.github.io/tutorials/phase_processing/swi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/phase_processing/swi/</guid><description>
+&lt;/ol></description></item><item><title>Tutorials: SWI</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</guid><description>
 &lt;h2 id="download-demo-data">Download demo data&lt;/h2>
 &lt;p>Open a terminal and run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
@@ -68,7 +68,7 @@ savenii(mip, &amp;#34;/neurodesktop-storage/swi-demo/mip.nii&amp;#34;; header=ma
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>hit SHIFT-Z-Z and run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">julia clearswi.jl
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Open ITK snap from the Visualization Application&amp;rsquo;s menu and inspect the results (the outputs are in swi-demo/swi.nii and mip.nii)
-&lt;img src="https://user-images.githubusercontent.com/4021595/137708852-6b7dd2c7-3e6f-42fd-88e6-06afe87a72a9.png" alt="image">&lt;/p></description></item><item><title>Tutorials: Unwrapping</title><link>https://neurodesk.github.io/tutorials/phase_processing/unwrapping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/phase_processing/unwrapping/</guid><description>
+&lt;img src="https://user-images.githubusercontent.com/4021595/137708852-6b7dd2c7-3e6f-42fd-88e6-06afe87a72a9.png" alt="image">&lt;/p></description></item><item><title>Tutorials: Unwrapping</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/unwrapping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/unwrapping/</guid><description>
 &lt;h2 id="download-demo-data">Download demo data&lt;/h2>
 &lt;p>Open a terminal and run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
@@ -83,4 +83,4 @@ gunzip /neurodesktop-storage/romeo-demo/phase.nii.gz
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="using-romeo-for-phase-unwrapping">Using ROMEO for phase unwrapping&lt;/h3>
 &lt;p>Open the ROMEO tool from the application menu and run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">romeo -p /neurodesktop-storage/romeo-demo/phase.nii -m /neurodesktop-storage/romeo-demo/mag.nii -k nomask -o /neurodesktop-storage/romeo-demo/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://neurodesk.github.io/MRIPhase_Tutorial/romeo.PNG" alt="Romeo" title="Romeo">&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/MRIPhase_Tutorial/romeo.PNG" alt="Romeo" title="Romeo">&lt;/p></description></item></channel></rss>

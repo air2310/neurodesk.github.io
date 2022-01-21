@@ -1,10 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurodesk CVMFS</title><link>https://neurodesk.github.io/developers/cvmfs/</link><description>Recent content in Neurodesk CVMFS on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/developers/cvmfs/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Setup CVMFS Proxy</title><link>https://neurodesk.github.io/developers/cvmfs/proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/cvmfs/proxy/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurodesk CVMFS</title><link>https://air2310/neurodesk.github.io/developers/cvmfs/</link><description>Recent content in Neurodesk CVMFS on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/developers/cvmfs/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Setup CVMFS Proxy</title><link>https://air2310/neurodesk.github.io/developers/cvmfs/proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/cvmfs/proxy/</guid><description>
 &lt;p>If you want more speed in a region one way could be to setup another Stratum 1 server or a proxy. We currently don&amp;rsquo;t run any proxy servers but it would be important for using it on a cluster.&lt;/p>
 &lt;pre class="language-batch command-line" data-prompt=">" data-output="2-4">
 &lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop `
 -v C:/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 `
--h neurodesktop-20211207 `
-vnmd/neurodesktop:20211207&lt;/code>
+-h neurodesktop-20220111 `
+vnmd/neurodesktop:20220111&lt;/code>
 &lt;/pre>
 &lt;h1 id="setup-a-cvmfs-proxy-server">Setup a CVMFS proxy server&lt;/h1>
 &lt;pre class="language-shell command-line" data-prompt="$">
@@ -44,7 +44,7 @@ sudo systemctl start squid
 sudo systemctl enable squid
 sudo systemctl status squid
 sudo systemctl restart squid&lt;/code>
-&lt;/pre></description></item><item><title>Developers: CVMFS architecture</title><link>https://neurodesk.github.io/developers/cvmfs/cvmfs_architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/cvmfs/cvmfs_architecture/</guid><description>
+&lt;/pre></description></item><item><title>Developers: CVMFS architecture</title><link>https://air2310/neurodesk.github.io/developers/cvmfs/cvmfs_architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/cvmfs/cvmfs_architecture/</guid><description>
 &lt;p>We store our singuarlity containers unpacked on CVMFS. We tried the DUCC tool in the beginning, but it was causing too many issues with dockerhub and we were rate limited. The script to unpack our singularity containers is here: &lt;a href="https://github.com/NeuroDesk/neurocommand/blob/main/cvmfs/sync_containers_to_cvmfs.sh">https://github.com/NeuroDesk/neurocommand/blob/main/cvmfs/sync_containers_to_cvmfs.sh&lt;/a>&lt;/p>
 &lt;p>It gets called by a cronjob on the CVMFS Stratum 0 server and relies on the log.txt file being updated via an action in the neurocommand repository (&lt;a href="https://github.com/NeuroDesk/neurocommand/blob/main/.github/workflows/upload_containers_simg.sh">https://github.com/NeuroDesk/neurocommand/blob/main/.github/workflows/upload_containers_simg.sh&lt;/a>)&lt;/p>
 &lt;p>The Stratum 1 servers then pull this repo from Stratum 0 and our desktops mount these repos (configured here: &lt;a href="https://github.com/NeuroDesk/neurodesktop/blob/main/Dockerfile">https://github.com/NeuroDesk/neurodesktop/blob/main/Dockerfile&lt;/a>)&lt;/p>
@@ -53,7 +53,7 @@ sudo systemctl restart squid&lt;/code>
 &lt;pre class="language-shell command-line" data-prompt="$">&lt;code>sudo cvmfs_talk -i neurodesk.ardc.edu.au host info
 sudo cvmfs_talk -i neurodesk.ardc.edu.au host probe
 cvmfs_config stat -v neurodesk.ardc.edu.au&lt;/code>&lt;/pre>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Developers: Setup Stratum 0 server</title><link>https://neurodesk.github.io/developers/cvmfs/stratum0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/cvmfs/stratum0/</guid><description>
+&lt;/blockquote></description></item><item><title>Developers: Setup Stratum 0 server</title><link>https://air2310/neurodesk.github.io/developers/cvmfs/stratum0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/cvmfs/stratum0/</guid><description>
 &lt;h2 id="setup-a-stratum-0-server">Setup a Stratum 0 server:&lt;/h2>
 &lt;h3 id="setup-storage">Setup Storage&lt;/h3>
 &lt;p>(would object storage be better? -&amp;gt; see comment below under next iteration ideas)&lt;/p>
@@ -173,7 +173,7 @@ sudo vi /etc/cron.d/cvmfs_dockerpull
 #cvmfs_ducc convert recipe_neurodesk.yaml
 #cvmfs_ducc convert recipe_unpacked.yaml&lt;/code>
 &lt;/pre>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Developers: Setup Stratum 1 server</title><link>https://neurodesk.github.io/developers/cvmfs/stratum1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/cvmfs/stratum1/</guid><description>
+&lt;/blockquote></description></item><item><title>Developers: Setup Stratum 1 server</title><link>https://air2310/neurodesk.github.io/developers/cvmfs/stratum1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/cvmfs/stratum1/</guid><description>
 &lt;p>The stratum 1 servers for the desktop are configured here: &lt;a href="https://github.com/NeuroDesk/neurodesktop/blob/main/Dockerfile">https://github.com/NeuroDesk/neurodesktop/blob/main/Dockerfile&lt;/a>&lt;/p>
 &lt;p>If you want more speed in a region one way could be to setup another Stratum 1 server or a proxy.&lt;/p>
 &lt;h1 id="setup-a-stratum-1-server">Setup a Stratum 1 server:&lt;/h1>

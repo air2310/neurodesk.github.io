@@ -1,112 +1,112 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurocontainers</title><link>https://neurodesk.github.io/docs/neurocontainers/</link><description>Recent content in Neurocontainers on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/docs/neurocontainers/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: CVMFS</title><link>https://neurodesk.github.io/docs/neurocontainers/cvmfs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/cvmfs/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurocontainers</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/</link><description>Recent content in Neurocontainers on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/docs/neurocontainers/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Windows 11 and Windows Subsystem for Linux</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</guid><description>
+&lt;h2 id="1-install-wsl">1. Install WSL&lt;/h2>
+&lt;p>Follow the instructions to enable Windows Subsystem for Linux 2 in Windows 11: &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install&lt;/a>&lt;/p>
+&lt;h2 id="2-configure-cvfms-singularity-and-lmod-only-needs-to-be-done-once">2. Configure CVFMS, Singularity and LMOD (only needs to be done once)&lt;/h2>
+&lt;h3 id="install-singularity">Install singularity&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
+wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
+sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
+rm go$VERSION.$OS-$ARCH.tar.gz
+export GOPATH=${HOME}/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+mkdir -p $GOPATH/src/github.com/sylabs
+cd $GOPATH/src/github.com/sylabs
+wget -q https://github.com/sylabs/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-ce-${SINGULARITY_VERSION}.tar.gz
+tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
+cd singularity-ce-${SINGULARITY_VERSION}
+./mconfig --prefix=/usr/local/singularity
+make -C builddir
+make -C builddir install
+cd ..
+rm -rf singularity-ce-${SINGULARITY_VERSION}
+rm -rf /usr/local/go $GOPATH
+ln -s /usr/local/singularity/bin/singularity /bin/ &lt;/code>
+&lt;/pre>
+&lt;h3 id="setup-bindpaths-for-singularity-eg-in-bashrc">Setup Bindpaths for Singularity (e.g. in .bashrc)&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export SINGULARITY_BINDPATH='/cvmfs,/mnt,/home'&lt;/code>
+&lt;/pre>
+&lt;h3 id="cvmfs">CVMFS&lt;/h3>
+&lt;p>Follow the instructions here: &lt;a href="https://neurodesk.github.io/docs/neurocontainers/cvmfs/">https://neurodesk.github.io/docs/neurocontainers/cvmfs/&lt;/a>&lt;/p>
+&lt;h3 id="lmod">LMOD&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>apt install lmod&lt;/code>
+&lt;/pre>
+&lt;h2 id="3-use-neurodesk-containers">3. Use Neurodesk containers&lt;/h2>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+ml av
+ml fsl
+fsleyes&lt;/code>
+&lt;/pre></description></item><item><title>Docs: CVMFS</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</guid><description>
 &lt;h1 id="install-cvmfs">Install CVMFS&lt;/h1>
 &lt;p>First you need to install CVMFS. Follow the official instructions here: &lt;a href="https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software">https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software&lt;/a>&lt;/p>
 &lt;p>one example for Windows Subsystem for Linux (WSL) could look like this:&lt;/p>
-&lt;div class="highlight">&lt;div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo apt-get install lsb-release
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>sudo apt-get install lsb-release
 wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
 sudo dpkg -i cvmfs-release-latest_all.deb
 rm -f cvmfs-release-latest_all.deb
 sudo apt-get update
-sudo apt-get install cvmfs
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h1 id="configure-cvmfs">Configure CVMFS&lt;/h1>
+sudo apt-get install cvmfs&lt;/code>
+&lt;/pre>
+&lt;h1 id="configure-cvmfs">Configure CVMFS&lt;/h1>
 &lt;p>Once installed create the keys and configure the servers used:&lt;/p>
-&lt;div class="highlight">&lt;div style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo mkdir -p /etc/cvmfs/keys/ardc.edu.au/
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-----BEGIN PUBLIC KEY-----
-&lt;/span>&lt;span style="color:#4e9a06">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
-&lt;/span>&lt;span style="color:#4e9a06">Bi2TQcLoh5AJ//HSIz68ypjOGFjwExGlHb95Frhu1SpcH5OASbV+jJ60oEBLi3sD
-&lt;/span>&lt;span style="color:#4e9a06">qA6rGYt9kVi90lWvEjQnhBkPb0uWcp1gNqQAUocybCzHvoiG3fUzAe259CrK09qR
-&lt;/span>&lt;span style="color:#4e9a06">pX8sZhgK3eHlfx4ycyMiIQeg66AHlgVCJ2fKa6fl1vnh6adJEPULmn6vZnevvUke
-&lt;/span>&lt;span style="color:#4e9a06">I6U1VcYTKm5dPMrOlY/fGimKlyWvivzVv1laa5TAR2Dt4CfdQncOz+rkXmWjLjkD
-&lt;/span>&lt;span style="color:#4e9a06">87WMiTgtKybsmMLb2yCGSgLSArlSWhbMA0MaZSzAwE9PJKCCMvTANo5644zc8jBe
-&lt;/span>&lt;span style="color:#4e9a06">NQIDAQAB
-&lt;/span>&lt;span style="color:#4e9a06">-----END PUBLIC KEY-----&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/keys/ardc.edu.au/neurodesk.ardc.edu.au.pub
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_USE_GEOAPI=yes&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;CVMFS_SERVER_URL=&amp;#34;http://203.101.231.144/cvmfs/@fqrn@;http://150.136.239.221/cvmfs/@fqrn@;http://132.145.96.34/cvmfs/@fqrn@;http://140.238.170.185/cvmfs/@fqrn@;http://130.61.74.69/cvmfs/@fqrn@;http://152.67.114.42/cvmfs/@fqrn@&amp;#34;&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;CVMFS_KEYS_DIR=&amp;#34;/etc/cvmfs/keys/ardc.edu.au/&amp;#34;&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_HTTP_PROXY=DIRECT&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee /etc/cvmfs/default.local
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;CVMFS_QUOTA_LIMIT=5000&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/cvmfs/default.local
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>sudo mkdir -p /etc/cvmfs/keys/ardc.edu.au/
+echo "-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
+Bi2TQcLoh5AJ//HSIz68ypjOGFjwExGlHb95Frhu1SpcH5OASbV+jJ60oEBLi3sD
+qA6rGYt9kVi90lWvEjQnhBkPb0uWcp1gNqQAUocybCzHvoiG3fUzAe259CrK09qR
+pX8sZhgK3eHlfx4ycyMiIQeg66AHlgVCJ2fKa6fl1vnh6adJEPULmn6vZnevvUke
+I6U1VcYTKm5dPMrOlY/fGimKlyWvivzVv1laa5TAR2Dt4CfdQncOz+rkXmWjLjkD
+87WMiTgtKybsmMLb2yCGSgLSArlSWhbMA0MaZSzAwE9PJKCCMvTANo5644zc8jBe
+NQIDAQAB
+-----END PUBLIC KEY-----" | sudo tee /etc/cvmfs/keys/ardc.edu.au/neurodesk.ardc.edu.au.pub
+echo "CVMFS_USE_GEOAPI=yes" | sudo tee /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+echo 'CVMFS_SERVER_URL="http://203.101.231.144/cvmfs/@fqrn@;http://150.136.239.221/cvmfs/@fqrn@;http://132.145.96.34/cvmfs/@fqrn@;http://140.238.170.185/cvmfs/@fqrn@;http://130.61.74.69/cvmfs/@fqrn@;http://152.67.114.42/cvmfs/@fqrn@"' | sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+echo 'CVMFS_KEYS_DIR="/etc/cvmfs/keys/ardc.edu.au/"' | sudo tee -a /etc/cvmfs/config.d/neurodesk.ardc.edu.au.conf
+echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee /etc/cvmfs/default.local
+echo "CVMFS_QUOTA_LIMIT=5000" | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
-&lt;span style="color:#8f5902;font-style:italic"># this is only necessary for WSL:&lt;/span>
+# this is only necessary for WSL:
 sudo cvmfs_config wsl2_start
 sudo cvmfs_config chksetup
 ls /cvmfs/neurodesk.ardc.edu.au
 sudo cvmfs_talk -i neurodesk.ardc.edu.au host probe
 sudo cvmfs_talk -i neurodesk.ardc.edu.au host info
-cvmfs_config stat -v neurodesk.ardc.edu.au
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h1 id="use-of-neurodesk-cvmfs-containers">use of Neurodesk CVMFS containers&lt;/h1>
+cvmfs_config stat -v neurodesk.ardc.edu.au&lt;/code>
+&lt;/pre>
+&lt;h1 id="use-of-neurodesk-cvmfs-containers">use of Neurodesk CVMFS containers&lt;/h1>
 &lt;p>The containers are now available in /cvmfs/neurodesk.ardc.edu.au/containers/ and can be started with:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">singularity shell /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>make sure that SINGULARITY_BINDPATH include the directories you want to work with:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">SINGULARITY_BINDPATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/cvmfs,/mnt,/home&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="wsl-doesnt-support-homedirectory---so-dont-mount-this">WSL doesn&amp;rsquo;t support homedirectory - so don&amp;rsquo;t mount this&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">singularity shell --no-home /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>or configure permanently:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">sudo vi /etc/singularity/singularity.conf
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>set&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">mount home = no
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="use-of-containers-in-the-module-system">use of containers in the module system:&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">export SINGULARITY_BINDPATH=&amp;#39;/cvmfs,/mnt,/home&amp;#39;
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>singularity shell /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg&lt;/code>
+&lt;/pre>
+&lt;p>make sure that SINGULARITY_BINDPATH include the directories you want to work with:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export SINGULARITY_BINDPATH='/cvmfs,/mnt,/home'&lt;/code>
+&lt;/pre>
+&lt;h1 id="wsl-doesnt-support-homedirectory---so-dont-mount-this">WSL doesn&amp;rsquo;t support homedirectory - so don&amp;rsquo;t mount this&lt;/h1>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>singularity shell --no-home /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg&lt;/code>
+&lt;/pre>
+&lt;p>or configure permanently:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>sudo vi /etc/singularity/singularity.conf&lt;/code>
+&lt;/pre>
+&lt;p>set&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>mount home = no&lt;/code>
+&lt;/pre>
+&lt;h1 id="use-of-containers-in-the-module-system">use of containers in the module system:&lt;/h1>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export SINGULARITY_BINDPATH='/cvmfs,/mnt,/home'
 module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
 ml fsl
-fslmaths
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Docker</title><link>https://neurodesk.github.io/docs/neurocontainers/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/docker/</guid><description>
+fslmaths&lt;/code>
+&lt;/pre></description></item><item><title>Docs: Datalad</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</guid><description>
+&lt;p>Once this is completed: &lt;a href="https://github.com/ReproNim/containers/issues/64#issuecomment-999126787">https://github.com/ReproNim/containers/issues/64#issuecomment-999126787&lt;/a>&lt;/p></description></item><item><title>Docs: Docker</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</guid><description>
 &lt;p>Our containers are automatically built in &lt;a href="https://github.com/NeuroDesk/neurocontainers/">https://github.com/NeuroDesk/neurocontainers/&lt;/a> and hosted on &lt;a href="https://hub.docker.com/orgs/vnmd/repositories">dockerhub&lt;/a> or on &lt;a href="https://github.com/NeuroDesk/neurocontainers/packages">github&lt;/a>&lt;/p>
 &lt;h2 id="pull-docker-containers">Pull Docker containers&lt;/h2>
 &lt;p>e.g. for a julia container
@@ -114,7 +114,7 @@ docker&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker pull vnmd/julia_1.6.1
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>build singularity image from dockerhub&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
 &lt;p>Our docker containers are converted to singularity containers and stored on Object storage.&lt;/p>
 &lt;h2 id="download-singularity-containers">Download Singularity Containers&lt;/h2>
 &lt;p>First get an overview which containers are available as Singularity containers:
@@ -129,7 +129,7 @@ docker&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>A faster way is pulling from multiple storage locations at once using aria2:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">aria2c https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://swift.rc.nectar.org.au/v1/AUTH_dead991e1fa847e3afcca2d3a7041f5d/neurodesk/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="transparent-singularity">Transparent Singularity&lt;/h2>
-&lt;p>The singularity containers can be also be used in combination with our &lt;a href="https://neurodesk.github.io/developers/transparent_singularity//">Transparent Singularity Tool&lt;/a> tool, that wraps the executables inside a container to make them easily available for pipelines. More information can be found here:&lt;/p>
+&lt;p>The singularity containers can be also be used in combination with our &lt;a href="https://air2310/neurodesk.github.io/developers/transparent_singularity//">Transparent Singularity Tool&lt;/a> tool, that wraps the executables inside a container to make them easily available for pipelines. More information can be found here:&lt;/p>
 &lt;p>one example to do this is:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208

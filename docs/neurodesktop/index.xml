@@ -1,15 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurodesktop</title><link>https://neurodesk.github.io/docs/neurodesktop/</link><description>Recent content in Neurodesktop on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/docs/neurodesktop/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>https://neurodesk.github.io/docs/neurodesktop/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/getting-started/</guid><description/></item><item><title>Docs: What's next?</title><link>https://neurodesk.github.io/docs/neurodesktop/whats-next/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/whats-next/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurodesktop</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/</link><description>Recent content in Neurodesktop on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/docs/neurodesktop/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/getting-started/</guid><description/></item><item><title>Docs: What's next?</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/whats-next/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/whats-next/</guid><description>
 &lt;p>Now that you’ve installed and launched neurodesktop, you should see a virtual desktop environment in your browser, which might look something like this:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/Desktop.png" alt="desktop" title="desktop">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/Desktop.png" alt="desktop" title="desktop">&lt;/p>
 &lt;p>In this linux desktop environment, you can access the menu, launch programs, write analysis code, use version control software (i.e. git) and develop analysis pipelines as though you were on your own computer.&lt;/p>
 &lt;h2 id="release">Release&lt;/h2>
 &lt;p>Keep a note of the release date of the container image that you installed. Regardless of what operating system you installed neurodesktop into, the release date would have been at the end of the &lt;em>docker run&lt;/em> command:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/version.png" alt="version" title="version">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/version.png" alt="version" title="version">&lt;/p>
 &lt;p>We regularly update neurodesktop to make sure it’s running well and has up-to-date software. You can check the &lt;a href="https://neurodesk.github.io/docs/neurodesktop/release-history/">Release History&lt;/a> page for details of previous releases. If you’d like to update your container at any time, simply switch out the release number for the version you would like. If you’ve finished working on an analysis pipeline and would like to share it with others, you can point them toward the stable release number that you worked in. That way anyone, on any computer around the world can replicate your analysis pipeline in the exact same computing environment that you developed it in.&lt;/p>
 &lt;h2 id="video-tutorial">Video tutorial&lt;/h2>
 &lt;p>Click &lt;a href="https://www.youtube.com/watch?v=JLv_5fycugw">here&lt;/a> to watch a 2 minute tutorial video from OHBM 2021&lt;/p>
 &lt;h2 id="how-to-access-files-from-your-host-computer">How to access files from your Host computer&lt;/h2>
-&lt;p>There are various ways of connecting your data to to Neurodesktop. For more information see our Storage section: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/p>
+&lt;p>There are various ways of connecting your data to to Neurodesktop. For more information see our Storage section: &lt;a href="https://air2310/neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/p>
 &lt;h2 id="how-to-launch-applications">How to launch applications&lt;/h2>
 &lt;p>Click on the Launcher icon in bottom-left corner and navigate to the &amp;ldquo;Neurodesk&amp;rdquo; menu, then select the application and version you wish to launch. If it is the first time you launch the application, it will be downloaded to your desktop environment. The application is ready to use when the &amp;ldquo;Singularity&amp;gt;&amp;rdquo; prompt appears in the terminal window that opens. If you chose in the menu the GUI of the application (e.g., fsleyesGUI 6.0.3), it will open automatically. If you chose that application itself (e.g., fsl 6.0.3), a terminal window will open, and you can use it to run any of the utilities packaged with the application, including the graphical utilities (e.g., typing &amp;ldquo;fsl&amp;rdquo; to run FSL&amp;rsquo;s main menu).&lt;/p>
 &lt;h2 id="how-to-keep-your-modifications-in-the-container">How to keep your modifications in the container&lt;/h2>
@@ -18,8 +18,8 @@
 &lt;h2 id="how-to-force-a-complete-container-download-to-your-system">How to force a complete container download to your system&lt;/h2>
 &lt;p>To increase speed and reliability of Neurodesktop we mount the application containers from a CVMFS mount and download only the files required to run your current task. Although we aim to keep everything on there reproducible, there might be a reason that you want to fully download the containers to your system. You can force this behaviour by adding another parameter to the docker call: &lt;code>-e CVMFS_DISABLE=true&lt;/code>&lt;/p>
 &lt;p>For windows an example would look like this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e &lt;span style="color:#000">CVMFS_DISABLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -p 8080:8080 -h neurodesktop-20211207 vnmd/neurodesktop:20211207
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: What's in the box?</title><link>https://neurodesk.github.io/docs/neurodesktop/whatsinthebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/whatsinthebox/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e &lt;span style="color:#000">CVMFS_DISABLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: What's in the box?</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/whatsinthebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/whatsinthebox/</guid><description>
 &lt;p>Neurodesktop comes with the essential software required for neuroimaging data analysis pre-installed. Each release is built with the most recent version of these packages available at the build date. Some example packages include:&lt;/p>
 &lt;ul>
 &lt;li>Editors and Programming:
@@ -37,7 +37,7 @@
 &lt;li>Nipype (including GraphVis)&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Data Syncronisation tools: (See our Storage section for more information: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>)
+&lt;li>Data Syncronisation tools: (See our Storage section for more information: &lt;a href="https://air2310/neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>)
 &lt;ul>
 &lt;li>Rsync&lt;/li>
 &lt;li>Rclone &lt;a href="https://rclone.org/">https://rclone.org/&lt;/a>&lt;/li>
@@ -65,7 +65,7 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>The neurodesktop environment is built to be light and fast to download and start-up. Most additional programs are therefore downloaded when they are first used. A list of these additional packages can be found &lt;a href="https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt">here&lt;/a>&lt;/p></description></item><item><title>Docs: Storage</title><link>https://neurodesk.github.io/docs/neurodesktop/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/storage/</guid><description>
+&lt;p>The neurodesktop environment is built to be light and fast to download and start-up. Most additional programs are therefore downloaded when they are first used. A list of these packages can be found &lt;a href="https://neurodesk.github.io/applications/">here&lt;/a>&lt;/p></description></item><item><title>Docs: Storage</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/storage/</guid><description>
 &lt;h1 id="cloud-storage">Cloud-storage&lt;/h1>
 &lt;p>The easiest way to get your data into Neurodesktop is to use a cloud storage provider like CloudStor, Dropbox, OneDrive and their sync tools like OwnCloud, Nextcloud or very flexible tools like rclone or davfs2. Another good option could be to utilize Globus for large amounts of data.&lt;/p>
 &lt;h2 id="nextcloud-and-owncloud-desktop-clients">Nextcloud and Owncloud desktop clients&lt;/h2>
@@ -100,69 +100,18 @@
 &lt;p>We also provide the globus client, so you can transfer large amounts of data between globus endpoints and Neurodesktop. You can configure it by running:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">/opt/globusconnectpersonal/globusconnectpersonal-*/globusconnectpersonal
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Once authenticated you can go to the globus file-manager &lt;a href="https://app.globus.org/file-manager">https://app.globus.org/file-manager&lt;/a> and your neurodesktop instance will be an endpoint for globus.&lt;/p>
-&lt;h1 id="mounting-network-storage-on-your-host-computer">Mounting network storage on your host-computer&lt;/h1>
+&lt;h1 id="mounting-external-storage-on-your-host-computer">Mounting external storage on your host-computer&lt;/h1>
 &lt;p>The -v C:/neurodesktop-storage:/neurodesktop-storage part of the docker command links the directory &amp;ldquo;neurodesktop-storage&amp;rdquo; on the “C drive” of your Windows computer to the directory /neurodesktop-storage inside the Desktop environment. Everything you store in there will be available inside the desktop and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. -v D:/moredata:/data) - this will mount the directory moredata from your D drive to /data inside neurodesktop. Improtant: the mountpoint inside neurodesktop should be named /data (or anything from this list: &lt;a href="https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt">https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt&lt;/a>) - otherwise most of the tools will not be able to access the data.&lt;/p>
+&lt;p>Here is an example for Windows adding another storage directory:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111&lt;/code>
+&lt;/pre>
 &lt;h1 id="mount-volume-using-sshfs">Mount volume using SSHFS&lt;/h1>
 &lt;p>It is theoretically possible to mount an SSH target inside Neurodesktop, but it&amp;rsquo;s not a very reliable way of mounting storage:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sshfs -o allow_root USER@TARGET_HOST:TARGET_PATH SOURCE_PATH
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>A better option is to use &lt;code>scp&lt;/code> and copy data from an SSH endpoint:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">scp /neurodesk/myfile user@remoteserver:/data/
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Visual Studio Code</title><link>https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/</guid><description>
-&lt;p>Following guide is for connecting to a Neurodesktop using a VS Code installation running on your host machine.&lt;/p>
-&lt;blockquote>
-&lt;p>Additional instructions if your Neurodesktop is running remotely (i.e. Cloud, HPC, VM)&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="pre-requisites">Pre-requisites&lt;/h2>
-&lt;p>Visual Studio Code &lt;em>(&lt;a href="https://code.visualstudio.com">https://code.visualstudio.com&lt;/a>)&lt;/em> installed on your host. Standalone version should work fine&lt;/p>
-&lt;p>Install the following VS Code extensions:&lt;/p>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker extension&lt;/a> (Required)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote development extension pack&lt;/a>. Includes the following extensions
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers&lt;/a> (Required)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH&lt;/a> (For remote servers)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL&lt;/a> (For windows hosts)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="for-remote-servers">For Remote servers&lt;/h2>
-&lt;p>Open VS Code&lt;/p>
-&lt;p>Open the Command Palette (Ctrl+Shift+P)&lt;/p>
-&lt;p>Find &lt;code>Remote-SSH: Connect to Host...&lt;/code> and select your remote host&lt;/p>
-&lt;blockquote>
-&lt;p>More information on remote hosts available at &lt;a href="https://code.visualstudio.com/docs/remote/ssh">https://code.visualstudio.com/docs/remote/ssh&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;p>This will open a new VS Code instance connected to the remote host via SSH. You may close the previous VS Code instance.&lt;/p>
-&lt;p>Follow the steps in the next section using the new VS Code instance&lt;/p>
-&lt;h2 id="connecting-to-neurodesktop">Connecting to Neurodesktop&lt;/h2>
-&lt;p>Open VS Code and open a Folder (File &amp;gt; Open Folder)&lt;/p>
-&lt;blockquote>
-&lt;p>This can be any folder (e.g. home or project folder). VS Code runs into errors if no folder is opened.&lt;/p>
-&lt;/blockquote>
-&lt;p>Open the Command Palette (Ctrl+Shift+P).&lt;/p>
-&lt;p>Select &lt;code>Remote-Containers: Attach to Running Container&lt;/code> from the dropdown panel&lt;/p>
-&lt;p>Start typing in &amp;lsquo;neurodesktop. Select &lt;code>/neurodesktop&lt;/code> from the list&lt;/p>
-&lt;p>This should open a VS Code Window connected to the neurodesktop as a Dev Container.&lt;/p>
-&lt;blockquote>
-&lt;p>First time connection will take about a minute, as VS code has to install the VS Code server onto the container. Repeat connections should be faster&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="first-time-connection">First time connection&lt;/h3>
-&lt;blockquote>
-&lt;p>First time connection will default to using neurodesktop root user. We want to default connection to be as the normal user to avoid permission issues.
-To check which user is being use, open the terminal in the neurodesktop VS Code and check if the user is &lt;code>user&lt;/code> or &lt;code>root&lt;/code>&lt;/p>
-&lt;/blockquote>
-&lt;p>Follow the following steps to configure your VS Code to connect to neurodesktop as normal user by default&lt;/p>
-&lt;p>Open the Command Palette (Ctrl+Shift+P).&lt;/p>
-&lt;p>Select &lt;code>Remote-Containers: Open Container Configuration File&lt;/code> from the dropdown panel&lt;/p>
-&lt;p>This will open a &lt;code>neurodesktop%3alatest.json&lt;/code> file. Overwrite the file with the following contents&lt;/p>
-&lt;pre class=""
->&lt;code
->{
-&amp;#34;workspaceFolder&amp;#34;: &amp;#34;/home/user&amp;#34;,
-&amp;#34;remoteUser&amp;#34;: &amp;#34;user&amp;#34;
-}
-&lt;/code>&lt;/pre>
-&lt;p>Close this VS Code window. Use steps in &lt;a href="https://neurodesk.github.io/docs/neurodesktop/visual-studio-code/#connecting-to-neurodesktop">previous section&lt;/a> to connect normally&lt;/p></description></item><item><title>Docs: Troubleshooting</title><link>https://neurodesk.github.io/docs/neurodesktop/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/troubleshooting/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Troubleshooting</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/troubleshooting/</guid><description>
 &lt;p>Neurodesk is an open-source project that is always evolving. If you are experiencing an issue not listed here, please open a &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/issues">new issue&lt;/a>, so that we can aim to solve it and update our help documentation.&lt;/p>
 &lt;p>To ask questions or suggest new features, &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/discussions">join the discussion&lt;/a> on github.&lt;/p>
 &lt;h2 id="docker-cannot-connect-to-the-docker-daemon-at-unixvarrundockersock-is-the-docker-daemon-running">docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.&lt;/h2>
@@ -183,9 +132,9 @@ To check which user is being use, open the terminal in the neurodesktop VS Code 
 We recommend the &lt;em>manual&lt;/em> install instructions, as the simplified install requires an upgrade to a preview build of Windows that may be unstable.
 &lt;/div>
 &lt;p>If WSL is properly installed, the &lt;em>Resources&lt;/em> tab of the Docker settings should look something like this:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_WSL_correct.png" alt="Docker_WSL_correct" title="Docker_WSL_correct">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_WSL_correct.png" alt="Docker_WSL_correct" title="Docker_WSL_correct">&lt;/p>
 &lt;p>However, if WSL is missing or incorrectly configured, the &lt;em>Resources&lt;/em> tab of the Docker settings may look something like this:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_WSL_incorrect.png" alt="Docker_WSL_incorrect" title="Docker_WSL_incorrect">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_WSL_incorrect.png" alt="Docker_WSL_incorrect" title="Docker_WSL_incorrect">&lt;/p>
 &lt;p>If this is the case, follow the manual install instructions to install &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL 2&lt;/a> (including installation of Ubuntu through Microsoft Store).&lt;/p>
 &lt;h2 id="windows-users-not-enough-free-space-on-the-partition-in-windows-and-wsl2">Windows users: Not enough free space on the partition in Windows and WSL2&lt;/h2>
 &lt;p>This could help: &lt;a href="https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html">https://yjmantilla.github.io/tutorials/wsl2-move-vhdx.html&lt;/a>&lt;/p>
@@ -198,16 +147,32 @@ We recommend the &lt;em>manual&lt;/em> install instructions, as the simplified i
 &lt;li>Navigate to &amp;ldquo;Troubleshooting&amp;rdquo; (the bug icon in the top right).&lt;/li>
 &lt;li>Click &amp;ldquo;Reset to factory defaults&amp;rdquo;&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_troubleshooting.png" alt="Docker_troubleshooting" title="Docker_troubleshooting">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_troubleshooting.png" alt="Docker_troubleshooting" title="Docker_troubleshooting">&lt;/p>
 &lt;p>If you are still experiencing issues after this, you may need to update docker to the latest version. This can be achieved through &amp;ldquo;settings&amp;rdquo; in the docker engine, or (on windows) by right clicking on the docker tray icon:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/Troubleshooting/Docker_update.png" alt="Docker_update" title="Docker_update">&lt;/p></description></item><item><title>Docs: Release History</title><link>https://neurodesk.github.io/docs/neurodesktop/release-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/docs/neurodesktop/release-history/</guid><description>
-&lt;h2 id="development">development&lt;/h2>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_update.png" alt="Docker_update" title="Docker_update">&lt;/p></description></item><item><title>Docs: Release History</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/release-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/release-history/</guid><description>
+&lt;h2 id="development">Development&lt;/h2>
+&lt;ul>
+&lt;li>MNE Python container including VScode&lt;/li>
+&lt;li>VScode container including Python/Julia/Extensions&lt;/li>
+&lt;li>update of fsl 6.0.5.1&lt;/li>
+&lt;/ul>
+&lt;h2 id="20220111">20220111&lt;/h2>
+&lt;ul>
+&lt;li>a deep learning based vessel segmentation algorithm &amp;ldquo;vesselapp&amp;rdquo; was added in version 0.3.1&lt;/li>
+&lt;li>palm - Permutation Analysis of Linear Models - was added in version alpha119&lt;/li>
+&lt;li>niistat running in octave was added with version 1.0.20191216&lt;/li>
+&lt;li>MRIcroGL was updated to a version with included python support, so the scripting is now working&lt;/li>
+&lt;li>rabies - Rodent Automated Bold Improvement of EPI Sequences was added with version 0.3.5&lt;/li>
+&lt;li>oshyx was updated to 0.3&lt;/li>
+&lt;/ul>
+&lt;h2 id="20211220">20211220&lt;/h2>
 &lt;ul>
 &lt;li>neurodesktop can now be accessed via native RDP client as well (e.g. for multi-monitor support): &lt;a href="https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/#using-an-rdp-client">https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/#using-an-rdp-client&lt;/a>&lt;/li>
 &lt;li>there is a new Help button in the menu :)&lt;/li>
-&lt;li>updates of ants 2.3.4 (now includes Scripts as well) + newly added 2.3.5&lt;/li>
-&lt;li>new version of QSMxT 1.1.8 20211211&lt;/li>
+&lt;li>updates of ants 2.3.4 (now includes Scripts as well, including antsCookTemplatePriors.sh) + newly added version 2.3.5&lt;/li>
+&lt;li>new version of QSMxT 1.1.9 20211219&lt;/li>
 &lt;li>new version of Spinal Cord Toolbox 5.4&lt;/li>
+&lt;li>new tools: MRIcroGL and surfice - fantastic viewers for neuroimaging data&lt;/li>
 &lt;/ul>
 &lt;h2 id="20211207">20211207&lt;/h2>
 &lt;ul>
@@ -250,7 +215,7 @@ We recommend the &lt;em>manual&lt;/em> install instructions, as the simplified i
 &lt;/ul>
 &lt;h2 id="20210917">20210917&lt;/h2>
 &lt;ul>
-&lt;li>included more tools for connecting to cloud storage services (rclone, owncloud, nextcloud, davfs2, globus). For more info: &lt;a href="https://neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/li>
+&lt;li>included more tools for connecting to cloud storage services (rclone, owncloud, nextcloud, davfs2, globus). For more info: &lt;a href="https://air2310/neurodesk.github.io/docs/neurodesktop/storage">Storage&lt;/a>&lt;/li>
 &lt;li>styling of desktop interface, including background wallpaper and colour scheme in terminal window&lt;/li>
 &lt;li>new categories in menu system (visualization) and added more categories to tools&lt;/li>
 &lt;/ul>

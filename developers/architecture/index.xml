@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Architecture</title><link>https://neurodesk.github.io/developers/architecture/</link><description>Recent content in Architecture on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/developers/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Neurodesktop Release Process</title><link>https://neurodesk.github.io/developers/architecture/release_process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/release_process/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Architecture</title><link>https://air2310/neurodesk.github.io/developers/architecture/</link><description>Recent content in Architecture on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/developers/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Developers: Neurodesktop Release Process</title><link>https://air2310/neurodesk.github.io/developers/architecture/release_process/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/architecture/release_process/</guid><description>
 &lt;ol>
 &lt;li>Check if the last automated build ran OK: &lt;a href="https://github.com/NeuroDesk/neurodesktop/actions">https://github.com/NeuroDesk/neurodesktop/actions&lt;/a>&lt;/li>
 &lt;li>Run this build date and test if everything is ok and no regression happened&lt;/li>
@@ -13,7 +13,7 @@
 &lt;li>Change the version of the latest desktop in &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml">https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml&lt;/a>&lt;/li>
 &lt;li>Commit all changes&lt;/li>
 &lt;li>Tweet a quick summary of the changes and announce new version: &lt;a href="https://twitter.com/neuro_desk">https://twitter.com/neuro_desk&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Developers: Neurodesk Architecture</title><link>https://neurodesk.github.io/developers/architecture/neurodesk-compoents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/neurodesk-compoents/</guid><description>
+&lt;/ol></description></item><item><title>Developers: Neurodesk Architecture</title><link>https://air2310/neurodesk.github.io/developers/architecture/neurodesk-compoents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/architecture/neurodesk-compoents/</guid><description>
 &lt;h1 id="layers">Layers&lt;/h1>
 &lt;p>Neurodesktop: &lt;a href="https://github.com/NeuroDesk/neurodesktop">https://github.com/NeuroDesk/neurodesktop&lt;/a>&lt;/p>
 &lt;ul>
@@ -48,7 +48,7 @@
 &lt;li>provides recipes for our containers built&lt;/li>
 &lt;li>we are providing pull requests back of recipes&lt;/li>
 &lt;li>CI: handled by &lt;a href="https://github.com/ReproNim/neurodocker">neurodocker&lt;/a> - testing of generating container recipes&lt;/li>
-&lt;/ul></description></item><item><title>Developers: Neurodesktop Dev</title><link>https://neurodesk.github.io/developers/architecture/neurodesk-dev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/developers/architecture/neurodesk-dev/</guid><description>
+&lt;/ul></description></item><item><title>Developers: Neurodesktop Dev</title><link>https://air2310/neurodesk.github.io/developers/architecture/neurodesk-dev/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/developers/architecture/neurodesk-dev/</guid><description>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
 For development and testing only. Not recommended for production use

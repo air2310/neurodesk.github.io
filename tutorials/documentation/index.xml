@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Documentation</title><link>https://neurodesk.github.io/tutorials/documentation/</link><description>Recent content in Documentation on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://neurodesk.github.io/tutorials/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Template for workflow creation</title><link>https://neurodesk.github.io/tutorials/documentation/workflowtemplate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://neurodesk.github.io/tutorials/documentation/workflowtemplate/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Documentation</title><link>https://air2310/neurodesk.github.io/tutorials/documentation/</link><description>Recent content in Documentation on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/tutorials/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Template for workflow creation</title><link>https://air2310/neurodesk.github.io/tutorials/documentation/workflowtemplate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/documentation/workflowtemplate/</guid><description>
 &lt;!--
 Begin setting up your tutorial by filling in the details in the description above. This controls how your tutorial is named and displayed in the Neurodesk documentation. The details are as follows:
 title: A title for your workflow
@@ -20,14 +20,14 @@ Once you've filled out those details, you can delete this comment block.
 &lt;p>Begin by creating a copy of our documentation that you can edit:&lt;/p>
 &lt;ol>
 &lt;li>Visit the github repository for the Neurodesk documentation (&lt;a href="https://github.com/NeuroDesk/neurodesk.github.io)">https://github.com/NeuroDesk/neurodesk.github.io)&lt;/a>.&lt;/li>
-&lt;li>Fork the repository (see &lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">here&lt;/a> for more information on forking github repositories).&lt;/li>
+&lt;li>&lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork&lt;/a> the repository.&lt;/li>
 &lt;/ol>
 &lt;ul>
 &lt;li>&lt;em>You should now have your own copy of the documentation, which you can alter without affecting our official documentation. You should see a panel stating &amp;ldquo;This branch is up to date with Neurodesk:hugo-docsy.&amp;rdquo; If someone else makes a change to the official documentation, the statement will change to reflect this. You can bring your repository up to date by clicking &amp;ldquo;Fetch upstream&amp;rdquo;.&lt;/em>&lt;/li>
 &lt;/ul>
 &lt;p>Next, create your workflow:&lt;/p>
 &lt;ol>
-&lt;li>Clone your forked version of our documentation to a location of your choice on your computer (see &lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository">here&lt;/a> for more info).&lt;/li>
+&lt;li>&lt;a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository">Clone&lt;/a> your forked version of our documentation to a location of your choice on your computer.&lt;/li>
 &lt;li>In this new folder, navigate to &amp;ldquo;neurodesk.github.io/content/en/tutorials&amp;rdquo; and then navigate to the subfolder you believe your workflow belongs in (e.g. &amp;ldquo;/functional_imaging&amp;rdquo;).&lt;/li>
 &lt;li>Create a new, appropriately named markdown file to house your workflow. (e.g. &amp;ldquo;/physio.md&amp;rdquo;)&lt;/li>
 &lt;li>Open this file in the editor of your choice (we recommend &lt;a href="https://code.visualstudio.com/">vscode&lt;/a>) and populate it with your workflow! Please use this template as a style guide, it can be located at &amp;ldquo;neurodesk.github.io\content\en\tutorials\documentation\workflowtemplate.md&amp;rdquo;. You&amp;rsquo;re also welcome to have a look at other the workflows already documented on our website for inspiration.&lt;/li>
@@ -36,9 +36,11 @@ Once you've filled out those details, you can delete this comment block.
 &lt;ol>
 &lt;li>Once you are happy with your workflow, make sure you &lt;a href="https://github.com/git-guides/git-commit">commit&lt;/a> all your changes and &lt;a href="https://github.com/git-guides/git-push">push&lt;/a> these local commits to github.&lt;/li>
 &lt;li>Navigate to your forked version of the repository on github.&lt;/li>
-&lt;li>Before you proceed, make sure you are up to date with our upstream documentation, you may need to fetch upstream changes (see &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork">here&lt;/a> for more info on syncing a fork).&lt;/li>
-&lt;li>To contribute your changes, click &amp;ldquo;Contribute&amp;rdquo;, and then &amp;ldquo;Open pull request&amp;rdquo;. (see &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">here&lt;/a> for more information about pull requests).&lt;/li>
-&lt;li>Give your pull request a title (e.g. &amp;ldquo;Document Physio workflow&amp;rdquo;), leave a comment briefly describing what you have done, and then create the pull request.&lt;/li>
+&lt;li>Before you proceed, make sure you are up to date with our upstream documentation, you may need to &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork">fetch upstream changes&lt;/a>.&lt;/li>
+&lt;li>Now you can preview the changes before contributing them upstream. For this click on the &amp;ldquo;Actions&amp;rdquo; tab and enable the Actions (&amp;ldquo;I understand my workflows&amp;hellip;&amp;quot;). The first build will fail (due to a bug with the Github token), but the second build will work.&lt;/li>
+&lt;li>Then you need to open the settings of the repository and check that Pages points to gh-pages and when clicking on the link the site should be there.&lt;/li>
+&lt;li>To contribute your changes, click &amp;ldquo;Contribute&amp;rdquo;, and then &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">&amp;ldquo;Open pull request&amp;rdquo;&lt;/a>.&lt;/li>
+&lt;li>Give your pull request a title (e.g. &amp;ldquo;Document PhysIO workflow&amp;rdquo;), leave a comment briefly describing what you have done, and then create the pull request.&lt;/li>
 &lt;li>Someone from the Neurodesk team will review and accept your workflow and it will appear on our website soon!.&lt;/li>
 &lt;/ol>
 &lt;p>Thanks so much for taking the time to contribute your workflow to the Neurodesk community! If you have any feedback on the process, please let us know on &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/discussions">github discussions&lt;/a>.&lt;/p>
@@ -75,7 +77,8 @@ print(a+b)
 &lt;p>You can also add code snippets, e.g. &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>, which will be shown inline.&lt;/p>
 &lt;h3 id="images">Images&lt;/h3>
 &lt;p>To add screenshots to your tutorial, create a subfolder in &lt;code>neurodesk.github.io/static&lt;/code> with the same link name as your tutorial. Add your screenshot to this folder, keeping in mind that you may want to adjust your screenshot to a reasonable size before uploading. You can then embed these images in your tutorial using the following convention:&lt;/p>
-&lt;p>&lt;img src="https://neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1"> &lt;!-- ![filename without extension](/subfolder_name/filename.png '[filename without extension') -->&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">![EEGtut1](/EEG_Tutorial/EEGtut1.png &amp;#39;EEGtut1&amp;#39;) &amp;lt;!-- ![filename without extension](/subfolder_name/filename.png &amp;#39;[filename without extension&amp;#39;) --&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1"> &lt;!-- ![filename without extension](/subfolder_name/filename.png '[filename without extension') -->&lt;/p>
 &lt;h3 id="alerts-and-warnings">Alerts and warnings&lt;/h3>
 &lt;p>You can grab reader&amp;rsquo;s attention to particularly important information with quoteblocks, alerts and warnings:&lt;/p>
 &lt;blockquote>
