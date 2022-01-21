@@ -22,12 +22,12 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2021-11-01T16:31:36+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-01-21T15:37:15+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Analysing EEG Data with MNE">
 <meta itemprop=description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
 ">
-<meta itemprop=dateModified content="2021-11-01T16:31:36+10:00">
-<meta itemprop=wordCount content="1065">
+<meta itemprop=dateModified content="2022-01-21T15:37:15+10:00">
+<meta itemprop=wordCount content="1140">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Analysing EEG Data with MNE">
 <meta name=twitter:description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.37fc185583844b68381aca09a134c046.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.37fc185583844b68381aca09a134c046.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -156,7 +156,8 @@
 <div class=td-toc><nav id=TableOfContents>
 <ul>
 <li><a href=#getting-started>Getting started</a></li>
-<li><a href=#set-up-an-environment>Set up an environment</a></li>
+<li><a href=#select-mne-python-kernel>Select MNE python kernel</a></li>
+<li><a href=#activate-the-mne-conda-environment-in-the-terminal>Activate the MNE conda environment in the terminal</a></li>
 <li><a href=#download-sample-data>Download sample data</a></li>
 <li><a href=#plotting-settings>Plotting settings</a></li>
 <li><a href=#loading-and-processing-data>Loading and processing data</a></li>
@@ -170,26 +171,29 @@
 <header class=article-meta>
 </header>
 <h2 id=getting-started>Getting started</h2>
-<p>Open Visual Studio Code:</p>
+<p>To begin, navigate to Neurodesk->Electrophysiology->mne->vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.</p>
+<p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut0 title=EEGtut0></p>
 <p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1></p>
 <p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
 <p><img src=/EEG_Tutorial/EEGtut2.png alt=EEGtut2 title=EEGtut2></p>
-<p>If this is your first time opening a Jupyter notebook on vscode in neurodesktop, you will see the following popup. If so, click “install” to install the vscode extensions for Jupyter.</p>
+<p>If this is your first time opening a Jupyter notebook on vscode in neurodesktop, you may see the following popup. If so, click “install” to install the vscode extensions for Jupyter.</p>
 <p><img src=/EEG_Tutorial/EEGtut3.png alt=EEGtut3 title=EEGtut3></p>
-<h2 id=set-up-an-environment>Set up an environment</h2>
-<blockquote>
-<p>Coming soon! Neurodesktop will soon feature a number of built in conda environments for standard analyses of behavioural, physiological, and encephalographic data.</p>
-</blockquote>
-<p>From the top menu in vscode, select Terminal->New Terminal, or hit [Ctrl]+[Shift]+[`]. From this terminal, create and activate a new conda environment in which to run mne-python.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>conda create --name=mne --channel=conda-forge mne python=3 jupyter nb_conda_kernels 
-conda activate mne
-</code></pre></div><p>Once your new environment is activated, in the top right corner of your empty jupyter notebook, click “Select Kernel”:</p>
+<h2 id=select-mne-python-kernel>Select MNE python kernel</h2>
+<p>Next, we need to direct vscode to use the python kernel associated with MNE. In the top right corner of your empty jupyter notebook, click “Select Kernel”:</p>
 <p><img src=/EEG_Tutorial/EEGtut4.png alt=EEGtut4 title=EEGtut4></p>
-<p>Then, select the instance of Python associated with the environment you have just created (“mne”). If your new environment does not appear in the list, you may need to restart vscode:</p>
+<p>Then, select mne-0.23.4 from the dropdown menu, which should look something like this:</p>
 <p><img src=/EEG_Tutorial/EEGtut5.png alt=EEGtut5 title=EEGtut5></p>
-<p>At this point you may also be prompted to install the vscode packages for python. Once you have installed these, you’re ready to rumble!</p>
+<h2 id=activate-the-mne-conda-environment-in-the-terminal>Activate the MNE conda environment in the terminal</h2>
+<p>Next, we&rsquo;ll activate the same MNE environment in a terminal. From the top menu in vscode, select Terminal->New Terminal, or hit [Ctrl]+[Shift]+[`].</p>
+<p>If this is your first time using vscode in this container, you may have to initialise conda by typing <code>conda init bash</code> the bash terminal. After initialising bash, you will have to close and then reopen the terminal.</p>
+<p>Once you have initialised conda, you can activate the MNE environment in the terminal:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>conda activate mne-0.23.4
+</code></pre></div><p>You should now see &ldquo;(mne-0.23.4)&rdquo; ahead of the current line in the terminal.</p>
 <h2 id=download-sample-data>Download sample data</h2>
-<p>In the terminal, input the following code to download some BIDS formatted sample EEG data:</p>
+<p>In the terminal (in which you have activated the MNE environment), input the following code to download some BIDS formatted sample EEG data:</p>
+<blockquote>
+<p>Remember to update the path to the location you are storing this tutorial!</p>
+</blockquote>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
 osf -p C689U fetch Data_sample.zip /neurodesktop-storage/EEGDEMO/Data_sample.zip
 unzip Data_sample.zip 
@@ -212,7 +216,7 @@ import numpy as np
 import mne
 
 # Load data
-sample_data_folder = &#39;/home/user/Desktop/neurodesktop-storage/EEGDemo/Data_sample&#39;
+sample_data_folder = &#39;/home/user/neurodesktop-storage/EEGDemo/Data_sample&#39;
 sample_data_raw_file = os.path.join(sample_data_folder, &#39;sub-01&#39;, &#39;eeg&#39;,
                                     &#39;sub-01_task-FeatAttnDec_eeg.vhdr&#39;)
 raw = mne.io.read_raw_brainvision(sample_data_raw_file , preload=True)
@@ -238,7 +242,8 @@ montageuse = mne.channels.make_dig_montage(ch_pos=montage, lpa=[-82.5, -19.2, -4
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>raw.info[&#39;bads&#39;] = [&#39;POz&#39;]
 </code></pre></div><p>Next, we’ll extract our events. The trigger channel in this file is incorrectly scaled, so we’ll correct that before we extract our events:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># Correct trigger scaling
-trigchan = raw.pick(&#39;TRIG&#39;).copy()
+trigchan = raw.copy()
+trigchan = trigchan.pick(&#39;TRIG&#39;)
 trigchan._data = trigchan._data*1000000
 
 # Extract events
@@ -320,7 +325,7 @@ ax.legend()
 </code></pre></div><p><img src=/EEG_Tutorial/EEGtut10.PNG alt=EEGtut10 title=EEGtut10></p>
 <p>This plot shows that the SSVEPs were indeed modulated by attention in the direction we would expect! Congratulations! You’ve run your first analysis of EEG data in neurodesktop.</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified November 1, 2021: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/cc47d2e5eda016ab6aa475978145f2472373fed2>updating EEG Tutorial (cc47d2e)</a>
+Last modified January 21, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/8d028c0b1358607cf9dd9801fdd934e7174433ca>Update EEG tutorial (8d028c0)</a>
 </div>
 </div>
 </main>
