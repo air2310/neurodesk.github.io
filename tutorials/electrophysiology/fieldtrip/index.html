@@ -22,12 +22,12 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/electrophysiology/fieldtrip/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2022-02-14T10:55:02+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-02-15T12:53:07+11:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Analysing M/EEG Data with FieldTrip">
 <meta itemprop=description content="A brief guide to using FieldTrip to analyse electrophysiological data within neurodesk.
 ">
-<meta itemprop=dateModified content="2022-02-14T10:55:02+10:00">
-<meta itemprop=wordCount content="128">
+<meta itemprop=dateModified content="2022-02-15T12:53:07+11:00">
+<meta itemprop=wordCount content="198">
 <meta itemprop=keywords content="fieldtrip,documentation,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Analysing M/EEG Data with FieldTrip">
 <meta name=twitter:description content="A brief guide to using FieldTrip to analyse electrophysiological data within neurodesk.
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.0e5e25010bcd86cafcd72109d88c831b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.0e5e25010bcd86cafcd72109d88c831b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -186,8 +186,13 @@
 </code></pre></div><p>For example, here we ran a script to browse some raw data:</p>
 <p><img src=/fieldtrip/3_running.PNG alt=3_running title=3_running></p>
 <p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.</p>
+<p>NOTES:</p>
+<ol>
+<li>The script specified in the command line can call other scripts</li>
+<li>The script and the scripts it calls can use all the MATLAB toolboxes included in the compiled version of FieldTrip. If additional MATLAB toolboxes are needed, they need to be put in a filesystem accessible to the FieldTrip container (/neurodesktop-storage, /home/user, etc.), and the path should be added to the MATLAB search path with the addpath function (<a href=https://www.mathworks.com/help/matlab/ref/addpath.html>https://www.mathworks.com/help/matlab/ref/addpath.html</a>)</li>
+</ol>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified February 14, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/0136e70ef712fe411bc102873df6c351e2d0af1c>typo (0136e70)</a>
+Last modified February 15, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/a80e7fd6dcfbafe1ab95be5d7a411dc039d9cf7c>Update fieldtrip.md (a80e7fd)</a>
 </div>
 </div>
 </main>

@@ -185,7 +185,12 @@ containers. See &lt;a href="http://handbook.datalad.org/en/latest/basics/101-133
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">run_fieldtrip.sh /opt/MCR/v99 yourscript.m
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>For example, here we ran a script to browse some raw data:&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/fieldtrip/3_running.PNG" alt="3_running" title="3_running">&lt;/p>
-&lt;p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.&lt;/p></description></item><item><title>Tutorials: Using fmriprep with neurodesk on an HPC</title><link>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</guid><description>
+&lt;p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.&lt;/p>
+&lt;p>NOTES:&lt;/p>
+&lt;ol>
+&lt;li>The script specified in the command line can call other scripts&lt;/li>
+&lt;li>The script and the scripts it calls can use all the MATLAB toolboxes included in the compiled version of FieldTrip. If additional MATLAB toolboxes are needed, they need to be put in a filesystem accessible to the FieldTrip container (/neurodesktop-storage, /home/user, etc.), and the path should be added to the MATLAB search path with the addpath function (&lt;a href="https://www.mathworks.com/help/matlab/ref/addpath.html">https://www.mathworks.com/help/matlab/ref/addpath.html&lt;/a>)&lt;/li>
+&lt;/ol></description></item><item><title>Tutorials: Using fmriprep with neurodesk on an HPC</title><link>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</guid><description>
 &lt;blockquote>
 &lt;p>&lt;em>This tutorial was created by Kelly G. Garner.&lt;/em>&lt;/p>
 &lt;p>Email: &lt;a href="mailto:getkellygarner@gmail.com">getkellygarner@gmail.com&lt;/a>&lt;/p>

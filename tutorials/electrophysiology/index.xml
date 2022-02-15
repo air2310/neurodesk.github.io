@@ -22,7 +22,12 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">run_fieldtrip.sh /opt/MCR/v99 yourscript.m
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>For example, here we ran a script to browse some raw data:&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/fieldtrip/3_running.PNG" alt="3_running" title="3_running">&lt;/p>
-&lt;p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.&lt;/p></description></item><item><title>Tutorials: Analysing EEG Data with MNE</title><link>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</guid><description>
+&lt;p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.&lt;/p>
+&lt;p>NOTES:&lt;/p>
+&lt;ol>
+&lt;li>The script specified in the command line can call other scripts&lt;/li>
+&lt;li>The script and the scripts it calls can use all the MATLAB toolboxes included in the compiled version of FieldTrip. If additional MATLAB toolboxes are needed, they need to be put in a filesystem accessible to the FieldTrip container (/neurodesktop-storage, /home/user, etc.), and the path should be added to the MATLAB search path with the addpath function (&lt;a href="https://www.mathworks.com/help/matlab/ref/addpath.html">https://www.mathworks.com/help/matlab/ref/addpath.html&lt;/a>)&lt;/li>
+&lt;/ol></description></item><item><title>Tutorials: Analysing EEG Data with MNE</title><link>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</guid><description>
 &lt;h2 id="getting-started">Getting started&lt;/h2>
 &lt;p>To begin, navigate to Neurodesk-&amp;gt;Electrophysiology-&amp;gt;mne-&amp;gt;vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut0.png" alt="EEGtut0" title="EEGtut0">&lt;/p>
