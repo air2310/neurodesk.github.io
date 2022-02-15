@@ -66,7 +66,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -162,7 +162,7 @@ This is the multi-page printable view of this section.
 <p>To begin, navigate to Neurodesk->Electrophysiology->mne->vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.</p>
 <p><img src=/EEG_Tutorial/EEGtut0.png alt=EEGtut0 title=EEGtut0></p>
 <p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1></p>
-<p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
+<p>Open the folder: “/home/user/Desktop/storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
 <p><img src=/EEG_Tutorial/EEGtut2.png alt=EEGtut2 title=EEGtut2></p>
 <p>If this is your first time opening a Jupyter notebook on vscode in neurodesktop, you may see the following popup. If so, click “install” to install the vscode extensions for Jupyter.</p>
 <p><img src=/EEG_Tutorial/EEGtut3.png alt=EEGtut3 title=EEGtut3></p>
@@ -183,7 +183,7 @@ This is the multi-page printable view of this section.
 <p>Remember to update the path to the location you are storing this tutorial!</p>
 </blockquote>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-osf -p C689U fetch Data_sample.zip /neurodesktop-storage/EEGDEMO/Data_sample.zip
+osf -p C689U fetch Data_sample.zip /storage/EEGDEMO/Data_sample.zip
 unzip Data_sample.zip 
 </code></pre></div><p>This is a small dataset with only 5 EEG channels from a single participant. The participant is viewing a frequency tagged display and is cued to attend to dots tagged at one frequency or another (6 Hz, 7.5 Hz) for long, 15 s trials. To read more about the dataset, click <a href=https://osf.io/c689u/>here</a></p>
 <h2 id=plotting-settings>Plotting settings</h2>
@@ -204,7 +204,7 @@ import numpy as np
 import mne
 
 # Load data
-sample_data_folder = &#39;/home/user/neurodesktop-storage/EEGDemo/Data_sample&#39;
+sample_data_folder = &#39;/home/user/Desktop/storage/EEGDemo/Data_sample&#39;
 sample_data_raw_file = os.path.join(sample_data_folder, &#39;sub-01&#39;, &#39;eeg&#39;,
                                     &#39;sub-01_task-FeatAttnDec_eeg.vhdr&#39;)
 raw = mne.io.read_raw_brainvision(sample_data_raw_file , preload=True)
@@ -483,7 +483,7 @@ fmriprep /path/to/your/data <span style=color:#4e9a06>\ </span><span style=color
 <h2 id=copy-your-own-data>Copy your own data</h2>
 <ul>
 <li>On Windows, the folder <code>C:\neurodesktop-storage</code> should have been automatically created when starting NeuroDesk</li>
-<li>This is your direct link to the NeuroDesk environment, and anything you put in there should end up within the NeuroDesk desktop in <code>/neurodesktop-storage/</code></li>
+<li>This is your direct link to the NeuroDesk environment, and anything you put in there should end up within the NeuroDesk desktop in <code>/storage/</code></li>
 </ul>
 <h2 id=example-running-physio-in-the-gui>Example: Running PhysIO in the GUI</h2>
 <ol>
@@ -549,18 +549,18 @@ fmriprep /path/to/your/data <span style=color:#4e9a06>\ </span><span style=color
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c clone /neurodesktop-storage/qsmxt-demo
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+cd /storage/
+osf -p ru43c clone /storage/qsmxt-demo
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
 </code></pre></div><h2 id=qsmxt-usage>QSMxT Usage</h2>
 <p>Start QSMxT (in this demo we used 1.1.6) from the applications menu in the desktop (<em>Neurodesk</em> > <em>Quantitative Imaging</em> > <em>qsmxt</em>)</p>
 <ol>
 <li>Convert DICOM data to BIDS:
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#204a87>cd</span> /neurodesktop-storage/qsmxt-demo
-python3 /opt/QSMxT/run_0_dicomSort.py /neurodesktop-storage/qsmxt-demo/dicoms 00_dicom
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#204a87>cd</span> /storage/qsmxt-demo
+python3 /opt/QSMxT/run_0_dicomSort.py /storage/qsmxt-demo/dicoms 00_dicom
 python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
 </code></pre></div></li>
 </ol>
@@ -577,19 +577,19 @@ python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+cd /storage/
+osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
 
-unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
 </code></pre></div><p>Open the CLEARSWI tool from the application menu:</p>
 <p>paste this julia script in a julia file and execute:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cd /neurodesktop-storage/
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cd /storage/
 vi clearswi.jl
 </code></pre></div><p>hit a or i and then paste this:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>using CLEARSWI
 
 TEs = [20] 
-nifti_folder = &#34;/neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&#34;
+nifti_folder = &#34;/storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&#34;
 magfile = joinpath(nifti_folder, &#34;sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz&#34;)
 phasefile = joinpath(nifti_folder, &#34;sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz&#34;) 
 
@@ -601,8 +601,8 @@ swi = calculateSWI(data);
 # mip = createIntensityProjection(swi, minimum); # minimum intensity projection, other Julia functions can be used instead of minimum
 mip = createMIP(swi); # shorthand for createIntensityProjection(swi, minimum)
 
-savenii(swi, &#34;/neurodesktop-storage/swi-demo/swi.nii&#34;; header=mag.header) 
-savenii(mip, &#34;/neurodesktop-storage/swi-demo/mip.nii&#34;; header=mag.header)
+savenii(swi, &#34;/storage/swi-demo/swi.nii&#34;; header=mag.header) 
+savenii(mip, &#34;/storage/swi-demo/mip.nii&#34;; header=mag.header)
 </code></pre></div><p>hit SHIFT-Z-Z and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>julia clearswi.jl
 </code></pre></div><p>Open ITK snap from the Visualization Application&rsquo;s menu and inspect the results (the outputs are in swi-demo/swi.nii and mip.nii)
@@ -614,23 +614,23 @@ savenii(mip, &#34;/neurodesktop-storage/swi-demo/mip.nii&#34;; header=mag.header
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+cd /storage/
+osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
 
-unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
 
 
-mkdir /neurodesktop-storage/romeo-demo/
+mkdir /storage/romeo-demo/
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /neurodesktop-storage/romeo-demo/phase.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /storage/romeo-demo/phase.nii.gz
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /neurodesktop-storage/romeo-demo/mag.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /storage/romeo-demo/mag.nii.gz
 
-gunzip /neurodesktop-storage/romeo-demo/mag.nii.gz
-gunzip /neurodesktop-storage/romeo-demo/phase.nii.gz
+gunzip /storage/romeo-demo/mag.nii.gz
+gunzip /storage/romeo-demo/phase.nii.gz
 </code></pre></div><h3 id=using-romeo-for-phase-unwrapping>Using ROMEO for phase unwrapping</h3>
 <p>Open the ROMEO tool from the application menu and run:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /neurodesktop-storage/romeo-demo/phase.nii -m /neurodesktop-storage/romeo-demo/mag.nii -k nomask -o /neurodesktop-storage/romeo-demo/
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /storage/romeo-demo/phase.nii -m /storage/romeo-demo/mag.nii -k nomask -o /storage/romeo-demo/
 </code></pre></div><p><img src=/MRIPhase_Tutorial/romeo.PNG alt=Romeo title=Romeo></p>
 </div>
 <div class=td-content style=page-break-before:always>
@@ -656,14 +656,14 @@ you are not familiar with the terminal at all, check the DataLad Handbook&rsquo;
 <p>A DataLad <em>dataset</em> can be any collection of files in folders, so it could be
 many things including an analysis project. Let&rsquo;s go to the Neurodesktop storage
 and create a dataset for some project. Open a terminal and enter these commands:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /neurodesktop-storage
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /storage
 
 $ datalad create -c yoda SomeProject
-[INFO   ] Creating a new annex repo at /home/user/Desktop/neurodesktop-storage/SomeProject
+[INFO   ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
 [INFO   ] Running procedure cfg_yoda
 [INFO   ] == Command start (output follows) =====
 [INFO   ] == Command exit (modification check follows) =====
-create(ok): /home/user/Desktop/neurodesktop-storage/SomeProject (dataset)
+create(ok): /home/user/Desktop/storage/SomeProject (dataset)
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 <h4 class=alert-heading>yoda?</h4>
@@ -704,8 +704,8 @@ hello neurodesktop
 <p>Before you run your analyses, you should check the dataset for changes and save
 or clean them.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ datalad status
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/code/hello.jl (file)
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/hello.txt (file)
+untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
+untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
 
 $ datalad save -m &#39;hello script&#39; code/
 add(ok): code/hello.jl (file)
@@ -754,7 +754,7 @@ and install the dataset somewhere else. Note that <code>-s</code> argument is pr
 URL if you were really someone else.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd ~
 
-$ datalad install -s /neurodesktop-storage/SomeProject
+$ datalad install -s /storage/SomeProject
 install(ok): /home/user/SomeProject (dataset)
 
 $ cd SomeProject
@@ -825,7 +825,7 @@ containers. See <a href=http://handbook.datalad.org/en/latest/basics/101-133-con
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
+osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
 </code></pre></div><h2 id=freesurfer-license-file>FreeSurfer License file:</h2>
 <p>Before using Freesurfer you need to request a license here (<a href=https://surfer.nmr.mgh.harvard.edu/registration.html>https://surfer.nmr.mgh.harvard.edu/registration.html</a>) and store it in your homedirectory as ~/.license</p>
 <h2 id=freesurfer-example>FreeSurfer Example</h2>
@@ -838,11 +838,11 @@ osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced
 
 export FS_LICENSE=~/.license 
 </code></pre></div><p>Setup FreeSurfer:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir /neurodesktop-storage/freesurfer-output
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir /storage/freesurfer-output
 source /opt/freesurfer-7.1.1/SetUpFreeSurfer.sh
-export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
+export SUBJECTS_DIR=/storage/freesurfer-output
 </code></pre></div><p>Run Recon all pipeline:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>recon-all -subject test-subject -i /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>recon-all -subject test-subject -i /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
 </code></pre></div>
 </div>
 <div class=td-content style=page-break-before:always>

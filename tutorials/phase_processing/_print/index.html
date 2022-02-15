@@ -66,7 +66,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -121,18 +121,18 @@ This is the multi-page printable view of this section.
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c clone /neurodesktop-storage/qsmxt-demo
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
-unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+cd /storage/
+osf -p ru43c clone /storage/qsmxt-demo
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
+unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
 </code></pre></div><h2 id=qsmxt-usage>QSMxT Usage</h2>
 <p>Start QSMxT (in this demo we used 1.1.6) from the applications menu in the desktop (<em>Neurodesk</em> > <em>Quantitative Imaging</em> > <em>qsmxt</em>)</p>
 <ol>
 <li>Convert DICOM data to BIDS:
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#204a87>cd</span> /neurodesktop-storage/qsmxt-demo
-python3 /opt/QSMxT/run_0_dicomSort.py /neurodesktop-storage/qsmxt-demo/dicoms 00_dicom
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#204a87>cd</span> /storage/qsmxt-demo
+python3 /opt/QSMxT/run_0_dicomSort.py /storage/qsmxt-demo/dicoms 00_dicom
 python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
 </code></pre></div></li>
 </ol>
@@ -149,19 +149,19 @@ python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+cd /storage/
+osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
 
-unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
 </code></pre></div><p>Open the CLEARSWI tool from the application menu:</p>
 <p>paste this julia script in a julia file and execute:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cd /neurodesktop-storage/
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cd /storage/
 vi clearswi.jl
 </code></pre></div><p>hit a or i and then paste this:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>using CLEARSWI
 
 TEs = [20] 
-nifti_folder = &#34;/neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&#34;
+nifti_folder = &#34;/storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&#34;
 magfile = joinpath(nifti_folder, &#34;sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz&#34;)
 phasefile = joinpath(nifti_folder, &#34;sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz&#34;) 
 
@@ -173,8 +173,8 @@ swi = calculateSWI(data);
 # mip = createIntensityProjection(swi, minimum); # minimum intensity projection, other Julia functions can be used instead of minimum
 mip = createMIP(swi); # shorthand for createIntensityProjection(swi, minimum)
 
-savenii(swi, &#34;/neurodesktop-storage/swi-demo/swi.nii&#34;; header=mag.header) 
-savenii(mip, &#34;/neurodesktop-storage/swi-demo/mip.nii&#34;; header=mag.header)
+savenii(swi, &#34;/storage/swi-demo/swi.nii&#34;; header=mag.header) 
+savenii(mip, &#34;/storage/swi-demo/mip.nii&#34;; header=mag.header)
 </code></pre></div><p>hit SHIFT-Z-Z and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>julia clearswi.jl
 </code></pre></div><p>Open ITK snap from the Visualization Application&rsquo;s menu and inspect the results (the outputs are in swi-demo/swi.nii and mip.nii)
@@ -186,23 +186,23 @@ savenii(mip, &#34;/neurodesktop-storage/swi-demo/mip.nii&#34;; header=mag.header
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+cd /storage/
+osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
 
-unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
 
 
-mkdir /neurodesktop-storage/romeo-demo/
+mkdir /storage/romeo-demo/
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /neurodesktop-storage/romeo-demo/phase.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /storage/romeo-demo/phase.nii.gz
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /neurodesktop-storage/romeo-demo/mag.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /storage/romeo-demo/mag.nii.gz
 
-gunzip /neurodesktop-storage/romeo-demo/mag.nii.gz
-gunzip /neurodesktop-storage/romeo-demo/phase.nii.gz
+gunzip /storage/romeo-demo/mag.nii.gz
+gunzip /storage/romeo-demo/phase.nii.gz
 </code></pre></div><h3 id=using-romeo-for-phase-unwrapping>Using ROMEO for phase unwrapping</h3>
 <p>Open the ROMEO tool from the application menu and run:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /neurodesktop-storage/romeo-demo/phase.nii -m /neurodesktop-storage/romeo-demo/mag.nii -k nomask -o /neurodesktop-storage/romeo-demo/
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /storage/romeo-demo/phase.nii -m /storage/romeo-demo/mag.nii -k nomask -o /storage/romeo-demo/
 </code></pre></div><p><img src=/MRIPhase_Tutorial/romeo.PNG alt=Romeo title=Romeo></p>
 </div>
 </main>

@@ -66,7 +66,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -114,14 +114,14 @@ you are not familiar with the terminal at all, check the DataLad Handbook&rsquo;
 <p>A DataLad <em>dataset</em> can be any collection of files in folders, so it could be
 many things including an analysis project. Let&rsquo;s go to the Neurodesktop storage
 and create a dataset for some project. Open a terminal and enter these commands:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /neurodesktop-storage
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /storage
 
 $ datalad create -c yoda SomeProject
-[INFO   ] Creating a new annex repo at /home/user/Desktop/neurodesktop-storage/SomeProject
+[INFO   ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
 [INFO   ] Running procedure cfg_yoda
 [INFO   ] == Command start (output follows) =====
 [INFO   ] == Command exit (modification check follows) =====
-create(ok): /home/user/Desktop/neurodesktop-storage/SomeProject (dataset)
+create(ok): /home/user/Desktop/storage/SomeProject (dataset)
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 <h4 class=alert-heading>yoda?</h4>
@@ -162,8 +162,8 @@ hello neurodesktop
 <p>Before you run your analyses, you should check the dataset for changes and save
 or clean them.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ datalad status
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/code/hello.jl (file)
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/hello.txt (file)
+untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
+untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
 
 $ datalad save -m &#39;hello script&#39; code/
 add(ok): code/hello.jl (file)
@@ -212,7 +212,7 @@ and install the dataset somewhere else. Note that <code>-s</code> argument is pr
 URL if you were really someone else.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd ~
 
-$ datalad install -s /neurodesktop-storage/SomeProject
+$ datalad install -s /storage/SomeProject
 install(ok): /home/user/SomeProject (dataset)
 
 $ cd SomeProject

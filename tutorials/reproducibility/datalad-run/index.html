@@ -22,11 +22,11 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/reproducibility/datalad-run/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2021-12-13T10:58:49+09:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-02-15T14:49:02+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Reproducible script execution with DataLad">
 <meta itemprop=description content="Using datalad run, you can precisely record results of your analysis scripts.
 ">
-<meta itemprop=dateModified content="2021-12-13T10:58:49+09:00">
+<meta itemprop=dateModified content="2022-02-15T14:49:02+10:00">
 <meta itemprop=wordCount content="925">
 <meta itemprop=keywords content="datalad,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Reproducible script execution with DataLad">
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -187,14 +187,14 @@ you are not familiar with the terminal at all, check the DataLad Handbook&rsquo;
 <p>A DataLad <em>dataset</em> can be any collection of files in folders, so it could be
 many things including an analysis project. Let&rsquo;s go to the Neurodesktop storage
 and create a dataset for some project. Open a terminal and enter these commands:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /neurodesktop-storage
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd /storage
 
 $ datalad create -c yoda SomeProject
-[INFO   ] Creating a new annex repo at /home/user/Desktop/neurodesktop-storage/SomeProject
+[INFO   ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
 [INFO   ] Running procedure cfg_yoda
 [INFO   ] == Command start (output follows) =====
 [INFO   ] == Command exit (modification check follows) =====
-create(ok): /home/user/Desktop/neurodesktop-storage/SomeProject (dataset)
+create(ok): /home/user/Desktop/storage/SomeProject (dataset)
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 <h4 class=alert-heading>yoda?</h4>
@@ -235,8 +235,8 @@ hello neurodesktop
 <p>Before you run your analyses, you should check the dataset for changes and save
 or clean them.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ datalad status
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/code/hello.jl (file)
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/hello.txt (file)
+untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
+untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
 
 $ datalad save -m &#39;hello script&#39; code/
 add(ok): code/hello.jl (file)
@@ -285,7 +285,7 @@ and install the dataset somewhere else. Note that <code>-s</code> argument is pr
 URL if you were really someone else.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ cd ~
 
-$ datalad install -s /neurodesktop-storage/SomeProject
+$ datalad install -s /storage/SomeProject
 install(ok): /home/user/SomeProject (dataset)
 
 $ cd SomeProject
@@ -346,7 +346,7 @@ to run analyses in. DataLad has an extension to support script execution in
 containers. See <a href=http://handbook.datalad.org/en/latest/basics/101-133-containersrun.html>here</a>.</li>
 </ul>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified December 13, 2021: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/8a86a00c8d633e74fee682c9b7805dfc2461aaf7>datalad: minor grammar fixes (8a86a00)</a>
+Last modified February 15, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/d7533604c5fb2e7a51d4f803ed3acd2211fb0d0c>Update "Neurodesktop-storage/" to "storage/" (d753360)</a>
 </div>
 </div>
 </main>

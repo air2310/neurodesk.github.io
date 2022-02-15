@@ -15,13 +15,13 @@ you are not familiar with the terminal at all, check the DataLad Handbook&amp;rs
 &lt;p>A DataLad &lt;em>dataset&lt;/em> can be any collection of files in folders, so it could be
 many things including an analysis project. Let&amp;rsquo;s go to the Neurodesktop storage
 and create a dataset for some project. Open a terminal and enter these commands:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd /neurodesktop-storage
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd /storage
 $ datalad create -c yoda SomeProject
-[INFO ] Creating a new annex repo at /home/user/Desktop/neurodesktop-storage/SomeProject
+[INFO ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
 [INFO ] Running procedure cfg_yoda
 [INFO ] == Command start (output follows) =====
 [INFO ] == Command exit (modification check follows) =====
-create(ok): /home/user/Desktop/neurodesktop-storage/SomeProject (dataset)
+create(ok): /home/user/Desktop/storage/SomeProject (dataset)
 &lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">yoda?&lt;/h4>
@@ -59,8 +59,8 @@ hello neurodesktop
 &lt;p>Before you run your analyses, you should check the dataset for changes and save
 or clean them.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ datalad status
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/code/hello.jl (file)
-untracked: /home/user/Desktop/neurodesktop-storage/SomeProject/hello.txt (file)
+untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
+untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
 $ datalad save -m &amp;#39;hello script&amp;#39; code/
 add(ok): code/hello.jl (file)
 save(ok): . (dataset)
@@ -105,7 +105,7 @@ To see that, you will need to pretend you are someone else (or you of future!)
 and install the dataset somewhere else. Note that &lt;code>-s&lt;/code> argument is probably a
 URL if you were really someone else.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd ~
-$ datalad install -s /neurodesktop-storage/SomeProject
+$ datalad install -s /storage/SomeProject
 install(ok): /home/user/SomeProject (dataset)
 $ cd SomeProject
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Because a DataLad dataset is a Git repository, people who download your dataset

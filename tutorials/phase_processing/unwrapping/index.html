@@ -22,11 +22,11 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/phase_processing/unwrapping/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2021-10-18T15:32:20+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-02-15T14:49:02+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Unwrapping">
 <meta itemprop=description content="MRI Phase Unwrapping
 ">
-<meta itemprop=dateModified content="2021-10-18T15:32:20+10:00">
+<meta itemprop=dateModified content="2022-02-15T14:49:02+10:00">
 <meta itemprop=wordCount content="59">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Unwrapping">
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -174,26 +174,26 @@
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-cd /neurodesktop-storage/
-osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+cd /storage/
+osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
 
-unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
 
 
-mkdir /neurodesktop-storage/romeo-demo/
+mkdir /storage/romeo-demo/
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /neurodesktop-storage/romeo-demo/phase.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /storage/romeo-demo/phase.nii.gz
 
-cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /neurodesktop-storage/romeo-demo/mag.nii.gz
+cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /storage/romeo-demo/mag.nii.gz
 
-gunzip /neurodesktop-storage/romeo-demo/mag.nii.gz
-gunzip /neurodesktop-storage/romeo-demo/phase.nii.gz
+gunzip /storage/romeo-demo/mag.nii.gz
+gunzip /storage/romeo-demo/phase.nii.gz
 </code></pre></div><h3 id=using-romeo-for-phase-unwrapping>Using ROMEO for phase unwrapping</h3>
 <p>Open the ROMEO tool from the application menu and run:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /neurodesktop-storage/romeo-demo/phase.nii -m /neurodesktop-storage/romeo-demo/mag.nii -k nomask -o /neurodesktop-storage/romeo-demo/
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>romeo -p /storage/romeo-demo/phase.nii -m /storage/romeo-demo/mag.nii -k nomask -o /storage/romeo-demo/
 </code></pre></div><p><img src=/MRIPhase_Tutorial/romeo.PNG alt=Romeo title=Romeo></p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified October 18, 2021: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/376ae84f9a33d57321847c7b12ad193e94b426ea>update swi tutorial and added phase unwrapping (376ae84)</a>
+Last modified February 15, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/d7533604c5fb2e7a51d4f803ed3acd2211fb0d0c>Update "Neurodesktop-storage/" to "storage/" (d753360)</a>
 </div>
 </div>
 </main>

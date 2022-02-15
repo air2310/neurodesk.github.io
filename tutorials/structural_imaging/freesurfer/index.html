@@ -22,11 +22,11 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/structural_imaging/freesurfer/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2021-10-18T15:50:24+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-02-15T14:49:02+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="FreeSurfer">
 <meta itemprop=description content="Example workflow for FreeSurfer
 ">
-<meta itemprop=dateModified content="2021-10-18T15:50:24+10:00">
+<meta itemprop=dateModified content="2022-02-15T14:49:02+10:00">
 <meta itemprop=wordCount content="92">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="FreeSurfer">
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.c3d91af452736997a4d645a45cc5346a.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -172,7 +172,7 @@
 <h2 id=download-demo-data>Download demo data</h2>
 <p>Open a terminal and run:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
+osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
 </code></pre></div><h2 id=freesurfer-license-file>FreeSurfer License file:</h2>
 <p>Before using Freesurfer you need to request a license here (<a href=https://surfer.nmr.mgh.harvard.edu/registration.html>https://surfer.nmr.mgh.harvard.edu/registration.html</a>) and store it in your homedirectory as ~/.license</p>
 <h2 id=freesurfer-example>FreeSurfer Example</h2>
@@ -185,14 +185,14 @@ osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced
 
 export FS_LICENSE=~/.license 
 </code></pre></div><p>Setup FreeSurfer:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir /neurodesktop-storage/freesurfer-output
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir /storage/freesurfer-output
 source /opt/freesurfer-7.1.1/SetUpFreeSurfer.sh
-export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
+export SUBJECTS_DIR=/storage/freesurfer-output
 </code></pre></div><p>Run Recon all pipeline:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>recon-all -subject test-subject -i /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>recon-all -subject test-subject -i /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
 </code></pre></div>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified October 18, 2021: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/3653fcb5b3a9c4004070831d4e7b32f4da8025a6>more categories in tutorials (3653fcb)</a>
+Last modified February 15, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/d7533604c5fb2e7a51d4f803ed3acd2211fb0d0c>Update "Neurodesktop-storage/" to "storage/" (d753360)</a>
 </div>
 </div>
 </main>
