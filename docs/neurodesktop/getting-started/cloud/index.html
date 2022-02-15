@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -22,12 +22,12 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/docs/neurodesktop/getting-started/cloud/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-01-11T16:13:26+11:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-01-27T19:16:43+11:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Cloud">
 <meta itemprop=description content="Run neurodesktop using Oracle or Azure cloud computing
 ">
-<meta itemprop=dateModified content="2022-01-11T16:13:26+11:00">
-<meta itemprop=wordCount content="649">
+<meta itemprop=dateModified content="2022-01-27T19:16:43+11:00">
+<meta itemprop=wordCount content="710">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Cloud">
 <meta name=twitter:description content="Run neurodesktop using Oracle or Azure cloud computing
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -146,6 +146,8 @@
 <a href=/neurodesk.github.io/docs/neurocontainers/windows11-wsl/ title="Windows 11 and Windows Subsystem for Linux" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerswindows11-wsl><span>Windows 11 & WSL</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/cvmfs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs><span>CVMFS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc-li>
+<a href=/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc><span>CVMFS-HPC</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdatalad-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/datalad/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainersdatalad><span>Datalad</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdocker-li>
@@ -180,7 +182,7 @@
 <li><a href=#3-run-neurodesktop>3. Run Neurodesktop</a></li>
 </ul>
 </li>
-<li><a href=#stopping-neurodesktop>Stopping neurodesktop:</a></li>
+<li><a href=#deleting-neurodesktop>Deleting neurodesktop:</a></li>
 <li><a href=#portforwarding-to-an-ios-ipad>Portforwarding to an iOS ipad</a></li>
 <li><a href=#cloud-provider-specific-tutorials>Cloud-provider specific Tutorials</a></li>
 <li><a href=#using-an-rdp-client>Using an RDP Client</a></li>
@@ -218,14 +220,13 @@
 <ol>
 <li>Type the folowing command on the cloud instance to automatically download the neurodesktop container and run it</li>
 </ol>
-<pre class="language-shell command-line" data-prompt=$ data-output=2-9>
+<pre class="language-shell command-line" data-prompt=$ data-output=2-6>
 <code>sudo docker run \
   --shm-size=1gb -it --privileged --name neurodesktop \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
-  -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
-  -p 8080:8080 -h neurodesktop-20220111 \
-  vnmd/neurodesktop:20220111</code>
-</pre>
+  -e HOST_UID=&#34;$(id -u)&#34; -e HOST_GID=&#34;$(id -g)&#34;\
+  -p 8080:8080 \
+  -h neurodesktop-20220128 vnmd/neurodesktop:20220128</code></pre>
 <div class="alert alert-primary" role=alert>
 If you get errors in neurodesktop then check if the ~/neurodesktop-storage directory is writable to all users, otherwise run <code>chmod a+rwx ~/neurodesktop-storage</code>
 </div>
@@ -249,8 +250,12 @@ If you get errors in neurodesktop then check if the ~/neurodesktop-storage direc
 <ol start=5>
 <li>if your computer hibernated/rebooted/etc., if the network connnection has been temprarily lost, or if you want to connect to the same instance of Neurodesktop from another computer, only repeat steps 1 and 6, and you will be reconnected to neurodesktop</li>
 </ol>
-<h2 id=stopping-neurodesktop>Stopping neurodesktop:</h2>
+<h2 id=deleting-neurodesktop>Deleting neurodesktop:</h2>
 <p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error ("&mldr; The container name &ldquo;/neurodesktop&rdquo; is already in use&mldr;")</p>
+<div class="alert alert-primary" role=alert>
+<h4 class=alert-heading>Note</h4>
+Notice that any data that were saved outside of /neurodesktop-storage would be lost. Please make sure to move all your data to that folder before deleting neurodesktop.
+</div>
 <ol>
 <li>
 <p>Click on the terminal from which you ran neurodesktop</p>
@@ -290,17 +295,17 @@ If you get errors in neurodesktop then check if the ~/neurodesktop-storage direc
 <p>Open an SSH connection to your cloud instance with the following command</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>ssh -L 3390:127.0.0.1:3390 USER@IP
 </code></pre></div><p>Startup Neurodesktop using the following command:</p>
-<pre class="language-shell command-line" data-prompt=$ data-output=2-6>
+<p><pre class="language-shell command-line" data-prompt=$ data-output=2-6>
 <code>sudo docker run \
   --shm-size=1gb -it --privileged --name neurodesktop \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
-  -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
-  -p 3390:3389 -p 8080:8080 -h neurodesktop-20220111 \
-  vnmd/neurodesktop:20220111</code>
-</pre>
+  -e HOST_UID=&#34;$(id -u)&#34; -e HOST_GID=&#34;$(id -g)&#34;\
+  -p 8080:8080 -p 3390:3389 \
+  -h neurodesktop-20220128 vnmd/neurodesktop:20220128</code></pre>
 <div class="alert alert-primary" role=alert>
 If you want to connect via RDP using a different port, replace 3390 in the previous two steps and next step with your port
 </div>
+</p>
 <p>Open your RDP client and connect to Computer <code>localhost:3390</code></p>
 <p>Use the following details to login if prompted</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>username: user
@@ -311,10 +316,17 @@ password: password
 <code>sudo docker run \
   --shm-size=1gb -it --privileged --name neurodesktop \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
-  -e VNC_ENABLE=true -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
-  -p 8080:8080 -h neurodesktop-20220111 \
-  vnmd/neurodesktop:20220111</code>
-</pre>
+  -e HOST_UID=&#34;$(id -u)&#34; -e HOST_GID=&#34;$(id -g)&#34;\
+  -p 8080:8080 \
+  -h neurodesktop-20220128 vnmd/neurodesktop:20220128 --vnc</code></pre>
+<p>To enable both VNC and RDP, startup Neurodesktop using the following command:</p>
+<pre class="language-shell command-line" data-prompt=$ data-output=2-6>
+<code>sudo docker run \
+  --shm-size=1gb -it --privileged --name neurodesktop \
+  -v ~/neurodesktop-storage:/neurodesktop-storage \
+  -e HOST_UID=&#34;$(id -u)&#34; -e HOST_GID=&#34;$(id -g)&#34;\
+  -p 8080:8080 \
+  -h neurodesktop-20220128 vnmd/neurodesktop:20220128 --vnc --rdp</code></pre>
 <div class="alert alert-primary" role=alert>
 <p>VNC allows for multiple desktop connections to same instance</p>
 <p>Note: Neurodesktop VNC on the browser currently does not support auto-resolution</p>
@@ -328,13 +340,12 @@ Needs testing
 <code>sudo docker run \
   --shm-size=1gb -it --privileged --name neurodesktop \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
-  -e VNC_ENABLE=true -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
-  -p 5901:5901 -p 8080:8080 -h neurodesktop-20220111 \
-  vnmd/neurodesktop:20220111</code>
-</pre>
+  -e HOST_UID=&#34;$(id -u)&#34; -e HOST_GID=&#34;$(id -g)&#34;\
+  -p 8080:8080 -p 5901:5901 \
+  -h neurodesktop-20220128 vnmd/neurodesktop:20220128 --vnc</code></pre>
 <p>Open a VNC Client and connect to port 5901</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified January 11, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/361b32d7eab51aecb6e61feec40e73b6a07fb0ba>Update cloud.md (361b32d)</a>
+Last modified January 27, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/e99d81f7954aa7b1c364a9b366459160e5e67ddf>Update cloud.md (e99d81f)</a>
 </div>
 </div>
 </main>

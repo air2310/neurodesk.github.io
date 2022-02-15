@@ -161,7 +161,31 @@ Bash terminal, check the &lt;a href="https://mywiki.wooledge.org/BashGuide">Bash
 &lt;li>For even more reproducibility, you can include &lt;em>containers&lt;/em> with your dataset
 to run analyses in. DataLad has an extension to support script execution in
 containers. See &lt;a href="http://handbook.datalad.org/en/latest/basics/101-133-containersrun.html">here&lt;/a>.&lt;/li>
-&lt;/ul></description></item><item><title>Tutorials: Using fmriprep with neurodesk on an HPC</title><link>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</guid><description>
+&lt;/ul></description></item><item><title>Tutorials: Analysing M/EEG Data with FieldTrip</title><link>https://air2310/neurodesk.github.io/tutorials/electrophysiology/fieldtrip/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/electrophysiology/fieldtrip/</guid><description>
+&lt;blockquote>
+&lt;p>&lt;em>This tutorial was created by Judy D Zhu.&lt;/em>&lt;/p>
+&lt;p>Email: &lt;a href="mailto:judyzhud@gmail.com">judyzhud@gmail.com&lt;/a>&lt;/p>
+&lt;p>Github: @JD-Zhu&lt;/p>
+&lt;p>Twitter: @JudyDZhu&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;p>Please note that this container uses a compiled version of FieldTrip to run scripts (without needing a Matlab license). Code development is not currently supported within the container and needs to be carried out separatedly in Matlab.&lt;br>
+&lt;br/>&lt;/p>
+&lt;h2 id="getting-started">Getting started&lt;/h2>
+&lt;ol>
+&lt;li>Navigate to Neurodesk-&amp;gt;Electrophysiology-&amp;gt;fieldtrip-&amp;gt;fieldtrip20211114 in the menu:&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/fieldtrip/1_menu.png" alt="1_menu" title="1_menu">&lt;/p>
+&lt;p>Once this window is loaded, you are ready to go:&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/fieldtrip/2_container.PNG" alt="2_container" title="2_container">&lt;/p>
+&lt;br/>
+&lt;ol start="2">
+&lt;li>Type the following into the command window (replacing &amp;ldquo;yourscript.m&amp;rdquo; with the name of your custom script - note that you may also need to supply the full path):&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">run_fieldtrip.sh /opt/MCR/v99 yourscript.m
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>For example, here we ran a script to browse some raw data:&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/fieldtrip/3_running.PNG" alt="3_running" title="3_running">&lt;/p>
+&lt;p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.&lt;/p></description></item><item><title>Tutorials: Using fmriprep with neurodesk on an HPC</title><link>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/functional_imaging/fmriprep_cvl/</guid><description>
 &lt;blockquote>
 &lt;p>&lt;em>This tutorial was created by Kelly G. Garner.&lt;/em>&lt;/p>
 &lt;p>Email: &lt;a href="mailto:getkellygarner@gmail.com">getkellygarner@gmail.com&lt;/a>&lt;/p>
@@ -243,7 +267,7 @@ export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Tutorials: Analysing EEG Data with MNE</title><link>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/</guid><description>
 &lt;h2 id="getting-started">Getting started&lt;/h2>
 &lt;p>To begin, navigate to Neurodesk-&amp;gt;Electrophysiology-&amp;gt;mne-&amp;gt;vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.&lt;/p>
-&lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut0" title="EEGtut0">&lt;/p>
+&lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut0.png" alt="EEGtut0" title="EEGtut0">&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1">&lt;/p>
 &lt;p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut2.png" alt="EEGtut2" title="EEGtut2">&lt;/p>
@@ -256,7 +280,7 @@ export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut5.png" alt="EEGtut5" title="EEGtut5">&lt;/p>
 &lt;h2 id="activate-the-mne-conda-environment-in-the-terminal">Activate the MNE conda environment in the terminal&lt;/h2>
 &lt;p>Next, we&amp;rsquo;ll activate the same MNE environment in a terminal. From the top menu in vscode, select Terminal-&amp;gt;New Terminal, or hit [Ctrl]+[Shift]+[`].&lt;/p>
-&lt;p>If this is your first time using vscode in this container, you may have to initialise conda by typing &lt;code>conda init bash&lt;/code> the bash terminal. After initialising bash, you will have to close and then reopen the terminal.&lt;/p>
+&lt;p>If this is your first time using vscode in this container, you may have to initialise conda by typing &lt;code>conda init bash&lt;/code> in the bash terminal. After initialising bash, you will have to close and then reopen the terminal.&lt;/p>
 &lt;p>Once you have initialised conda, you can activate the MNE environment in the terminal:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">conda activate mne-0.23.4
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You should now see &amp;ldquo;(mne-0.23.4)&amp;rdquo; ahead of the current line in the terminal.&lt;/p>

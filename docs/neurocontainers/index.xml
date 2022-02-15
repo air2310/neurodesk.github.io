@@ -4,7 +4,9 @@
 &lt;h2 id="2-configure-cvfms-singularity-and-lmod-only-needs-to-be-done-once">2. Configure CVFMS, Singularity and LMOD (only needs to be done once)&lt;/h2>
 &lt;h3 id="install-singularity">Install singularity&lt;/h3>
 &lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
+&lt;code>
+sudo apt install make
+export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
 wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
 sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
 rm go$VERSION.$OS-$ARCH.tar.gz
@@ -17,11 +19,10 @@ tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
 cd singularity-ce-${SINGULARITY_VERSION}
 ./mconfig --prefix=/usr/local/singularity
 make -C builddir
-make -C builddir install
+sudo make -C builddir install
 cd ..
-rm -rf singularity-ce-${SINGULARITY_VERSION}
-rm -rf /usr/local/go $GOPATH
-ln -s /usr/local/singularity/bin/singularity /bin/ &lt;/code>
+sudo rm -rf singularity-ce-${SINGULARITY_VERSION}
+sudo rm -rf /usr/local/go $GOPATH &lt;/code>
 &lt;/pre>
 &lt;h3 id="setup-bindpaths-for-singularity-eg-in-bashrc">Setup Bindpaths for Singularity (e.g. in .bashrc)&lt;/h3>
 &lt;pre class="language-batch command-line" data-prompt=">">
@@ -105,7 +106,65 @@ cvmfs_config stat -v neurodesk.ardc.edu.au&lt;/code>
 module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
 ml fsl
 fslmaths&lt;/code>
-&lt;/pre></description></item><item><title>Docs: Datalad</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</guid><description>
+&lt;/pre></description></item><item><title>Docs: CVMFS-HPC</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/</guid><description>
+&lt;p>Ideally the HPC admins would mount our CVMFS repositories for you, but if you just like to try it out there is a way of using it completely in user-space using Parrot (I tested this on a Centos 7 HPC):&lt;/p>
+&lt;h1 id="install-parrot">Install Parrot&lt;/h1>
+&lt;p>Install Parrot in your homedirectory in for example ~/tools:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>cd ~
+cd ~/tools
+wget http://ccl.cse.nd.edu/software/files/cctools-7.4.2-x86_64-centos7.tar.gz
+tar xvf cctools-7.4.2-x86_64-centos7.tar.gz
+export PATH=~/tools/cctools-7.4.2-x86_64-centos7.tar.gz-dir/bin:$PATH
+export PYTHONPATH=~/tools/cctools-7.4.2-x86_64-centos7.tar.gz-dir/lib/python3.6/site-packages:${PYTHONPATH}
+export PARROT_ALLOW_SWITCHING_CVMFS_REPOSITORIES=yes
+export HTTP_PROXY='DIRECT;'
+export NEURODESK_S1="http://152.67.114.42/cvmfs"
+export PARROT_CVMFS_REPO="&lt;default-repositories> neurodesk.ardc.edu.au:url=${NEURODESK_S1}/neurodesk.ardc.edu.au,pubkey=~/tools/neurodesk.ardc.edu.au.pub"
+echo "-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
+Bi2TQcLoh5AJ//HSIz68ypjOGFjwExGlHb95Frhu1SpcH5OASbV+jJ60oEBLi3sD
+qA6rGYt9kVi90lWvEjQnhBkPb0uWcp1gNqQAUocybCzHvoiG3fUzAe259CrK09qR
+pX8sZhgK3eHlfx4ycyMiIQeg66AHlgVCJ2fKa6fl1vnh6adJEPULmn6vZnevvUke
+I6U1VcYTKm5dPMrOlY/fGimKlyWvivzVv1laa5TAR2Dt4CfdQncOz+rkXmWjLjkD
+87WMiTgtKybsmMLb2yCGSgLSArlSWhbMA0MaZSzAwE9PJKCCMvTANo5644zc8jBe
+NQIDAQAB
+-----END PUBLIC KEY-----" | tee ~/tools/neurodesk.ardc.edu.au.pub
+parrot_run bash
+ls /cvmfs/neurodesk.ardc.edu.au&lt;/code>
+&lt;/pre>
+&lt;h1 id="install-singularity-in-user-space-without-suid-suid-doesnt-work-in-parrot">Install Singularity in user space without suid (suid doesn&amp;rsquo;t work in Parrot!)&lt;/h1>
+&lt;p>you need make and this will depend on your HPC, but something along these lines could work:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>ml automake-1.16.1-gcc-7.3.0-6cdwe6j&lt;/code>
+&lt;/pre>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>
+export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
+wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
+tar -C ~/tools/ -xzvf go$VERSION.$OS-$ARCH.tar.gz
+rm go$VERSION.$OS-$ARCH.tar.gz
+export GOPATH=~/tools/go
+export PATH=~/tools/go/bin:${PATH}:${GOPATH}/bin
+mkdir -p $GOPATH/src/github.com/sylabs
+cd $GOPATH/src/github.com/sylabs
+wget -q https://github.com/sylabs/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-ce-${SINGULARITY_VERSION}.tar.gz
+tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
+cd singularity-ce-${SINGULARITY_VERSION}
+./mconfig --without-suid --prefix=~/tools/singularity
+make -C builddir
+make -C builddir install
+export PATH=~/tools/singularity/bin:${PATH}&lt;/code>
+&lt;/pre>
+&lt;h1 id="use-containers-on-cvmfs-in-the-module-system">Use containers on CVMFS in the module system&lt;/h1>
+&lt;p>Now you should be able to use our containers in singularity and the module system:&lt;/p>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+ml fsl
+which fslmaths
+fslmaths&lt;/code>
+&lt;/pre>&lt;blockquote>
+&lt;/blockquote></description></item><item><title>Docs: Datalad</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</guid><description>
 &lt;p>Once this is completed: &lt;a href="https://github.com/ReproNim/containers/issues/64#issuecomment-999126787">https://github.com/ReproNim/containers/issues/64#issuecomment-999126787&lt;/a>&lt;/p></description></item><item><title>Docs: Docker</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</guid><description>
 &lt;p>Our containers are automatically built in &lt;a href="https://github.com/NeuroDesk/neurocontainers/">https://github.com/NeuroDesk/neurocontainers/&lt;/a> and hosted on &lt;a href="https://hub.docker.com/orgs/vnmd/repositories">dockerhub&lt;/a> or on &lt;a href="https://github.com/NeuroDesk/neurocontainers/packages">github&lt;/a>&lt;/p>
 &lt;h2 id="pull-docker-containers">Pull Docker containers&lt;/h2>
@@ -114,7 +173,7 @@ docker&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker pull vnmd/julia_1.6.1
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>build singularity image from dockerhub&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application. You can find the available containers here: &lt;a href="https://neurodesk.github.io/applications/">https://neurodesk.github.io/applications/&lt;/a>&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
 &lt;p>Our docker containers are converted to singularity containers and stored on Object storage.&lt;/p>
 &lt;h2 id="download-singularity-containers">Download Singularity Containers&lt;/h2>
 &lt;p>First get an overview which containers are available as Singularity containers:

@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -22,12 +22,12 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/"><meta property="article:section" content="tutorials">
-<meta property="article:modified_time" content="2022-01-21T15:37:15+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-01-24T13:07:24+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="Analysing EEG Data with MNE">
 <meta itemprop=description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
 ">
-<meta itemprop=dateModified content="2022-01-21T15:37:15+10:00">
-<meta itemprop=wordCount content="1140">
+<meta itemprop=dateModified content="2022-01-24T13:07:24+10:00">
+<meta itemprop=wordCount content="1141">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Analysing EEG Data with MNE">
 <meta name=twitter:description content="Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode. 
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -90,7 +90,9 @@
 <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-neurodeskgithubiotutorialselectrophysiology-li>
 <a href=/neurodesk.github.io/tutorials/electrophysiology/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-neurodeskgithubiotutorialselectrophysiology><span>Electrophysiology</span></a>
 <ul class="ul-2 foldable">
-<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-neurodeskgithubiotutorialselectrophysiologyeeg_mne-python-li>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiotutorialselectrophysiologyfieldtrip-li>
+<a href=/neurodesk.github.io/tutorials/electrophysiology/fieldtrip/ title="Analysing M/EEG Data with FieldTrip" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiotutorialselectrophysiologyfieldtrip><span>fieldtrip</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-neurodeskgithubiotutorialselectrophysiologyeeg_mne-python-li>
 <a href=/neurodesk.github.io/tutorials/electrophysiology/eeg_mne-python/ title="Analysing EEG Data with MNE" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiotutorialselectrophysiologyeeg_mne-python><span class=td-sidebar-nav-active-item>MNE-Python: EEG</span></a>
 </li>
 </ul>
@@ -172,7 +174,7 @@
 </header>
 <h2 id=getting-started>Getting started</h2>
 <p>To begin, navigate to Neurodesk->Electrophysiology->mne->vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.</p>
-<p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut0 title=EEGtut0></p>
+<p><img src=/EEG_Tutorial/EEGtut0.png alt=EEGtut0 title=EEGtut0></p>
 <p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1></p>
 <p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
 <p><img src=/EEG_Tutorial/EEGtut2.png alt=EEGtut2 title=EEGtut2></p>
@@ -185,7 +187,7 @@
 <p><img src=/EEG_Tutorial/EEGtut5.png alt=EEGtut5 title=EEGtut5></p>
 <h2 id=activate-the-mne-conda-environment-in-the-terminal>Activate the MNE conda environment in the terminal</h2>
 <p>Next, we&rsquo;ll activate the same MNE environment in a terminal. From the top menu in vscode, select Terminal->New Terminal, or hit [Ctrl]+[Shift]+[`].</p>
-<p>If this is your first time using vscode in this container, you may have to initialise conda by typing <code>conda init bash</code> the bash terminal. After initialising bash, you will have to close and then reopen the terminal.</p>
+<p>If this is your first time using vscode in this container, you may have to initialise conda by typing <code>conda init bash</code> in the bash terminal. After initialising bash, you will have to close and then reopen the terminal.</p>
 <p>Once you have initialised conda, you can activate the MNE environment in the terminal:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>conda activate mne-0.23.4
 </code></pre></div><p>You should now see &ldquo;(mne-0.23.4)&rdquo; ahead of the current line in the terminal.</p>
@@ -325,7 +327,7 @@ ax.legend()
 </code></pre></div><p><img src=/EEG_Tutorial/EEGtut10.PNG alt=EEGtut10 title=EEGtut10></p>
 <p>This plot shows that the SSVEPs were indeed modulated by attention in the direction we would expect! Congratulations! You’ve run your first analysis of EEG data in neurodesktop.</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified January 21, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/8d028c0b1358607cf9dd9801fdd934e7174433ca>Update EEG tutorial (8d028c0)</a>
+Last modified January 24, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/3f589038dae3f85e68e78231de84812d2d4902e9>Update EEG tutorial (3f58903)</a>
 </div>
 </div>
 </main>

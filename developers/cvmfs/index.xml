@@ -3,8 +3,8 @@
 &lt;pre class="language-batch command-line" data-prompt=">" data-output="2-4">
 &lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop `
 -v C:/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 `
--h neurodesktop-20220111 `
-vnmd/neurodesktop:20220111&lt;/code>
+-h neurodesktop-20220128 `
+vnmd/neurodesktop:20220128&lt;/code>
 &lt;/pre>
 &lt;h1 id="setup-a-cvmfs-proxy-server">Setup a CVMFS proxy server&lt;/h1>
 &lt;pre class="language-shell command-line" data-prompt="$">

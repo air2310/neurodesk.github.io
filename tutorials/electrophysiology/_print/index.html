@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.2">
 <link rel=canonical type=text/html href=https://air2310/neurodesk.github.io/tutorials/electrophysiology/>
 <link rel=alternate type=application/rss+xml href=https://air2310/neurodesk.github.io/tutorials/electrophysiology/index.xml>
 <meta name=robots content="noindex, nofollow">
@@ -66,7 +66,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -90,17 +90,46 @@ This is the multi-page printable view of this section.
 <h1 class=title>Electrophysiology</h1>
 <div class=lead>Tutorials about processing of EEG/MEG/ECoG data</div>
 <ul>
-<li>1: <a href=#pg-7212f82ad48dcf25da7a87aef4dbbdaf>Analysing EEG Data with MNE</a></li>
+<li>1: <a href=#pg-3a19a2fed74591e4be7f94ab5ea8fd3d>Analysing M/EEG Data with FieldTrip</a></li>
+<li>2: <a href=#pg-7212f82ad48dcf25da7a87aef4dbbdaf>Analysing EEG Data with MNE</a></li>
 </ul>
 <div class=content>
 </div>
 </div>
 <div class=td-content>
-<h1 id=pg-7212f82ad48dcf25da7a87aef4dbbdaf>1 - Analysing EEG Data with MNE</h1>
+<h1 id=pg-3a19a2fed74591e4be7f94ab5ea8fd3d>1 - Analysing M/EEG Data with FieldTrip</h1>
+<div class=lead>A brief guide to using FieldTrip to analyse electrophysiological data within neurodesk.</div>
+<blockquote>
+<p><em>This tutorial was created by Judy D Zhu.</em></p>
+<p>Email: <a href=mailto:judyzhud@gmail.com>judyzhud@gmail.com</a></p>
+<p>Github: @JD-Zhu</p>
+<p>Twitter: @JudyDZhu</p>
+</blockquote>
+<hr>
+<p>Please note that this container uses a compiled version of FieldTrip to run scripts (without needing a Matlab license). Code development is not currently supported within the container and needs to be carried out separatedly in Matlab.<br>
+<br></p>
+<h2 id=getting-started>Getting started</h2>
+<ol>
+<li>Navigate to Neurodesk->Electrophysiology->fieldtrip->fieldtrip20211114 in the menu:</li>
+</ol>
+<p><img src=/fieldtrip/1_menu.png alt=1_menu title=1_menu></p>
+<p>Once this window is loaded, you are ready to go:</p>
+<p><img src=/fieldtrip/2_container.PNG alt=2_container title=2_container></p>
+<br>
+<ol start=2>
+<li>Type the following into the command window (replacing &ldquo;yourscript.m&rdquo; with the name of your custom script - note that you may also need to supply the full path):</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>run_fieldtrip.sh /opt/MCR/v99 yourscript.m
+</code></pre></div><p>For example, here we ran a script to browse some raw data:</p>
+<p><img src=/fieldtrip/3_running.PNG alt=3_running title=3_running></p>
+<p>The fieldtrip GUI is displayed automatically and functions as it normally would when running inside Matlab.</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-7212f82ad48dcf25da7a87aef4dbbdaf>2 - Analysing EEG Data with MNE</h1>
 <div class=lead>Use mne-python to load, pre-process, and plot example EEG data in a jupyter notebook through vscode.</div>
 <h2 id=getting-started>Getting started</h2>
 <p>To begin, navigate to Neurodesk->Electrophysiology->mne->vscodeGUI 0.23.4 in the menu. This version of vscode has been installed in a software container together with the a conda environment containing MNE-python. Note that if you open any other version of vscode in Neurodesk, you will not be able to access the MNE conda environment.</p>
-<p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut0 title=EEGtut0></p>
+<p><img src=/EEG_Tutorial/EEGtut0.png alt=EEGtut0 title=EEGtut0></p>
 <p><img src=/EEG_Tutorial/EEGtut1.png alt=EEGtut1 title=EEGtut1></p>
 <p>Open the folder: “/home/user/Desktop/neurodesktop-storage” or a subfolder in which you would like to store this demo. In this folder, create a new file named “EEGDemo.ipynb” or something similar:</p>
 <p><img src=/EEG_Tutorial/EEGtut2.png alt=EEGtut2 title=EEGtut2></p>
@@ -113,7 +142,7 @@ This is the multi-page printable view of this section.
 <p><img src=/EEG_Tutorial/EEGtut5.png alt=EEGtut5 title=EEGtut5></p>
 <h2 id=activate-the-mne-conda-environment-in-the-terminal>Activate the MNE conda environment in the terminal</h2>
 <p>Next, we&rsquo;ll activate the same MNE environment in a terminal. From the top menu in vscode, select Terminal->New Terminal, or hit [Ctrl]+[Shift]+[`].</p>
-<p>If this is your first time using vscode in this container, you may have to initialise conda by typing <code>conda init bash</code> the bash terminal. After initialising bash, you will have to close and then reopen the terminal.</p>
+<p>If this is your first time using vscode in this container, you may have to initialise conda by typing <code>conda init bash</code> in the bash terminal. After initialising bash, you will have to close and then reopen the terminal.</p>
 <p>Once you have initialised conda, you can activate the MNE environment in the terminal:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>conda activate mne-0.23.4
 </code></pre></div><p>You should now see &ldquo;(mne-0.23.4)&rdquo; ahead of the current line in the terminal.</p>

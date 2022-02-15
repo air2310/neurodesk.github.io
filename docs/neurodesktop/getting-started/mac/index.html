@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -22,12 +22,12 @@
 ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://air2310/neurodesk.github.io/docs/neurodesktop/getting-started/mac/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-01-05T11:08:38+10:00"><meta property="og:site_name" content="NeuroDesk">
+<meta property="article:modified_time" content="2022-02-15T10:17:46+10:00"><meta property="og:site_name" content="NeuroDesk">
 <meta itemprop=name content="MacOS">
 <meta itemprop=description content="Install neurodesktop on MacOS
 ">
-<meta itemprop=dateModified content="2022-01-05T11:08:38+10:00">
-<meta itemprop=wordCount content="381">
+<meta itemprop=dateModified content="2022-02-15T10:17:46+10:00">
+<meta itemprop=wordCount content="418">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="MacOS">
 <meta name=twitter:description content="Install neurodesktop on MacOS
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -146,6 +146,8 @@
 <a href=/neurodesk.github.io/docs/neurocontainers/windows11-wsl/ title="Windows 11 and Windows Subsystem for Linux" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerswindows11-wsl><span>Windows 11 & WSL</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/cvmfs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs><span>CVMFS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc-li>
+<a href=/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc><span>CVMFS-HPC</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdatalad-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/datalad/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainersdatalad><span>Datalad</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdocker-li>
@@ -179,7 +181,7 @@
 <li><a href=#2-run-neurodesktop>2. Run Neurodesktop</a></li>
 </ul>
 </li>
-<li><a href=#stopping-neurodesktop>Stopping neurodesktop:</a></li>
+<li><a href=#deleting-neurodesktop>Deleting neurodesktop:</a></li>
 <li><a href=#using-an-rdp-client>Using an RDP Client</a></li>
 <li><a href=#using-vnc>Using VNC</a>
 <ul>
@@ -198,6 +200,7 @@
 <h2 id=minimum-system-requirements>Minimum System Requirements</h2>
 <ol>
 <li>At least 3GB free space for neurodesktop base image</li>
+<li>An Intel Mac. M1/ARM Macs are not yet supported.</li>
 <li>Docker requirements. Details found under <a href=https://docs.docker.com/get-docker/>https://docs.docker.com/get-docker/</a></li>
 </ol>
 <h2 id=quickstart>Quickstart</h2>
@@ -208,7 +211,7 @@
 <ol>
 <li>Open a terminal, and type the folowing command to automatically download the neurodesktop container and run it</li>
 </ol>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 There is a bug in docker 3.3.0 for Mac that makes this command not run correctly and there will be no application menu when you start the desktop. Update your docker version when you see this!
@@ -225,8 +228,12 @@ There is a bug in docker 3.3.0 for Mac that makes this command not run correctly
 <li>User is <code>user</code></li>
 <li>Password is <code>password</code></li>
 </ul>
-<h2 id=stopping-neurodesktop>Stopping neurodesktop:</h2>
+<h2 id=deleting-neurodesktop>Deleting neurodesktop:</h2>
 <p>When done processing your data it is important to stop and remove the container - otherwise the next start or container update will give an error ("&mldr; The container name &ldquo;/neurodesktop&rdquo; is already in use&mldr;")</p>
+<div class="alert alert-primary" role=alert>
+<h4 class=alert-heading>Note</h4>
+Notice that any data that were saved outside of /neurodesktop-storage would be lost. Please make sure to move all your data to that folder before deleting neurodesktop.
+</div>
 <ol>
 <li>
 <p>Click on the terminal from which you ran neurodesktop</p>
@@ -245,7 +252,7 @@ There is a bug in docker 3.3.0 for Mac that makes this command not run correctly
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>docker rm neurodesktop
 </code></pre></div><h2 id=using-an-rdp-client>Using an RDP Client</h2>
 <p>Startup Neurodesktop using the following command:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 3390:3389 -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -p 3390:3389 -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 If you want to connect via RDP using a different port, replace 3390 in the previous and next step with your port
@@ -256,7 +263,7 @@ If you want to connect via RDP using a different port, replace 3390 in the previ
 password: password
 </code></pre></div><h2 id=using-vnc>Using VNC</h2>
 <p>To enable VNC and disable RDP, startup Neurodesktop using the following command:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -e <span style=color:#000>VNC_ENABLE</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87>true</span> -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -e <span style=color:#000>VNC_ENABLE</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87>true</span> -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128
 </code></pre></div>
 <div class="alert alert-primary" role=alert>
 <p>VNC allows for multiple desktop connections to same instance</p>
@@ -267,10 +274,10 @@ password: password
 Needs testing
 </div>
 <p>Startup Neurodesktop using the following command:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -e <span style=color:#000>VNC_ENABLE</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87>true</span> -p 5901:5901 -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run --shm-size<span style=color:#ce5c00;font-weight:700>=</span>1gb -it --privileged --name neurodesktop -v ~/neurodesktop-storage:/neurodesktop-storage -e <span style=color:#000>VNC_ENABLE</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87>true</span> -p 5901:5901 -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128
 </code></pre></div><p>Open a VNC Client and connect to port 5901</p>
 <div class="text-muted mt-5 pt-3 border-top">
-Last modified January 5, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/58efc425a3a4e8711dfa59d4a1906fcc251791a4>Update VNC instructions (58efc42)</a>
+Last modified February 15, 2022: <a href=https://github.com/NeuroDesk/neurodesk.github.io/commit/55a7e0d180f1e4053117bcbf052092c5ca7ca00b>added that M1 macs are not supported (55a7e0d)</a>
 </div>
 </div>
 </main>

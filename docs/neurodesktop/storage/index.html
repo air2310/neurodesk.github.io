@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=robots content="index, follow">
 <link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -68,7 +68,7 @@
 </li>
 </ul>
 </div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -78,7 +78,7 @@
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8398e173534e888bb44d1c7a6d701c3c.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.8da94362ed1c668a0e4f904771ef900e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -146,6 +146,8 @@
 <a href=/neurodesk.github.io/docs/neurocontainers/windows11-wsl/ title="Windows 11 and Windows Subsystem for Linux" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerswindows11-wsl><span>Windows 11 & WSL</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/cvmfs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs><span>CVMFS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc-li>
+<a href=/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainerscvmfs-hpc><span>CVMFS-HPC</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdatalad-li>
 <a href=/neurodesk.github.io/docs/neurocontainers/datalad/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-neurodeskgithubiodocsneurocontainersdatalad><span>Datalad</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-neurodeskgithubiodocsneurocontainersdocker-li>
@@ -223,7 +225,7 @@
 <p>The -v C:/neurodesktop-storage:/neurodesktop-storage part of the docker command links the directory &ldquo;neurodesktop-storage&rdquo; on the “C drive” of your Windows computer to the directory /neurodesktop-storage inside the Desktop environment. Everything you store in there will be available inside the desktop and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. -v D:/moredata:/data) - this will mount the directory moredata from your D drive to /data inside neurodesktop. Improtant: the mountpoint inside neurodesktop should be named /data (or anything from this list: <a href=https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt>https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt</a>) - otherwise most of the tools will not be able to access the data.</p>
 <p>Here is an example for Windows adding another storage directory:</p>
 <pre class="language-batch command-line" data-prompt=">">
-<code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111</code>
+<code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128</code>
 </pre>
 <h1 id=mount-volume-using-sshfs>Mount volume using SSHFS</h1>
 <p>It is theoretically possible to mount an SSH target inside Neurodesktop, but it&rsquo;s not a very reliable way of mounting storage:</p>

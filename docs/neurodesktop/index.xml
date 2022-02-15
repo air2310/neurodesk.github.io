@@ -18,7 +18,7 @@
 &lt;h2 id="how-to-force-a-complete-container-download-to-your-system">How to force a complete container download to your system&lt;/h2>
 &lt;p>To increase speed and reliability of Neurodesktop we mount the application containers from a CVMFS mount and download only the files required to run your current task. Although we aim to keep everything on there reproducible, there might be a reason that you want to fully download the containers to your system. You can force this behaviour by adding another parameter to the docker call: &lt;code>-e CVMFS_DISABLE=true&lt;/code>&lt;/p>
 &lt;p>For windows an example would look like this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e &lt;span style="color:#000">CVMFS_DISABLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run --shm-size&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -e &lt;span style="color:#000">CVMFS_DISABLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: What's in the box?</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/whatsinthebox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/whatsinthebox/</guid><description>
 &lt;p>Neurodesktop comes with the essential software required for neuroimaging data analysis pre-installed. Each release is built with the most recent version of these packages available at the build date. Some example packages include:&lt;/p>
 &lt;ul>
@@ -104,7 +104,7 @@
 &lt;p>The -v C:/neurodesktop-storage:/neurodesktop-storage part of the docker command links the directory &amp;ldquo;neurodesktop-storage&amp;rdquo; on the “C drive” of your Windows computer to the directory /neurodesktop-storage inside the Desktop environment. Everything you store in there will be available inside the desktop and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. -v D:/moredata:/data) - this will mount the directory moredata from your D drive to /data inside neurodesktop. Improtant: the mountpoint inside neurodesktop should be named /data (or anything from this list: &lt;a href="https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt">https://github.com/NeuroDesk/neurocontainers/blob/master/recipes/globalMountPointList.txt&lt;/a>) - otherwise most of the tools will not be able to access the data.&lt;/p>
 &lt;p>Here is an example for Windows adding another storage directory:&lt;/p>
 &lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220111 vnmd/neurodesktop:20220111&lt;/code>
+&lt;code>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220128 vnmd/neurodesktop:20220128&lt;/code>
 &lt;/pre>
 &lt;h1 id="mount-volume-using-sshfs">Mount volume using SSHFS&lt;/h1>
 &lt;p>It is theoretically possible to mount an SSH target inside Neurodesktop, but it&amp;rsquo;s not a very reliable way of mounting storage:&lt;/p>
@@ -150,11 +150,17 @@ We recommend the &lt;em>manual&lt;/em> install instructions, as the simplified i
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_troubleshooting.png" alt="Docker_troubleshooting" title="Docker_troubleshooting">&lt;/p>
 &lt;p>If you are still experiencing issues after this, you may need to update docker to the latest version. This can be achieved through &amp;ldquo;settings&amp;rdquo; in the docker engine, or (on windows) by right clicking on the docker tray icon:&lt;/p>
 &lt;p>&lt;img src="https://air2310/neurodesk.github.io/Troubleshooting/Docker_update.png" alt="Docker_update" title="Docker_update">&lt;/p></description></item><item><title>Docs: Release History</title><link>https://air2310/neurodesk.github.io/docs/neurodesktop/release-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurodesktop/release-history/</guid><description>
-&lt;h2 id="development">Development&lt;/h2>
+&lt;h2 id="20220128">20220128&lt;/h2>
 &lt;ul>
-&lt;li>MNE Python container including VScode&lt;/li>
-&lt;li>VScode container including Python/Julia/Extensions&lt;/li>
-&lt;li>update of fsl 6.0.5.1&lt;/li>
+&lt;li>update of Spinalcordtoolbox to 5.5&lt;/li>
+&lt;li>update of CAT12 to r1933&lt;/li>
+&lt;/ul>
+&lt;h2 id="20220121">20220121&lt;/h2>
+&lt;ul>
+&lt;li>MNE Python 0.23.4 container including VScode and extensions&lt;/li>
+&lt;li>VScode container including Python/Julia Extensions and singularity to test &amp;ldquo;Inception Mode&amp;rdquo; (Running singularity containers withtin singularity containers)&lt;/li>
+&lt;li>update of fsl to 6.0.5.1&lt;/li>
+&lt;li>added CAT12 (a software that allows estimation of tissue volumes (and additional surface parameters such as cortical thickness, gyrification or fractal dimension) for different volume and surface-based atlas maps)&lt;/li>
 &lt;/ul>
 &lt;h2 id="20220111">20220111&lt;/h2>
 &lt;ul>
