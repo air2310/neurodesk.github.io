@@ -15,14 +15,15 @@ you are not familiar with the terminal at all, check the DataLad Handbook&amp;rs
 &lt;p>A DataLad &lt;em>dataset&lt;/em> can be any collection of files in folders, so it could be
 many things including an analysis project. Let&amp;rsquo;s go to the Neurodesktop storage
 and create a dataset for some project. Open a terminal and enter these commands:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd /storage
-$ datalad create -c yoda SomeProject
-[INFO ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
-[INFO ] Running procedure cfg_yoda
-[INFO ] == Command start (output follows) =====
-[INFO ] == Command exit (modification check follows) =====
-create(ok): /home/user/Desktop/storage/SomeProject (dataset)
-&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ cd /storage
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ datalad create -c yoda SomeProject
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] Creating a new annex repo at /home/user/Desktop/storage/SomeProject
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] Running procedure cfg_yoda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command start (output follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command exit (modification check follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>create(ok): /home/user/Desktop/storage/SomeProject (dataset)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">yoda?&lt;/h4>
 &lt;code>-c yoda&lt;/code> option configures the dataset according to
@@ -31,19 +32,21 @@ set of intuitive organizational principles for data analyses that works
 especially well with version control.
 &lt;/div>
 &lt;p>Go in the dataset and check its contents.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd SomeProject
-$ ls
-CHANGELOG.md README.md code
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-a-script">Create a script&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ cd SomeProject
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CHANGELOG.md README.md code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-a-script">Create a script&lt;/h2>
 &lt;p>One of DataLad&amp;rsquo;s strengths is that it assumes very little about your datasets.
 Thus, it can work with any other software on the terminal: Python, R, MATLAB,
 AFNI, FSL, FreeSurfer, etc. For this tutorial, we will run the simplest Julia
 script.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ ml julia
-$ cat &amp;gt; code/hello.jl &amp;lt;&amp;lt; EOF
-println(&amp;#34;hello neurodesktop&amp;#34;)
-EOF
-&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ ml julia
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cat &amp;gt; code/hello.jl &amp;lt;&amp;lt; EOF
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>println(&amp;#34;hello neurodesktop&amp;#34;)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>EOF
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">EOF?&lt;/h4>
 For sake of demonstration, we create the script using
@@ -52,29 +55,32 @@ and ends when you enter &lt;code>EOF&lt;/code>), but you may use whatever text e
 most comfortable with to create the &lt;code>code/hello.jl&lt;/code> file.
 &lt;/div>
 &lt;p>You may want to test (parts of) your script.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ julia code/hello.jl &amp;gt; hello.txt
-$ cat hello.txt
-hello neurodesktop
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="run-and-record">Run and record&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ julia code/hello.jl &amp;gt; hello.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cat hello.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hello neurodesktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="run-and-record">Run and record&lt;/h2>
 &lt;p>Before you run your analyses, you should check the dataset for changes and save
 or clean them.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ datalad status
-untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
-untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
-$ datalad save -m &amp;#39;hello script&amp;#39; code/
-add(ok): code/hello.jl (file)
-save(ok): . (dataset)
-action summary:
-add (ok: 1)
-save (ok: 1)
-$ git clean -i
-Would remove the following item:
-hello.txt
-*** Commands ***
-1: clean 2: filter by pattern 3: select by numbers 4: ask each 5: quit 6: help
-What now&amp;gt; 1
-Removing hello.txt
-&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ datalad status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>untracked: /home/user/Desktop/storage/SomeProject/code/hello.jl (file)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>untracked: /home/user/Desktop/storage/SomeProject/hello.txt (file)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ datalad save -m &amp;#39;hello script&amp;#39; code/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>add(ok): code/hello.jl (file)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>save(ok): . (dataset)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>action summary:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> add (ok: 1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> save (ok: 1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clean -i
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Would remove the following item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> hello.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*** Commands ***
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1: clean 2: filter by pattern 3: select by numbers 4: ask each 5: quit 6: help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>What now&amp;gt; 1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Removing hello.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">git&lt;/h4>
 &lt;code>git clean&lt;/code> is for removing new, untracked files. For
@@ -82,13 +88,14 @@ resetting existing, modified files to the last saved version, you would need
 &lt;code>git reset --hard&lt;/code>.
 &lt;/div>
 &lt;p>When the dataset is clean, we are ready to &lt;code>datalad run&lt;/code>!&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ mkdir outputs
-$ datalad run -m &amp;#39;run hello&amp;#39; -o &amp;#39;outputs/hello.txt&amp;#39; &amp;#39;julia code/hello.jl &amp;gt; outputs/hello.txt&amp;#39;
-[INFO ] == Command start (output follows) =====
-[INFO ] == Command exit (modification check follows) =====
-add(ok): outputs/hello.txt (file)
-save(ok): . (dataset)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s go over each of the arguments:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ mkdir outputs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ datalad run -m &amp;#39;run hello&amp;#39; -o &amp;#39;outputs/hello.txt&amp;#39; &amp;#39;julia code/hello.jl &amp;gt; outputs/hello.txt&amp;#39;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command start (output follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command exit (modification check follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>add(ok): outputs/hello.txt (file)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>save(ok): . (dataset)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s go over each of the arguments:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>-m 'run hello'&lt;/code>: Human-readable message to record in the dataset log.&lt;/li>
 &lt;li>&lt;code>-o 'outputs/hello.txt'&lt;/code>: Expected output of the script. You can specify
@@ -97,51 +104,55 @@ has no inputs, but you can similarly specify inputs with &lt;code>-i&lt;/code>.&
 &lt;li>&lt;code>'julia ... '&lt;/code>: The final argument is the command that DataLad will run.&lt;/li>
 &lt;/ul>
 &lt;p>Before getting to the exciting part, let&amp;rsquo;s do a quick sanity check.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cat outputs/hello.txt
-hello neurodesktop
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="view-history-and-rerun">View history and rerun&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ cat outputs/hello.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hello neurodesktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="view-history-and-rerun">View history and rerun&lt;/h2>
 &lt;p>So what&amp;rsquo;s so good about the extra hassle of running scripts with &lt;code>datalad run&lt;/code>?
 To see that, you will need to pretend you are someone else (or you of future!)
 and install the dataset somewhere else. Note that &lt;code>-s&lt;/code> argument is probably a
 URL if you were really someone else.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ cd ~
-$ datalad install -s /storage/SomeProject
-install(ok): /home/user/SomeProject (dataset)
-$ cd SomeProject
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Because a DataLad dataset is a Git repository, people who download your dataset
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ cd ~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ datalad install -s /neurodesktop-storage/SomeProject
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>install(ok): /home/user/SomeProject (dataset)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd SomeProject
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Because a DataLad dataset is a Git repository, people who download your dataset
 can see exactly how &lt;code>outputs/hello.txt&lt;/code> was created using Git&amp;rsquo;s logs.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ git log outputs/hello.txt
-commit 52cff839596ff6e33aadf925d15ab26a607317de (HEAD -&amp;gt; master, origin/master, origin/HEAD)
-Author: Neurodesk User &amp;lt;user@neurodesk.github.io&amp;gt;
-Date: Thu Dec 9 08:31:15 2021 +0000
-[DATALAD RUNCMD] run hello
-=== Do not change lines below ===
-{
-&amp;#34;chain&amp;#34;: [],
-&amp;#34;cmd&amp;#34;: &amp;#34;julia code/hello.jl &amp;gt; outputs/hello.txt&amp;#34;,
-&amp;#34;dsid&amp;#34;: &amp;#34;1e82813d-856f-4118-b54d-c3823e025709&amp;#34;,
-&amp;#34;exit&amp;#34;: 0,
-&amp;#34;extra_inputs&amp;#34;: [],
-&amp;#34;inputs&amp;#34;: [],
-&amp;#34;outputs&amp;#34;: [
-&amp;#34;outputs/hello.txt&amp;#34;
-],
-&amp;#34;pwd&amp;#34;: &amp;#34;.&amp;#34;
-}
-^^^ Do not change lines above ^^^
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, using that information, they can re-run the command that created the file
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ git log outputs/hello.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>commit 52cff839596ff6e33aadf925d15ab26a607317de (HEAD -&amp;gt; master, origin/master, origin/HEAD)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Author: Neurodesk User &amp;lt;user@neurodesk.github.io&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Date: Thu Dec 9 08:31:15 2021 +0000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [DATALAD RUNCMD] run hello
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> === Do not change lines below ===
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;chain&amp;#34;: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;cmd&amp;#34;: &amp;#34;julia code/hello.jl &amp;gt; outputs/hello.txt&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;dsid&amp;#34;: &amp;#34;1e82813d-856f-4118-b54d-c3823e025709&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;exit&amp;#34;: 0,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;extra_inputs&amp;#34;: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;inputs&amp;#34;: [],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;outputs&amp;#34;: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;outputs/hello.txt&amp;#34;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;#34;pwd&amp;#34;: &amp;#34;.&amp;#34;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ^^^ Do not change lines above ^^^
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, using that information, they can re-run the command that created the file
 using &lt;code>datalad rerun&lt;/code>!&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">$ datalad rerun 52cf
-[INFO ] run commit 52cff83; (run hello)
-run.remove(ok): outputs/hello.txt (file) [Removed file]
-[INFO ] == Command start (output follows) =====
-[INFO ] == Command exit (modification check follows) =====
-add(ok): outputs/hello.txt (file)
-action summary:
-add (ok: 1)
-run.remove (ok: 1)
-save (notneeded: 1)
-&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>$ datalad rerun 52cf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] run commit 52cff83; (run hello)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>run.remove(ok): outputs/hello.txt (file) [Removed file]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command start (output follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[INFO ] == Command exit (modification check follows) =====
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>add(ok): outputs/hello.txt (file)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>action summary:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> add (ok: 1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> run.remove (ok: 1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> save (notneeded: 1)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">git&lt;/h4>
 In Git, each commit (save state) is assigned a long,

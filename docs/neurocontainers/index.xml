@@ -1,46 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurocontainers</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/</link><description>Recent content in Neurocontainers on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/docs/neurocontainers/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Windows 11 and Windows Subsystem for Linux</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</guid><description>
-&lt;h2 id="1-install-wsl">1. Install WSL&lt;/h2>
-&lt;p>Follow the instructions to enable Windows Subsystem for Linux 2 in Windows 11: &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install&lt;/a>&lt;/p>
-&lt;h2 id="2-configure-cvfms-singularity-and-lmod-only-needs-to-be-done-once">2. Configure CVFMS, Singularity and LMOD (only needs to be done once)&lt;/h2>
-&lt;h3 id="install-singularity">Install singularity&lt;/h3>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>
-sudo apt install make
-export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
-wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
-sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
-rm go$VERSION.$OS-$ARCH.tar.gz
-export GOPATH=${HOME}/go
-export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
-mkdir -p $GOPATH/src/github.com/sylabs
-cd $GOPATH/src/github.com/sylabs
-wget -q https://github.com/sylabs/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-ce-${SINGULARITY_VERSION}.tar.gz
-tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
-cd singularity-ce-${SINGULARITY_VERSION}
-./mconfig --prefix=/usr/local/singularity
-make -C builddir
-sudo make -C builddir install
-cd ..
-sudo rm -rf singularity-ce-${SINGULARITY_VERSION}
-sudo rm -rf /usr/local/go $GOPATH &lt;/code>
-&lt;/pre>
-&lt;h3 id="setup-bindpaths-for-singularity-eg-in-bashrc">Setup Bindpaths for Singularity (e.g. in .bashrc)&lt;/h3>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>export SINGULARITY_BINDPATH='/cvmfs,/mnt,/home'&lt;/code>
-&lt;/pre>
-&lt;h3 id="cvmfs">CVMFS&lt;/h3>
-&lt;p>Follow the instructions here: &lt;a href="https://neurodesk.github.io/docs/neurocontainers/cvmfs/">https://neurodesk.github.io/docs/neurocontainers/cvmfs/&lt;/a>&lt;/p>
-&lt;h3 id="lmod">LMOD&lt;/h3>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>apt install lmod&lt;/code>
-&lt;/pre>
-&lt;h2 id="3-use-neurodesk-containers">3. Use Neurodesk containers&lt;/h2>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
-ml av
-ml fsl
-fsleyes&lt;/code>
-&lt;/pre></description></item><item><title>Docs: CVMFS</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – Neurocontainers</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/</link><description>Recent content in Neurocontainers on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/docs/neurocontainers/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: CVMFS</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs/</guid><description>
 &lt;h1 id="install-cvmfs">Install CVMFS&lt;/h1>
 &lt;p>First you need to install CVMFS. Follow the official instructions here: &lt;a href="https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software">https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html#getting-the-software&lt;/a>&lt;/p>
 &lt;p>one example for Windows Subsystem for Linux (WSL) could look like this:&lt;/p>
@@ -106,93 +64,84 @@ cvmfs_config stat -v neurodesk.ardc.edu.au&lt;/code>
 module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
 ml fsl
 fslmaths&lt;/code>
-&lt;/pre></description></item><item><title>Docs: CVMFS-HPC</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/cvmfs-hpc/</guid><description>
-&lt;p>Ideally the HPC admins would mount our CVMFS repositories for you, but if you just like to try it out there is a way of using it completely in user-space using Parrot (I tested this on a Centos 7 HPC):&lt;/p>
-&lt;h1 id="install-parrot">Install Parrot&lt;/h1>
-&lt;p>Install Parrot in your homedirectory in for example ~/tools:&lt;/p>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>cd ~
-cd ~/tools
-wget http://ccl.cse.nd.edu/software/files/cctools-7.4.2-x86_64-centos7.tar.gz
-tar xvf cctools-7.4.2-x86_64-centos7.tar.gz
-export PATH=~/tools/cctools-7.4.2-x86_64-centos7.tar.gz-dir/bin:$PATH
-export PYTHONPATH=~/tools/cctools-7.4.2-x86_64-centos7.tar.gz-dir/lib/python3.6/site-packages:${PYTHONPATH}
-export PARROT_ALLOW_SWITCHING_CVMFS_REPOSITORIES=yes
-export HTTP_PROXY='DIRECT;'
-export NEURODESK_S1="http://152.67.114.42/cvmfs"
-export PARROT_CVMFS_REPO="&lt;default-repositories> neurodesk.ardc.edu.au:url=${NEURODESK_S1}/neurodesk.ardc.edu.au,pubkey=~/tools/neurodesk.ardc.edu.au.pub"
-echo "-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
-Bi2TQcLoh5AJ//HSIz68ypjOGFjwExGlHb95Frhu1SpcH5OASbV+jJ60oEBLi3sD
-qA6rGYt9kVi90lWvEjQnhBkPb0uWcp1gNqQAUocybCzHvoiG3fUzAe259CrK09qR
-pX8sZhgK3eHlfx4ycyMiIQeg66AHlgVCJ2fKa6fl1vnh6adJEPULmn6vZnevvUke
-I6U1VcYTKm5dPMrOlY/fGimKlyWvivzVv1laa5TAR2Dt4CfdQncOz+rkXmWjLjkD
-87WMiTgtKybsmMLb2yCGSgLSArlSWhbMA0MaZSzAwE9PJKCCMvTANo5644zc8jBe
-NQIDAQAB
------END PUBLIC KEY-----" | tee ~/tools/neurodesk.ardc.edu.au.pub
-parrot_run bash
-ls /cvmfs/neurodesk.ardc.edu.au&lt;/code>
-&lt;/pre>
-&lt;h1 id="install-singularity-in-user-space-without-suid-suid-doesnt-work-in-parrot">Install Singularity in user space without suid (suid doesn&amp;rsquo;t work in Parrot!)&lt;/h1>
-&lt;p>you need make and this will depend on your HPC, but something along these lines could work:&lt;/p>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>ml automake-1.16.1-gcc-7.3.0-6cdwe6j&lt;/code>
-&lt;/pre>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>
-export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
-wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
-tar -C ~/tools/ -xzvf go$VERSION.$OS-$ARCH.tar.gz
-rm go$VERSION.$OS-$ARCH.tar.gz
-export GOPATH=~/tools/go
-export PATH=~/tools/go/bin:${PATH}:${GOPATH}/bin
-mkdir -p $GOPATH/src/github.com/sylabs
-cd $GOPATH/src/github.com/sylabs
-wget -q https://github.com/sylabs/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-ce-${SINGULARITY_VERSION}.tar.gz
-tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
-cd singularity-ce-${SINGULARITY_VERSION}
-./mconfig --without-suid --prefix=~/tools/singularity
-make -C builddir
-make -C builddir install
-export PATH=~/tools/singularity/bin:${PATH}&lt;/code>
-&lt;/pre>
-&lt;h1 id="use-containers-on-cvmfs-in-the-module-system">Use containers on CVMFS in the module system&lt;/h1>
-&lt;p>Now you should be able to use our containers in singularity and the module system:&lt;/p>
-&lt;pre class="language-batch command-line" data-prompt=">">
-&lt;code>module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
-ml fsl
-which fslmaths
-fslmaths&lt;/code>
-&lt;/pre>&lt;blockquote>
-&lt;/blockquote></description></item><item><title>Docs: Datalad</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</guid><description>
+&lt;/pre></description></item><item><title>Docs: Datalad</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/datalad/</guid><description>
 &lt;p>Once this is completed: &lt;a href="https://github.com/ReproNim/containers/issues/64#issuecomment-999126787">https://github.com/ReproNim/containers/issues/64#issuecomment-999126787&lt;/a>&lt;/p></description></item><item><title>Docs: Docker</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/docker/</guid><description>
 &lt;p>Our containers are automatically built in &lt;a href="https://github.com/NeuroDesk/neurocontainers/">https://github.com/NeuroDesk/neurocontainers/&lt;/a> and hosted on &lt;a href="https://hub.docker.com/orgs/vnmd/repositories">dockerhub&lt;/a> or on &lt;a href="https://github.com/NeuroDesk/neurocontainers/packages">github&lt;/a>&lt;/p>
 &lt;h2 id="pull-docker-containers">Pull Docker containers&lt;/h2>
 &lt;p>e.g. for a julia container
 docker&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">docker pull vnmd/julia_1.6.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>build singularity image from dockerhub&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application. You can find the available containers here: &lt;a href="https://neurodesk.github.io/applications/">https://neurodesk.github.io/applications/&lt;/a>&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>docker pull vnmd/julia_1.6.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>build singularity image from dockerhub&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>singularity build julia_1.6.1.simg docker://vnmd/julia_1.6.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>julia_1.6.1&lt;/code> with your selected application. You can find the available containers here: &lt;a href="https://www.neurodesk.org/applications/">https://www.neurodesk.org/applications/&lt;/a>&lt;/p></description></item><item><title>Docs: Google Colab</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/googlecolab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/googlecolab/</guid><description>
+&lt;p>This notebook demonstrates how to use all Neurodesk applications in Google Colab:
+&lt;a href="https://colab.research.google.com/drive/1g5cnZxj1llRaHmOs4xSglqsXnFkQYuol?usp=sharing">https://colab.research.google.com/drive/1g5cnZxj1llRaHmOs4xSglqsXnFkQYuol?usp=sharing&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/4021595/156729329-883d33a8-f6ae-4d79-ba71-0e1ced172069.png" alt="image">&lt;/p></description></item><item><title>Docs: Singularity</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/singularity/</guid><description>
 &lt;p>Our docker containers are converted to singularity containers and stored on Object storage.&lt;/p>
 &lt;h2 id="download-singularity-containers">Download Singularity Containers&lt;/h2>
 &lt;p>First get an overview which containers are available as Singularity containers:
 &lt;a href="https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt">https://github.com/NeuroDesk/neurodesk/blob/master/cvmfs/log.txt&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>assign the container name to a variable:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then download the containers. An easy way is to use CURL (e.g. downloading from the US location):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -X GET https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>or from australia&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -X GET https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>A faster way is pulling from multiple storage locations at once using aria2:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">aria2c https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://swift.rc.nectar.org.au/v1/AUTH_dead991e1fa847e3afcca2d3a7041f5d/neurodesk/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="transparent-singularity">Transparent Singularity&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>assign the container name to a variable:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then download the containers. An easy way is to use CURL (e.g. downloading from the US location):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl -X GET https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or from australia&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl -X GET https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg -O
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A faster way is pulling from multiple storage locations at once using aria2:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>aria2c https://objectstorage.us-ashburn-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://objectstorage.ap-sydney-1.oraclecloud.com/n/sd63xuke79z3/b/neurodesk/o/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg https://swift.rc.nectar.org.au/v1/AUTH_dead991e1fa847e3afcca2d3a7041f5d/neurodesk/&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>.simg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="transparent-singularity">Transparent Singularity&lt;/h2>
 &lt;p>The singularity containers can be also be used in combination with our &lt;a href="https://air2310/neurodesk.github.io/developers/transparent_singularity//">Transparent Singularity Tool&lt;/a> tool, that wraps the executables inside a container to make them easily available for pipelines. More information can be found here:&lt;/p>
 &lt;p>one example to do this is:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
-git clone https://github.com/NeuroDesk/transparent-singularity &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-./run_transparent_singularity.sh &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/cvmfs/log.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">container&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>itksnap_3.8.0_20201208
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/NeuroDesk/transparent-singularity &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./run_transparent_singularity.sh &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">container&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Windows 11 and Windows Subsystem for Linux</title><link>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/docs/neurocontainers/windows11-wsl/</guid><description>
+&lt;h2 id="1-install-wsl">1. Install WSL&lt;/h2>
+&lt;p>Follow the instructions to enable Windows Subsystem for Linux 2 in Windows 11: &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install&lt;/a>&lt;/p>
+&lt;h2 id="2-configure-cvfms-singularity-and-lmod-only-needs-to-be-done-once">2. Configure CVFMS, Singularity and LMOD (only needs to be done once)&lt;/h2>
+&lt;h3 id="install-build-tools">Install build tools&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>sudo apt update
+sudo apt install make gcc &lt;/code>
+&lt;/pre>
+&lt;h3 id="install-singularity">Install singularity&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export SINGULARITY_VERSION=3.9.3 VERSION=1.17.2 OS=linux ARCH=amd64
+wget -q https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
+sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
+rm go$VERSION.$OS-$ARCH.tar.gz
+export GOPATH=${HOME}/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+mkdir -p $GOPATH/src/github.com/sylabs
+cd $GOPATH/src/github.com/sylabs
+wget -q https://github.com/sylabs/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-ce-${SINGULARITY_VERSION}.tar.gz
+tar -xzvf singularity-ce-${SINGULARITY_VERSION}.tar.gz
+cd singularity-ce-${SINGULARITY_VERSION}
+./mconfig --prefix=/usr/local/singularity
+make -C builddir
+sudo make -C builddir install
+cd ..
+sudo rm -rf singularity-ce-${SINGULARITY_VERSION}
+sudo rm -rf /usr/local/go $GOPATH &lt;/code>
+&lt;/pre>
+&lt;h3 id="setup-bindpaths-for-singularity-eg-in-bashrc">Setup Bindpaths for Singularity (e.g. in .bashrc)&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>export PATH="/usr/local/singularity/bin:${PATH}"
+export SINGULARITY_BINDPATH='/cvmfs,/mnt,/home'&lt;/code>
+&lt;/pre>
+&lt;h3 id="cvmfs">CVMFS&lt;/h3>
+&lt;p>Follow the instructions here: &lt;a href="https://www.neurodesk.org/docs/neurocontainers/cvmfs/">https://www.neurodesk.org/docs/neurocontainers/cvmfs/&lt;/a>&lt;/p>
+&lt;h3 id="lmod">LMOD&lt;/h3>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>apt install lmod&lt;/code>
+&lt;/pre>
+&lt;h2 id="3-use-neurodesk-containers">3. Use Neurodesk containers&lt;/h2>
+&lt;pre class="language-batch command-line" data-prompt=">">
+&lt;code>module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+ml av
+ml fsl
+fsleyes&lt;/code>
+&lt;/pre></description></item></channel></rss>

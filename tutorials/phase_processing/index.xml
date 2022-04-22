@@ -1,4 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NeuroDesk – MRI phase Processing</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/</link><description>Recent content in MRI phase Processing on NeuroDesk</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://air2310/neurodesk.github.io/tutorials/phase_processing/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials: Quantitative Susceptibility Mapping</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/qsm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/qsm/</guid><description>
+&lt;blockquote>
+&lt;p>&lt;em>This tutorial was created by Steffen Bollmann.&lt;/em>&lt;/p>
+&lt;p>Github: &lt;a href="https://github.com/stebo85">@stebo85&lt;/a>
+Web: &lt;a href="https://mri.sbollmann.net/">mri.sbollmann.net&lt;/a>
+Twitter: &lt;a href="https://twitter.com/sbollmann_MRI">@sbollmann_MRI&lt;/a>&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="quantitative-susceptibility-mapping-in-qsmxt">Quantitative Susceptibility Mapping in QSMxT&lt;/h2>
 &lt;p>Neurodesk includes QSMxT, a complete and end-to-end QSM processing and analysis framework that excels at automatically reconstructing and processing QSM for large groups of participants.&lt;/p>
 &lt;p>QSMxT provides pipelines implemented in Python that:&lt;/p>
@@ -16,71 +22,102 @@
 &lt;li>Automatically segment T1w data and register them to the QSM space to extract quantitative values in anatomical regions of interest.&lt;/li>
 &lt;li>Export quantitative data to CSV for all subjects using the automated segmentations, or a custom segmentation in the group space (we recommend ITK snap).&lt;/li>
 &lt;/ol>
-&lt;p>If you use QSMxT for a study, please cite &lt;a href="https://doi.org/10.1101/2021.05.05.442850">https://doi.org/10.1101/2021.05.05.442850&lt;/a>.&lt;/p>
+&lt;p>If you use QSMxT for a study, please cite &lt;a href="https://doi.org/10.1101/2021.05.05.442850">https://doi.org/10.1101/2021.05.05.442850&lt;/a> (for QSMxT) and &lt;a href="http://www.ncbi.nlm.nih.gov/pubmed/25731991">http://www.ncbi.nlm.nih.gov/pubmed/25731991&lt;/a> (for TGVQSM)&lt;/p>
 &lt;h2 id="download-demo-data">Download demo data&lt;/h2>
 &lt;p>Open a terminal and run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
-cd /storage/
-osf -p ru43c clone /storage/qsmxt-demo
-unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
-unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
-unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
-unzip /storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /storage/qsmxt-demo/dicoms
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="qsmxt-usage">QSMxT Usage&lt;/h2>
-&lt;p>Start QSMxT (in this demo we used 1.1.6) from the applications menu in the desktop (&lt;em>Neurodesk&lt;/em> &amp;gt; &lt;em>Quantitative Imaging&lt;/em> &amp;gt; &lt;em>qsmxt&lt;/em>)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>pip install osfclient
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export PATH=$PATH:~/.local/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /neurodesktop-storage/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>osf -p ru43c clone /neurodesktop-storage/qsmxt-demo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub1/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_M_5_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/qsmxt-demo/osfstorage/GRE_2subj_1mm_TE20ms/sub2/GR_P_6_QSM_p2_1mmIso_TE20.zip -d /neurodesktop-storage/qsmxt-demo/dicoms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="qsmxt-usage">QSMxT Usage&lt;/h2>
+&lt;p>Start QSMxT (in this demo we used 1.1.9) from the applications menu in the desktop (&lt;em>Neurodesk&lt;/em> &amp;gt; &lt;em>Quantitative Imaging&lt;/em> &amp;gt; &lt;em>qsmxt&lt;/em>)&lt;/p>
 &lt;ol>
 &lt;li>Convert DICOM data to BIDS:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">cd&lt;/span> /storage/qsmxt-demo
-python3 /opt/QSMxT/run_0_dicomSort.py /storage/qsmxt-demo/dicoms 00_dicom
-python3 /opt/QSMxT/run_1_dicomToBids.py 00_dicom 01_bids
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> /neurodesktop-storage/qsmxt-demo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 /opt/QSMxT/run_0_dicomSort.py /neurodesktop-storage/qsmxt-demo/dicoms 00_dicom
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 /opt/QSMxT/run_1_dicomConvert.py 00_dicom 01_bids
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
-&lt;p>After this step check if the data were correctly recognized and converted to BIDS. Otherwise make a copy of /opt/QSMxT/bidsmap.yaml - adjust based on provenance example in 01_bids/code/bidscoin/bidsmap.yaml (see for example what it detected under extra_files) - and run again with the parameter &lt;code>--heuristic bidsmap.yaml&lt;/code>. If the data were acquired on a GE scanner the complex data needs to be corrected by applying an FFT shift, this can be done with &lt;code>python /opt/QSMxT/run_1_fixGEphaseFFTshift.py 01_bids/sub*/ses*/anat/*_run-1_*.nii.gz&lt;/code> .&lt;/p>
+&lt;p>This will bring up an interactive question to ask you which sequence your QSM data are. It will automatically detect the QSM sequence if it has qsm or t2star in the protocol name or you can use the command line argument &lt;code>--t2starw_series_patterns&lt;/code> to specify. This demo data comes without a structural scan (automatically recognized with t1w in the name, or specified with &lt;code>--t1w_series_patterns&lt;/code>, so hit Enter to continue when it asks you to identify which scan the T1w scan is:&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/4021595/155911430-d2b7e904-6a8a-426c-bc27-e2167dd03a4d.png" alt="{DE1B0DF7-49B8-47F8-ACFF-B205F70BE58B}">&lt;/p>
 &lt;ol start="2">
 &lt;li>Run QSM pipeline:
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">python3 /opt/QSMxT/run_2_qsm.py 01_bids 02_qsm_output
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>Tutorials: SWI</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python3 /opt/QSMxT/run_2_qsm.py 01_bids 02_qsm_output
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;p>Then you can open a viewer (Visualization -&amp;gt; mricrogl -&amp;gt; mricroglGUI) and you can find the QSM outputs in /neurodesktop-storage/qsmxt-demo/02_qsm_output/qsm_final/_run_run-1/&lt;/p>
+&lt;p>for example: sub-170705-134431-std-1312211075243167001_ses-1_run-1_part-phase_T2starw_scaled_qsm_000_composite_average.nii&lt;/p>
+&lt;p>&lt;img src="https://user-images.githubusercontent.com/4021595/155106388-72a691a4-c0a4-4cc6-a2ac-c9271888b82d.png" alt="image">&lt;/p>
+&lt;blockquote>
+&lt;p>Please note that the demo dataset does not have a T1w scan for anatomical segmentation and therefore the subsequent steps in QSMxT (e.g. &lt;code>python3 /opt/QSMxT/run_3_segment.py 01_bids 03_segmentation&lt;/code>) will NOT work.&lt;/p>
+&lt;/blockquote></description></item><item><title>Tutorials: SWI</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/swi/</guid><description>
+&lt;blockquote>
+&lt;p>&lt;em>This tutorial was created by Steffen Bollmann.&lt;/em>&lt;/p>
+&lt;p>Github: &lt;a href="https://github.com/stebo85">@stebo85&lt;/a>
+Web: &lt;a href="https://mri.sbollmann.net/">mri.sbollmann.net&lt;/a>
+Twitter: &lt;a href="https://twitter.com/sbollmann_MRI">@sbollmann_MRI&lt;/a>&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="download-demo-data">Download demo data&lt;/h2>
 &lt;p>Open a terminal and run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
-cd /storage/
-osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
-unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Open the CLEARSWI tool from the application menu:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>pip install osfclient
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /neurodesktop-storage/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Open the CLEARSWI tool from the application menu:&lt;/p>
 &lt;p>paste this julia script in a julia file and execute:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">cd /storage/
-vi clearswi.jl
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>hit a or i and then paste this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">using CLEARSWI
-TEs = [20]
-nifti_folder = &amp;#34;/storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&amp;#34;
-magfile = joinpath(nifti_folder, &amp;#34;sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz&amp;#34;)
-phasefile = joinpath(nifti_folder, &amp;#34;sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz&amp;#34;)
-mag = readmag(magfile);
-phase = readphase(phasefile);
-data = Data(mag, phase, mag.header, TEs);
-swi = calculateSWI(data);
-# mip = createIntensityProjection(swi, minimum); # minimum intensity projection, other Julia functions can be used instead of minimum
-mip = createMIP(swi); # shorthand for createIntensityProjection(swi, minimum)
-savenii(swi, &amp;#34;/storage/swi-demo/swi.nii&amp;#34;; header=mag.header)
-savenii(mip, &amp;#34;/storage/swi-demo/mip.nii&amp;#34;; header=mag.header)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>hit SHIFT-Z-Z and run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">julia clearswi.jl
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Open ITK snap from the Visualization Application&amp;rsquo;s menu and inspect the results (the outputs are in swi-demo/swi.nii and mip.nii)
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>cd /neurodesktop-storage/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vi clearswi.jl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>hit a or i and then paste this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>using CLEARSWI
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TEs = [20]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nifti_folder = &amp;#34;/neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat&amp;#34;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>magfile = joinpath(nifti_folder, &amp;#34;sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz&amp;#34;)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>phasefile = joinpath(nifti_folder, &amp;#34;sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz&amp;#34;)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mag = readmag(magfile);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>phase = readphase(phasefile);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data = Data(mag, phase, mag.header, TEs);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>swi = calculateSWI(data);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># mip = createIntensityProjection(swi, minimum); # minimum intensity projection, other Julia functions can be used instead of minimum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mip = createMIP(swi); # shorthand for createIntensityProjection(swi, minimum)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>savenii(swi, &amp;#34;/neurodesktop-storage/swi-demo/swi.nii&amp;#34;; header=mag.header)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>savenii(mip, &amp;#34;/neurodesktop-storage/swi-demo/mip.nii&amp;#34;; header=mag.header)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>hit SHIFT-Z-Z and run:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>julia clearswi.jl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Open ITK snap from the Visualization Application&amp;rsquo;s menu and inspect the results (the outputs are in swi-demo/swi.nii and mip.nii)
 &lt;img src="https://user-images.githubusercontent.com/4021595/137708852-6b7dd2c7-3e6f-42fd-88e6-06afe87a72a9.png" alt="image">&lt;/p></description></item><item><title>Tutorials: Unwrapping</title><link>https://air2310/neurodesk.github.io/tutorials/phase_processing/unwrapping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://air2310/neurodesk.github.io/tutorials/phase_processing/unwrapping/</guid><description>
+&lt;blockquote>
+&lt;p>&lt;em>This tutorial was created by Steffen Bollmann.&lt;/em>&lt;/p>
+&lt;p>Github: &lt;a href="https://github.com/stebo85">@stebo85&lt;/a>
+Web: &lt;a href="https://mri.sbollmann.net/">mri.sbollmann.net&lt;/a>
+Twitter: &lt;a href="https://twitter.com/sbollmann_MRI">@sbollmann_MRI&lt;/a>&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="download-demo-data">Download demo data&lt;/h2>
 &lt;p>Open a terminal and run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">pip install osfclient
-cd /storage/
-osf -p ru43c fetch 01_bids.zip /storage/swi-demo/01_bids.zip
-unzip /storage/swi-demo/01_bids.zip -d /storage/swi-demo/
-mkdir /storage/romeo-demo/
-cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /storage/romeo-demo/phase.nii.gz
-cp /storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /storage/romeo-demo/mag.nii.gz
-gunzip /storage/romeo-demo/mag.nii.gz
-gunzip /storage/romeo-demo/phase.nii.gz
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="using-romeo-for-phase-unwrapping">Using ROMEO for phase unwrapping&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>pip install osfclient
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /neurodesktop-storage/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>osf -p ru43c fetch 01_bids.zip /neurodesktop-storage/swi-demo/01_bids.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /neurodesktop-storage/swi-demo/01_bids.zip -d /neurodesktop-storage/swi-demo/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /neurodesktop-storage/romeo-demo/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsmPH00_run-1_phase.nii.gz /neurodesktop-storage/romeo-demo/phase.nii.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp /neurodesktop-storage/swi-demo/01_bids/sub-170705134431std1312211075243167001/ses-1/anat/sub-170705134431std1312211075243167001_ses-1_acq-qsm_run-1_magnitude.nii.gz /neurodesktop-storage/romeo-demo/mag.nii.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gunzip /neurodesktop-storage/romeo-demo/mag.nii.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gunzip /neurodesktop-storage/romeo-demo/phase.nii.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="using-romeo-for-phase-unwrapping">Using ROMEO for phase unwrapping&lt;/h3>
 &lt;p>Open the ROMEO tool from the application menu and run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">romeo -p /storage/romeo-demo/phase.nii -m /storage/romeo-demo/mag.nii -k nomask -o /storage/romeo-demo/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/MRIPhase_Tutorial/romeo.PNG" alt="Romeo" title="Romeo">&lt;/p></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>romeo -p /neurodesktop-storage/romeo-demo/phase.nii -m /neurodesktop-storage/romeo-demo/mag.nii -k nomask -o /neurodesktop-storage/romeo-demo/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/MRIPhase_Tutorial/romeo.PNG" alt="Romeo" title="Romeo">&lt;/p></description></item></channel></rss>

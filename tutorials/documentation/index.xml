@@ -37,7 +37,7 @@ Once you've filled out those details, you can delete this comment block.
 &lt;li>Once you are happy with your workflow, make sure you &lt;a href="https://github.com/git-guides/git-commit">commit&lt;/a> all your changes and &lt;a href="https://github.com/git-guides/git-push">push&lt;/a> these local commits to github.&lt;/li>
 &lt;li>Navigate to your forked version of the repository on github.&lt;/li>
 &lt;li>Before you proceed, make sure you are up to date with our upstream documentation, you may need to &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork">fetch upstream changes&lt;/a>.&lt;/li>
-&lt;li>Now you can preview the changes before contributing them upstream. For this click on the &amp;ldquo;Actions&amp;rdquo; tab and enable the Actions (&amp;ldquo;I understand my workflows&amp;hellip;&amp;quot;). The first build will fail (due to a bug with the Github token), but the second build will work.&lt;/li>
+&lt;li>Now you can preview the changes before contributing them upstream. For this click on the &amp;ldquo;Actions&amp;rdquo; tab and enable the Actions (&amp;ldquo;I understand my workflows&amp;hellip;&amp;rdquo;). The first build will fail (due to a bug with the Github token), but the second build will work.&lt;/li>
 &lt;li>Then you need to open the settings of the repository and check that Pages points to gh-pages and when clicking on the link the site should be there.&lt;/li>
 &lt;li>To contribute your changes, click &amp;ldquo;Contribute&amp;rdquo;, and then &lt;a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">&amp;ldquo;Open pull request&amp;rdquo;&lt;/a>.&lt;/li>
 &lt;li>Give your pull request a title (e.g. &amp;ldquo;Document PhysIO workflow&amp;rdquo;), leave a comment briefly describing what you have done, and then create the pull request.&lt;/li>
@@ -45,7 +45,7 @@ Once you've filled out those details, you can delete this comment block.
 &lt;/ol>
 &lt;p>Thanks so much for taking the time to contribute your workflow to the Neurodesk community! If you have any feedback on the process, please let us know on &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/discussions">github discussions&lt;/a>.&lt;/p>
 &lt;h2 id="formatting-guidelines">Formatting guidelines&lt;/h2>
-&lt;p>You can embelish your text in this tutorial using markdown conventions; text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. You can also add &lt;a href="https://neurodesk.github.io/">Links&lt;/a>, and you can organise your tutorial with headers, starting at level 2 (the page title is a level 1 header):&lt;/p>
+&lt;p>You can embelish your text in this tutorial using markdown conventions; text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. You can also add &lt;a href="https://www.neurodesk.org/">Links&lt;/a>, and you can organise your tutorial with headers, starting at level 2 (the page title is a level 1 header):&lt;/p>
 &lt;h2 id="level-2-heading">Level 2 heading&lt;/h2>
 &lt;p>You can also include progressively smaller subheadings:&lt;/p>
 &lt;h3 id="level-3-heading">Level 3 heading&lt;/h3>
@@ -54,18 +54,18 @@ Once you've filled out those details, you can delete this comment block.
 &lt;p>Even more detailed information.&lt;/p>
 &lt;h3 id="code-blocks">Code blocks&lt;/h3>
 &lt;p>You can add codeblocks to your tutorial as follows:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"># Some example code
-import numpy as np
-a = np.array([1, 2])
-b = np.array([3, 4])
-print(a+b)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Or add syntax highlighting to your codeblocks:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">Some&lt;/span> &lt;span style="color:#000">example&lt;/span> &lt;span style="color:#000">code&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">numpy&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">np&lt;/span>
-&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Advanced code or command line formatting using this html snippet:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span># Some example code
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>import numpy as np
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>a = np.array([1, 2])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b = np.array([3, 4])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(a+b)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Or add syntax highlighting to your codeblocks:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">Some&lt;/span> &lt;span style="color:#000">example&lt;/span> &lt;span style="color:#000">code&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">numpy&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Advanced code or command line formatting using this html snippet:&lt;/p>
 &lt;pre class="language-shell command-line" data-prompt=">>>" data-output="6">
 &lt;code># Some example code
 import numpy as np
@@ -77,8 +77,8 @@ print(a+b)
 &lt;p>You can also add code snippets, e.g. &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>, which will be shown inline.&lt;/p>
 &lt;h3 id="images">Images&lt;/h3>
 &lt;p>To add screenshots to your tutorial, create a subfolder in &lt;code>neurodesk.github.io/static&lt;/code> with the same link name as your tutorial. Add your screenshot to this folder, keeping in mind that you may want to adjust your screenshot to a reasonable size before uploading. You can then embed these images in your tutorial using the following convention:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">![EEGtut1](/EEG_Tutorial/EEGtut1.png &amp;#39;EEGtut1&amp;#39;) &amp;lt;!-- ![filename without extension](/subfolder_name/filename.png &amp;#39;[filename without extension&amp;#39;) --&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1"> &lt;!-- ![filename without extension](/subfolder_name/filename.png '[filename without extension') -->&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>![EEGtut1](/EEG_Tutorial/EEGtut1.png &amp;#39;EEGtut1&amp;#39;) &amp;lt;!-- ![filename without extension](/subfolder_name/filename.png &amp;#39;[filename without extension&amp;#39;) --&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://air2310/neurodesk.github.io/EEG_Tutorial/EEGtut1.png" alt="EEGtut1" title="EEGtut1"> &amp;lt;!&amp;ndash; &lt;img src="https://air2310/neurodesk.github.io/subfolder_name/filename.png" alt="filename without extension" title="[filename without extension"> &amp;ndash;&amp;gt;&lt;/p>
 &lt;h3 id="alerts-and-warnings">Alerts and warnings&lt;/h3>
 &lt;p>You can grab reader&amp;rsquo;s attention to particularly important information with quoteblocks, alerts and warnings:&lt;/p>
 &lt;blockquote>

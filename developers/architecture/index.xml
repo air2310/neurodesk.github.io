@@ -6,8 +6,8 @@
 &lt;li>Summarize the main changes and copy this to the Release History and the news section:&lt;/li>
 &lt;/ol>
 &lt;ul>
-&lt;li>&lt;a href="https://neurodesk.github.io/docs/neurodesktop/release-history/">https://neurodesk.github.io/docs/neurodesktop/release-history/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://neurodesk.github.io/blog/releases/">https://neurodesk.github.io/blog/releases/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.neurodesk.org/docs/neurodesktop/release-history/">https://www.neurodesk.org/docs/neurodesktop/release-history/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.neurodesk.org/blog/releases/">https://www.neurodesk.org/blog/releases/&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;ol start="5">
 &lt;li>Change the version of the latest desktop in &lt;a href="https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml">https://github.com/NeuroDesk/neurodesk.github.io/blob/hugo-docsy/data/neurodesktop.toml&lt;/a>&lt;/li>

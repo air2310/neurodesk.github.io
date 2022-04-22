@@ -1,180 +1,79 @@
-<!doctype html><html lang=en class=no-js>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.92.2">
-<link rel=canonical type=text/html href=https://air2310/neurodesk.github.io/tutorials/structural_imaging/>
-<link rel=alternate type=application/rss+xml href=https://air2310/neurodesk.github.io/tutorials/structural_imaging/index.xml>
-<meta name=robots content="noindex, nofollow">
-<link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico>
-<link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/favicon-16x16.png sizes=16x16>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-36x36.png sizes=36x36>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-48x48.png sizes=48x48>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-72x72.png sizes=72x72>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-96x96.png sizes=96x96>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-144x144.png sizes=144x144>
-<link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-192x192.png sizes=192x192>
-<title>Structural Imaging | NeuroDesk</title>
-<meta name=description content="Tutorials about processing structural MRI data
-">
-<meta property="og:title" content="Structural Imaging">
-<meta property="og:description" content="Tutorials about processing structural MRI data
-">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/structural_imaging/"><meta property="og:site_name" content="NeuroDesk">
-<meta itemprop=name content="Structural Imaging">
-<meta itemprop=description content="Tutorials about processing structural MRI data
-"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Structural Imaging">
-<meta name=twitter:description content="Tutorials about processing structural MRI data
-">
-<link rel=preload href=/neurodesk.github.io/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css as=style>
-<link href=/neurodesk.github.io/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css rel=stylesheet integrity>
-<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.94.0"><link rel=canonical type=text/html href=https://air2310/neurodesk.github.io/tutorials/structural_imaging/><link rel=alternate type=application/rss+xml href=https://air2310/neurodesk.github.io/tutorials/structural_imaging/index.xml><meta name=robots content="noindex, nofollow"><link rel="shortcut icon" href=/neurodesk.github.io/favicons/favicon.ico><link rel=apple-touch-icon href=/neurodesk.github.io/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/neurodesk.github.io/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/neurodesk.github.io/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/neurodesk.github.io/favicons/android-192x192.png sizes=192x192><title>Structural Imaging | NeuroDesk</title><meta name=description content="Tutorials about processing structural MRI data
+"><meta property="og:title" content="Structural Imaging"><meta property="og:description" content="Tutorials about processing structural MRI data
+"><meta property="og:type" content="website"><meta property="og:url" content="https://air2310/neurodesk.github.io/tutorials/structural_imaging/"><meta property="og:site_name" content="NeuroDesk"><meta itemprop=name content="Structural Imaging"><meta itemprop=description content="Tutorials about processing structural MRI data
+"><meta name=twitter:card content="summary"><meta name=twitter:title content="Structural Imaging"><meta name=twitter:description content="Tutorials about processing structural MRI data
+"><link rel=preload href=/neurodesk.github.io/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css as=style><link href=/neurodesk.github.io/scss/main.min.73d5be94f5e99c5a61460fa5b435757ce8ab87f13970655d157965b5df2b9419.css rel=stylesheet integrity><script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
 <script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
-<link rel=stylesheet href=/neurodesk.github.io/css/prism.css>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-00000000-0','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-</head>
-<body class=td-section>
-<header>
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-<a class=navbar-brand href=/neurodesk.github.io/>
-<span class=navbar-logo></span><span class="text-uppercase font-weight-bold">NeuroDesk</span>
-</a>
-<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
-<ul class="navbar-nav mt-2 mt-lg-0">
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class=nav-link href=/neurodesk.github.io/docs/><span>Documentation</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class=nav-link href=/neurodesk.github.io/applications/><span>Applications</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class=nav-link href=/neurodesk.github.io/developers/><span>Developers</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class="nav-link active" href=/neurodesk.github.io/tutorials/><span class=active>Tutorials</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class=nav-link href=https://github.com/NeuroDesk target=_blank><i class="fab fa-github"></i><span>GitHub</span></a>
-</li>
-<li class="nav-item mr-4 mb-2 mb-lg-0">
-<a class=nav-link href=https://twitter.com/neuro_desk target=_blank><i class="fab fa-twitter"></i><span>News/Twitter</span></a>
-</li>
-</ul>
-</div>
-<div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.0e5e25010bcd86cafcd72109d88c831b.json data-offline-search-base-href=/ data-offline-search-max-results=10>
-</div>
-</nav>
-</header>
-<div class="container-fluid td-outer">
-<div class=td-main>
-<div class="row flex-xl-nowrap">
-<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
-</div>
-<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-</div>
-<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
-<div class=td-content>
-<div class="pageinfo pageinfo-primary d-print-none">
-<p>
-This is the multi-page printable view of this section.
-<a href=# onclick="return print(),!1">Click here to print</a>.
-</p><p>
-<a href=/neurodesk.github.io/tutorials/structural_imaging/>Return to the regular view of this page</a>.
-</p>
-</div>
-<h1 class=title>Structural Imaging</h1>
-<div class=lead>Tutorials about processing structural MRI data</div>
-<ul>
-<li>1: <a href=#pg-0fe48d9b685f097a75026e660a1fae15>FreeSurfer</a></li>
-</ul>
-<div class=content>
-</div>
-</div>
-<div class=td-content>
-<h1 id=pg-0fe48d9b685f097a75026e660a1fae15>1 - FreeSurfer</h1>
-<div class=lead>Example workflow for FreeSurfer</div>
-<h2 id=download-demo-data>Download demo data</h2>
-<p>Open a terminal and run:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>pip install osfclient
-osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
-</code></pre></div><h2 id=freesurfer-license-file>FreeSurfer License file:</h2>
-<p>Before using Freesurfer you need to request a license here (<a href=https://surfer.nmr.mgh.harvard.edu/registration.html>https://surfer.nmr.mgh.harvard.edu/registration.html</a>) and store it in your homedirectory as ~/.license</p>
-<h2 id=freesurfer-example>FreeSurfer Example</h2>
-<p>Open FreeSurfer (Neurodesk -> Image Segmentation -> Freesurfer -> Freesurfer 7.1.1)</p>
-<p>Setup FreeSurfer license (for example - replace with your license):</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>echo &#34;Steffen.Bollmann@cai.uq.edu.au
-&gt; 21029
-&gt;  *Cqyn12sqTCxo
-&gt;  FSxgcvGkNR59Y&#34; &gt;&gt; ~/.license
-
-export FS_LICENSE=~/.license 
-</code></pre></div><p>Setup FreeSurfer:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir /storage/freesurfer-output
-source /opt/freesurfer-7.1.1/SetUpFreeSurfer.sh
-export SUBJECTS_DIR=/storage/freesurfer-output
-</code></pre></div><p>Run Recon all pipeline:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>recon-all -subject test-subject -i /storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
-</code></pre></div>
-</div>
-</main>
-</div>
-</div>
-<footer class="bg-dark py-5 row d-print-none">
-<div class="container-fluid mx-sm-5">
-<div class=row>
-<div class="col-6 col-sm-4 text-xs-center order-sm-2">
-<ul class="list-inline mb-0">
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
-<a class=text-white target=_blank rel=noopener href aria-label>
-<i></i>
-</a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter>
-<a class=text-white target=_blank rel=noopener href=https://twitter.com/neuro_desk aria-label=Twitter>
-<i class="fab fa-twitter"></i>
-</a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
-<a class=text-white target=_blank rel=noopener href aria-label>
-<i></i>
-</a>
-</li>
-</ul>
-</div>
-<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-<ul class="list-inline mb-0">
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub>
-<a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk aria-label=GitHub>
-<i class="fab fa-github"></i>
-</a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label>
-<a class=text-white target=_blank rel=noopener href aria-label>
-<i></i>
-</a>
-</li>
-<li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Dicussion Forum (requires github login)" aria-label="Dicussion Forum (requires github login)">
-<a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk/neurodesk.github.io/discussions aria-label="Dicussion Forum (requires github login)">
-<i class="fa fa-envelope"></i>
-</a>
-</li>
-</ul>
-</div>
-<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<link rel=stylesheet href=/neurodesk.github.io/css/prism.css><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-221108279-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class=td-section><header><nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar"><a class=navbar-brand href=/neurodesk.github.io/><span class=navbar-logo></span><span class="text-uppercase font-weight-bold">NeuroDesk</span></a><div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar><ul class="navbar-nav mt-2 mt-lg-0"><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=/neurodesk.github.io/docs/how-to-cite-us/><span>Cite</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=/neurodesk.github.io/docs/><span>Documentation</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=/neurodesk.github.io/docs/faq/><span>FAQ</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=/neurodesk.github.io/applications/><span>Applications</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=/neurodesk.github.io/developers/><span>Developers</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class="nav-link active" href=/neurodesk.github.io/tutorials/><span class=active>Tutorials</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=https://github.com/NeuroDesk target=_blank><span>GitHub</span></a></li><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=https://twitter.com/neuro_desk target=_blank><span>News</span></a></li></ul></div><div class="navbar-nav d-none d-lg-block"><input type=search class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete=off data-offline-search-index-json-src=/neurodesk.github.io/offline-search-index.51dad9f2c2d0a5a8aafe28f79ecffbff.json data-offline-search-base-href=/ data-offline-search-max-results=10></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"></div><div class="d-none d-xl-block col-xl-2 td-toc d-print-none"></div><main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main><div class=td-content><div class="pageinfo pageinfo-primary d-print-none"><p>This is the multi-page printable view of this section.
+<a href=# onclick="return print(),!1">Click here to print</a>.</p><p><a href=/neurodesk.github.io/tutorials/structural_imaging/>Return to the regular view of this page</a>.</p></div><h1 class=title>Structural Imaging</h1><div class=lead>Tutorials about processing structural MRI data</div><ul><li>1: <a href=#pg-0fe48d9b685f097a75026e660a1fae15>FreeSurfer</a></li><li>2: <a href=#pg-8f91ba533395ac388eb6713e856ce144>Structural connectivity dMRI</a></li></ul><div class=content></div></div><div class=td-content><h1 id=pg-0fe48d9b685f097a75026e660a1fae15>1 - FreeSurfer</h1><div class=lead>Example workflow for FreeSurfer</div><blockquote><p><em>This tutorial was created by Steffen Bollmann.</em></p><p>Github: <a href=https://github.com/stebo85>@stebo85</a>
+Web: <a href=https://mri.sbollmann.net/>mri.sbollmann.net</a>
+Twitter: <a href=https://twitter.com/sbollmann_MRI>@sbollmann_MRI</a></p></blockquote><h2 id=download-demo-data>Download demo data</h2><p>Open a terminal and run:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>pip install osfclient
+</span></span><span style=display:flex><span>osf -p bt4ez fetch TOMCAT_DIB/sub-01/ses-01_7T/anat/sub-01_ses-01_7T_T1w_defaced.nii.gz /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz
+</span></span></code></pre></div><h2 id=freesurfer-license-file>FreeSurfer License file:</h2><p>Before using Freesurfer you need to request a license here (<a href=https://surfer.nmr.mgh.harvard.edu/registration.html>https://surfer.nmr.mgh.harvard.edu/registration.html</a>) and store it in your homedirectory as ~/.license</p><h2 id=freesurfer-example>FreeSurfer Example</h2><p>Open FreeSurfer (Neurodesk -> Image Segmentation -> Freesurfer -> Freesurfer 7.1.1)</p><p>Setup FreeSurfer license (for example - replace with your license):</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>echo &#34;Steffen.Bollmann@cai.uq.edu.au
+</span></span><span style=display:flex><span>&gt; 21029
+</span></span><span style=display:flex><span>&gt;  *Cqyn12sqTCxo
+</span></span><span style=display:flex><span>&gt;  FSxgcvGkNR59Y&#34; &gt;&gt; ~/.license
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>export FS_LICENSE=~/.license 
+</span></span></code></pre></div><p>Setup FreeSurfer:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>mkdir /neurodesktop-storage/freesurfer-output
+</span></span><span style=display:flex><span>source /opt/freesurfer-7.1.1/SetUpFreeSurfer.sh
+</span></span><span style=display:flex><span>export SUBJECTS_DIR=/neurodesktop-storage/freesurfer-output
+</span></span></code></pre></div><p>Run Recon all pipeline:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>recon-all -subject test-subject -i /neurodesktop-storage/sub-01_ses-01_7T_T1w_defaced.nii.gz -all
+</span></span></code></pre></div></div><div class=td-content style=page-break-before:always><h1 id=pg-8f91ba533395ac388eb6713e856ce144>2 - Structural connectivity dMRI</h1><div class=lead>Example workflow for constructing strutural connectivity (Human connectome project: Single subject)</div><blockquote><p><em>This tutorial was created by Joan Amos.</em></p><p>Email: <a href=mailto:joan@std.uestc.edu.cn>joan@std.uestc.edu.cn</a>
+Github: @Joanone</p></blockquote><h2 id=references>References:</h2><p>The steps used for this tutorial were referenced from:
+<a href=https://github.com/civier/HCP-dMRI-connectome>https://github.com/civier/HCP-dMRI-connectome</a>
+<a href=https://andysbrainbook.readthedocs.io/en/latest/MRtrix/MRtrix_Course/MRtrix_00_Diffusion_Overview.html>https://andysbrainbook.readthedocs.io/en/latest/MRtrix/MRtrix_Course/MRtrix_00_Diffusion_Overview.html</a>
+<a href=https://mrtrix.readthedocs.io/en/latest/quantitative_structural_connectivity/structural_connectome.html>https://mrtrix.readthedocs.io/en/latest/quantitative_structural_connectivity/structural_connectome.html</a></p><h2 id=data-description>Data Description</h2><h3 id=reference>Reference:</h3><p>The single subject data used in this tutorial has been preprocessed and was downloaded from:</p><p><a href=https://db.humanconnectome.org/>https://db.humanconnectome.org/</a></p><p>100307_3T_Structural_preproc.zip
+100307_3T_Diffusion_preproc.zip</p><h3 id=download-demo-data>Download demo data:</h3><p><a href="https://1drv.ms/u/s!AjZJgBZ_P9UO8nWvAFwQyKQnrroe?e=6qmRlQ">https://1drv.ms/u/s!AjZJgBZ_P9UO8nWvAFwQyKQnrroe?e=6qmRlQ</a> - Diffusion data
+<a href="https://1drv.ms/u/s!AjZJgBZ_P9UO8nblYQyUVsibqggs?e=mkwLpQ">https://1drv.ms/u/s!AjZJgBZ_P9UO8nblYQyUVsibqggs?e=mkwLpQ</a> - Structural data</p><h3 id=required-structural-preprocessed-input-files>Required structural preprocessed input files</h3><p>aparc+aseg.nii.gz
+T1w_acpc_dc_restore_brain.nii.gz</p><h3 id=required-diffusion-preprocessed-input-files>Required diffusion preprocessed input files</h3><p>bvals
+bvecs
+data.nii.gz</p><h2 id=install-neurodesk-on-windows-and-mount-external-storage-on-your-host-computer>Install Neurodesk on windows and mount external storage on your host computer</h2><p>References:
+<a href=https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/>https://neurodesk.github.io/docs/neurodesktop/getting-started/windows/</a>
+<a href=https://neurodesk.github.io/docs/neurodesktop/storage/>https://neurodesk.github.io/docs/neurodesktop/storage/</a></p><p>N/B: Constructing the structural connectivity using dMRI HCP data is computationally intensive. Thus, ensure you have sufficient disk space (>100GB) and RAM size (16, 32GB)</p><p>Open the powershell terminal and run:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>docker run --shm-size=1gb -it --privileged --name neurodesktop -v C:/neurodesktop-storage:/neurodesktop-storage -v D:/moredata:/data -p 8080:8080 -h neurodesktop-20220222 vnmd/neurodesktop:20220222
+</span></span></code></pre></div><h2 id=navigate-to-the-mounted-storage--more-data--create-a-new-folder-of-your-choice---copy-the-required-input-files-into-a-folder-100307>Navigate to the mounted storage&ndash;>more data&ndash;>Create a new folder of your choice&ndash;> copy the required input files into a folder->100307</h2><p>N/B: The folder created in this tutorial was tagged &ldquo;Test&rdquo;</p><p>Open a terminal in neurodesk and run:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>cd/data/Test/100307
+</span></span></code></pre></div><h2 id=activate-mrtrix3-software-in-the-neurodesk-terminal>Activate mrtrix3 software in the neurodesk terminal</h2><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>ml mrtrix3/3.0.3
+</span></span></code></pre></div><p>N/B: The advantage neurodesk offers is the version of software can be selected from a range of others, which caters for reproducibility. The mrtrix3 (3.0.3) version was used in this tutorial.</p><h2 id=step-1-further-pre-processing>Step 1: Further pre-processing</h2><p>Extract data.nii.gz to enable memory-mapping. The extracted files are about 4.5GB:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>gunzip -c data.nii.gz &gt; data.nii; 
+</span></span><span style=display:flex><span>mrconvert data.nii DWI.mif -fslgrad bvecs bvals -datatype float32 -stride 0,0,0,1 -force -info;
+</span></span><span style=display:flex><span>rm -f data.nii
+</span></span></code></pre></div><p>Perform mrconvert:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>dwibiascorrect ants DWI.mif DWI_bias_ants.mif -bias bias_ants_field.mif -force -info;
+</span></span></code></pre></div><p>Extract the response function. Uses -stride 0,0,0,1:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>dwi2response dhollander DWI_bias_ants.mif response_wm.txt response_gm.txt response_csf.txt -voxels RF_voxels.mif -force; 
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>dwiextract DWI_bias_ants.mif - -bzero | mrmath - mean meanb0.mif -axis 3 -force -info
+</span></span></code></pre></div><p>Generate mask:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>dwi2mask DWI_bias_ants.mif DWI_mask.mif -force -info;
+</span></span></code></pre></div><p>Generate Fibre Orientation Distributions (FODs):</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>dwi2fod msmt_csd DWI_bias_ants.mif response_wm.txt wmfod.mif response_gm.txt gm.mif  response_csf.txt csf.mif -mask DWI_mask.mif -force -info;
+</span></span></code></pre></div><p>Perform normalization:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>mtnormalise wmfod.mif wmfod_norm.mif gm.mif gm_norm.mif csf.mif csf_norm.mif -mask DWI_mask.mif -check_norm mtnormalise_norm.mif -check_mask mtnormalise_mask.mif -force -info
+</span></span></code></pre></div><p>Generate a 5 tissue image:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>5ttgen fsl T1w_acpc_dc_restore_brain.nii.gz 5TT.mif -premasked 
+</span></span></code></pre></div><p>Convert the B0 image:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>mrconvert meanb0.mif mean_b0.nii.gz
+</span></span></code></pre></div><p>Activate the fsl and afni softwares in the neurodesk terminal:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>ml fsl/6.0.3
+</span></span><span style=display:flex><span>ml afni/21.0.0
+</span></span></code></pre></div><p>Use &ldquo;fslroi&rdquo; to extract the first volume of the segmented dataset which corresponds to the Grey Matter Segmentation:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fslroi 5TT.nii.gz 5TT_vol0.nii.gz 0 
+</span></span></code></pre></div><p>Use &ldquo;flirt&rdquo; command to coregister the two datasets:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>flirt -in  mean_b0.nii.gz -ref  5TT_vol0.nii.gz -interp nearestneighbour -dof 6 -omat diff2struct_fsl.mat
+</span></span></code></pre></div><p>Convert the transformation matrix to a format readble by MRtrix:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>transformconvert diff2struct_fsl.mat mean_b0.nii.gz 5TT.nii.gz flirt_import diff2struct_mrtrix.txt
+</span></span></code></pre></div><p>Coregister the anatomical image to the diffusion image:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>mrtransform 5TT.mif -linear diff2struct_mrtrix.txt -inverse 5TT_coreg 
+</span></span></code></pre></div><p>Create the seed boundary which sepearates the grey from the white matter. The command &ldquo;5tt2gmwmi&rdquo; denotes (5 tissue type(segmentation) to grey matter/white matter interface):</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>5tt2gmwmi 5TT_coreg.mif gmwmSeed_coreg.mif
+</span></span></code></pre></div><h2 id=step-2-tractogram-construction>Step 2: Tractogram construction</h2><p>The probabilistic tractography which is the default in MRtrix is used in this tutorial. The default method is the iFOD2 algorithm.
+The number of streamlines used is 10 million, this was chosen to save computational time:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>tckgen -act 5TT_coreg.mif -backtrack -seed_gmwmi gmwmSeed_coreg.mif -nthreads 8 -minlength 5.0 -maxlength 300 -cutoff 0.06 -select 10000000 wmfod_norm.mif tracks_10M.tck -force
+</span></span></code></pre></div><h2 id=step-3-sift2-construction>Step 3: SIFT2 construction</h2><p>The generated streamlines can be refined with tcksift2 to counterbalance the overfitting. This creates a text file containing weights for each voxel in the brain:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>tcksift2 -act 5TT_coreg.mif -out_mu sift_mu.txt -out_coeffs sift_coeffs.txt -nthreads 8 tracks.tck wmfod_norm.mif sift_1M.txt -force
+</span></span></code></pre></div><h2 id=step-4-connectome-construction>Step 4: Connectome construction</h2><p>In constructing the connectome, the desikan-killany atlas which includes the cortical and sub-cortical regions (84 regions) was used.</p><p>Copy the FreeSurferColorLUT.txt file from the ml freesurfer 7.2.0 singularity container to the subject&rsquo;s folder</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>cp /opt/freesurfer-7.2.0/FreeSurferColorLUT.txt /data/Test/100307
+</span></span></code></pre></div><p>Copy the fs_default.txt file from the ml mrtrix3 3.0.3 singularity container to the subject&rsquo;s folder</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>cp /opt/mrtrix3-3.0.3/share/mrtrix3/labelconvert/fs-default.txt /data/Test/100307
+</span></span></code></pre></div><p>The command labelconvert will use the parcellation and segmentation output of FreeSurfer to create a new parcellated file in .mif format:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>labelconvert aparc+aseg.nii.gz FreeSurferColorLUT.txt fs_default.txt nodes.mif -force
+</span></span></code></pre></div><p>Perform nodes co-registeration:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>mrtransform nodes.mif -linear diff2struct_mrtrix.txt -inverse -datatype uint32 nodes_coreg.mif -force
+</span></span></code></pre></div><p>Create a whole-brain connectome which denotes the streamlines between each parcellation pair in the atlas. The &ldquo;symmetric&rdquo; option makes the lower and upper diagonal the same, the &ldquo;scale_invnodevol&rdquo; option scales the connectome by the inverse of the size of the node:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks.tck nodes_coreg.mif  nodes.csv -out_assignment  assignments_nodes.csv -force
+</span></span></code></pre></div><h2 id=viewing-the-connectome>Viewing the connectome</h2><p>The generated nodes.csv file can be viewed outside neurodesk as a matrix in Matlab.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>connectome=importdata(&#39;nodes.csv&#39;);
+</span></span><span style=display:flex><span>imagesc(connectome,[0 1])
+</span></span></code></pre></div><p><img src=/Structural_connectivity_dMRI/Structural_connectivity.png alt=Structural_connectivity title=Structural_connectivity> &ndash;></p></div></main></div></div><footer class="bg-dark py-5 row d-print-none"><div class="container-fluid mx-sm-5"><div class=row><div class="col-6 col-sm-4 text-xs-center order-sm-2"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label><a class=text-white target=_blank rel=noopener href aria-label><i></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=Twitter aria-label=Twitter><a class=text-white target=_blank rel=noopener href=https://twitter.com/neuro_desk aria-label=Twitter><i class="fab fa-twitter"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label><a class=text-white target=_blank rel=noopener href aria-label><i></i></a></li></ul></div><div class="col-6 col-sm-4 text-right text-xs-center order-sm-3"><ul class="list-inline mb-0"><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title=GitHub aria-label=GitHub><a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk aria-label=GitHub><i class="fab fa-github"></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title aria-label><a class=text-white target=_blank rel=noopener href aria-label><i></i></a></li><li class="list-inline-item mx-2 h3" data-toggle=tooltip data-placement=top title="Dicussion Forum (requires github login)" aria-label="Dicussion Forum (requires github login)"><a class=text-white target=_blank rel=noopener href=https://github.com/NeuroDesk/neurodesk.github.io/discussions aria-label="Dicussion Forum (requires github login)"><i class="fa fa-envelope"></i></a></li></ul></div><div class="col-12 col-sm-4 text-center py-2 order-sm-2"></div></div></div></footer></div><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin=anonymous></script>
 <script src=/neurodesk.github.io/js/tabpane-persist.js></script>
-<script src=/neurodesk.github.io/js/main.min.3a75d46404b4b4835d9009c79b684ebaec265268791fa90da61c67d7d208378c.js integrity="sha256-OnXUZAS0tINdkAnHm2hOuuwmUmh5H6kNphxn19IIN4w=" crossorigin=anonymous></script>
-<script src=/neurodesk.github.io/js/prism.js></script>
-</body>
-</html>
+<script src=/neurodesk.github.io/js/main.min.629995429455cc331313ac82f6d5d306b673a13894792ff3fef399a5cac5b87e.js integrity="sha256-YpmVQpRVzDMTE6yC9tXTBrZzoTiUeS/z/vOZpcrFuH4=" crossorigin=anonymous></script>
+<script src=/neurodesk.github.io/js/prism.js></script></body></html>
